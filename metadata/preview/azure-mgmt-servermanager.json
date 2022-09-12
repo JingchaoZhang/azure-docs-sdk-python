@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-servermanager",
+  "Version": "2.0.0a20220912001",
+  "DevVersion": "2.0.0a20220912001",
+  "DirectoryPath": "sdk/servermanager/azure-mgmt-servermanager",
+  "ServiceDirectory": "servermanager",
+  "ReadMePath": "sdk/servermanager/azure-mgmt-servermanager/README.md",
+  "ChangeLogPath": "sdk/servermanager/azure-mgmt-servermanager/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-servermanager",
+  "ReleaseStatus": "2018-05-25"
+}
