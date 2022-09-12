@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-security",
+  "Version": "2.0.0a20220912001",
+  "DevVersion": "2.0.0a20220912001",
+  "DirectoryPath": "sdk/security/azure-mgmt-security",
+  "ServiceDirectory": "security",
+  "ReadMePath": "sdk/security/azure-mgmt-security/README.md",
+  "ChangeLogPath": "sdk/security/azure-mgmt-security/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-security",
+  "ReleaseStatus": "2021-08-10"
+}
