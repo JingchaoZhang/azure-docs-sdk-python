@@ -1,7 +1,7 @@
 {
   "Name": "azure-batch",
-  "Version": "12.0.0a20220330001",
-  "DevVersion": "12.0.0a20220330001",
+  "Version": "12.0.0a20220912001",
+  "DevVersion": "12.0.0a20220912001",
   "DirectoryPath": "sdk/batch/azure-batch",
   "ServiceDirectory": "batch",
   "ReadMePath": "sdk/batch/azure-batch/README.md",
