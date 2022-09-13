@@ -1,0 +1,140 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.gateway_status.GatewayStatus
+name: GatewayStatus
+fullName: azure.mgmt.servermanager.models.gateway_status.GatewayStatus
+module: azure.mgmt.servermanager.models.gateway_status
+inheritances:
+- msrest.serialization.Model
+summary: Expanded gateway status information.
+constructor:
+  syntax: GatewayStatus(**kwargs)
+  parameters:
+  - name: available_memory_mbyte
+    description: 'The available memory on the gateway host
+
+      machine in megabytes.'
+    isRequired: true
+    types:
+    - <xref:float>
+  - name: gateway_cpu_utilization_percent
+    description: 'The CPU utilization of the gateway
+
+      process (numeric value between 0 and 100).'
+    isRequired: true
+    types:
+    - <xref:float>
+  - name: total_cpu_utilization_percent
+    description: CPU Utilization of the whole system.
+    isRequired: true
+    types:
+    - <xref:float>
+  - name: gateway_version
+    description: 'The version of the gateway that is installed on
+
+      the system.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: friendly_os_name
+    description: 'The Plaintext description of the OS on the
+
+      gateway.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: installed_date
+    description: The date the gateway was installed.
+    isRequired: true
+    types:
+    - <xref:datetime>
+  - name: logical_processor_count
+    description: 'Number of logical processors in the
+
+      gateway system.'
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: name
+    description: The computer name of the gateway system.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: gateway_id
+    description: The gateway resource ID.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: gateway_working_set_mbyte
+    description: 'The working set size of the gateway
+
+      process in megabytes.'
+    isRequired: true
+    types:
+    - <xref:float>
+  - name: status_updated
+    description: 'UTC date and time when gateway status was last
+
+      updated.'
+    isRequired: true
+    types:
+    - <xref:datetime>
+  - name: group_policy_error
+    description: The group policy error.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: allow_gateway_group_policy_status
+    description: 'Status of the
+
+      allowGatewayGroupPolicy setting.'
+    isRequired: true
+    types:
+    - <xref:bool>
+  - name: require_mfa_group_policy_status
+    description: 'Status of the
+
+      requireMfaGroupPolicy setting.'
+    isRequired: true
+    types:
+    - <xref:bool>
+  - name: encryption_certificate_thumbprint
+    description: 'Thumbprint of the encryption
+
+      certificate.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: secondary_encryption_certificate_thumbprint
+    description: 'Secondary thumbprint
+
+      of the encryption certificate.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: encryption_jwk
+    description: The encryption certificate key.
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.servermanager.models.EncryptionJwkResource>
+  - name: secondary_encryption_jwk
+    description: The secondary encryption certificate key.
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.servermanager.models.EncryptionJwkResource>
+  - name: active_message_count
+    description: Active message count.
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: latest_published_msi_version
+    description: 'Latest published version of the
+
+      gateway install MSI.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: published_time_utc
+    description: Gateway install MSI published time.
+    isRequired: true
+    types:
+    - <xref:datetime>

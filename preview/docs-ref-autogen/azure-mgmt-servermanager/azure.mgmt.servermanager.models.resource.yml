@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.resource
+name: resource
+fullName: azure.mgmt.servermanager.models.resource
+classes:
+- azure.mgmt.servermanager.models.resource.Resource

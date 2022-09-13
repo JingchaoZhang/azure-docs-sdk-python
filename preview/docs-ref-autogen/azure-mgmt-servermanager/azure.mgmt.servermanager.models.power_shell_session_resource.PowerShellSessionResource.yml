@@ -1,0 +1,80 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.power_shell_session_resource.PowerShellSessionResource
+name: PowerShellSessionResource
+fullName: azure.mgmt.servermanager.models.power_shell_session_resource.PowerShellSessionResource
+module: azure.mgmt.servermanager.models.power_shell_session_resource
+inheritances:
+- azure.mgmt.servermanager.models.resource.Resource
+summary: 'A PowerShell session resource (practically equivalent to a runspace
+
+  instance).
+
+
+  Variables are only populated by the server, and will be ignored when
+
+  sending a request.'
+constructor:
+  syntax: PowerShellSessionResource(**kwargs)
+  parameters:
+  - name: tags
+    description: Resource Manager Resource Tags.
+    isRequired: true
+    types:
+    - <xref:dict>[<xref:str>, <xref:str>]
+  - name: etag
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: session_id
+    description: The PowerShell Session ID.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: state
+    description: The runspace state.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: runspace_availability
+    description: The availability of the runspace.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: disconnected_on
+    description: 'Timestamp of last time the service disconnected
+
+      from the runspace.'
+    isRequired: true
+    types:
+    - <xref:datetime>
+  - name: expires_on
+    description: Timestamp when the runspace expires.
+    isRequired: true
+    types:
+    - <xref:datetime>
+  - name: version
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.servermanager.models.Version>
+  - name: power_shell_session_resource_name
+    description: Name of the runspace.
+    isRequired: true
+    types:
+    - <xref:str>
+variables:
+- description: Resource Manager Resource ID.
+  name: id
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Type.
+  name: type
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Name.
+  name: name
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Location.
+  name: location
+  types:
+  - <xref:str>

@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.power_shell_tab_completion_parameters
+name: power_shell_tab_completion_parameters
+fullName: azure.mgmt.servermanager.models.power_shell_tab_completion_parameters
+classes:
+- azure.mgmt.servermanager.models.power_shell_tab_completion_parameters.PowerShellTabCompletionParameters

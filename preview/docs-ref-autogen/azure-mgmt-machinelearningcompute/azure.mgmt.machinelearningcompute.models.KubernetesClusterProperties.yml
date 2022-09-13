@@ -1,0 +1,17 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.machinelearningcompute.models.KubernetesClusterProperties
+name: KubernetesClusterProperties
+fullName: azure.mgmt.machinelearningcompute.models.KubernetesClusterProperties
+module: azure.mgmt.machinelearningcompute.models
+inheritances:
+- msrest.serialization.Model
+summary: Kubernetes cluster specific properties.
+constructor:
+  syntax: 'KubernetesClusterProperties(*, service_principal: Optional[azure.mgmt.machinelearningcompute.models._models_py3.ServicePrincipalProperties]
+    = None, **kwargs)'
+  parameters:
+  - name: service_principal
+    description: The Azure Service Principal used by Kubernetes.
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.machinelearningcompute.models.ServicePrincipalProperties>

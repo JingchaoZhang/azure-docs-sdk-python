@@ -69,12 +69,15 @@ methods:
 
     header value to check for operation status.'
   signature: 'begin_import_update(update_to_import: List[JSON], *, content_type: str
-    = "''application/json''", **kwargs: Any) -> LROPoller[None]'
+    = "''application/json''", **kwargs: Any) -> LROPoller[JSON]'
   parameters:
   - name: update_to_import
-    description: 'The update to be imported. Is either a list type or a IO type.
+    description: 'The update to be imported (see schema
 
-      Required.'
+      [https://json.schemastore.org/azure-deviceupdate-import-manifest-5.0.json](https://json.schemastore.org/azure-deviceupdate-import-manifest-5.0.json)
+      for details). Is
+
+      either a list type or a IO type. Required.'
     isRequired: true
     types:
     - <xref:list>[<xref:JSON>]
@@ -107,17 +110,60 @@ methods:
     types:
     - <xref:int>
   return:
-    description: An instance of LROPoller that returns None
+    description: An instance of LROPoller that returns JSON object
     types:
-    - <xref:azure.core.polling.LROPoller>[<xref:None>]
+    - <xref:azure.core.polling.LROPoller>[<xref:JSON>]
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
+  examples:
+  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
+    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
+    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
+    \   # response body for status code(s): 200\n   response == {\n       \"compatibility\"\
+    : [\n           {\n               \"str\": \"str\"  # List of update compatibility\
+    \ information.\n                 Required.\n           }\n       ],\n       \"\
+    createdDateTime\": \"2020-02-20 00:00:00\",  # Date and time in UTC when the\n\
+    \         update was created. Required.\n       \"importedDateTime\": \"2020-02-20\
+    \ 00:00:00\",  # Date and time in UTC when the\n         update was imported.\
+    \ Required.\n       \"manifestVersion\": \"str\",  # Schema version of manifest\
+    \ used to import the\n         update. Required.\n       \"updateId\": {\n   \
+    \        \"name\": \"str\",  # Update name. Required.\n           \"provider\"\
+    : \"str\",  # Update provider. Required.\n           \"version\": \"str\"  # Update\
+    \ version. Required.\n       },\n       \"description\": \"str\",  # Optional.\
+    \ Update description specified by creator.\n       \"etag\": \"str\",  # Optional.\
+    \ Update ETag.\n       \"friendlyName\": \"str\",  # Optional. Friendly update\
+    \ name specified by\n         importer.\n       \"installedCriteria\": \"str\"\
+    ,  # Optional. String interpreted by Device Update\n         client to determine\
+    \ if the update is installed on the device. Deprecated in\n         latest import\
+    \ manifest schema.\n       \"instructions\": {\n           \"steps\": [\n    \
+    \           {\n                   \"description\": \"str\",  # Optional. Step\
+    \ description.\n                   \"files\": [\n                       \"str\"\
+    \  # Optional. Collection of file names\n                         to be passed\
+    \ to handler during execution. Required if step type\n                       \
+    \  is inline.\n                   ],\n                   \"handler\": \"str\"\
+    ,  # Optional. Identity of handler\n                     that will execute this\
+    \ step. Required if step type is inline.\n                   \"handlerProperties\"\
+    : {},  # Optional. Parameters to\n                     be passed to handler during\
+    \ execution.\n                   \"type\": \"inline\",  # Optional. Default value\
+    \ is\n                     \"inline\". Step type. Known values are: \"Inline\"\
+    \ and \"Reference\".\n                   \"updateId\": {\n                   \
+    \    \"name\": \"str\",  # Update name. Required.\n                       \"provider\"\
+    : \"str\",  # Update provider.\n                         Required.\n         \
+    \              \"version\": \"str\"  # Update version. Required.\n           \
+    \        }\n               }\n           ]\n       },\n       \"isDeployable\"\
+    : True,  # Optional. Default value is True. Whether the update\n         can be\
+    \ deployed to a device on its own.\n       \"referencedBy\": [\n           {\n\
+    \               \"name\": \"str\",  # Update name. Required.\n               \"\
+    provider\": \"str\",  # Update provider. Required.\n               \"version\"\
+    : \"str\"  # Update version. Required.\n           }\n       ],\n       \"scanResult\"\
+    : \"str\",  # Optional. Update aggregate scan result (calculated\n         from\
+    \ payload file scan results).\n       \"updateType\": \"str\"  # Optional. Update\
+    \ type. Deprecated in latest import\n         manifest schema.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.operations.DeviceUpdateOperations.get_file
   name: get_file
   summary: Get a specific update file from the version.
   signature: 'get_file(provider: str, name: str, version: str, file_id: str, *, if_none_match:
-    Optional[str] = None, **kwargs: Any) -> Optional[collections.abc.MutableMapping[str,
-    Any]]'
+    Optional[str] = None, **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
   parameters:
   - name: provider
     description: Update provider. Required.
@@ -146,44 +192,44 @@ methods:
     types:
     - <xref:str>
   return:
-    description: JSON object or None
+    description: JSON object
     types:
     - <xref:JSON>
-    - <xref:None>
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
   examples:
   - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"downloadHandler\"\
-    : {\n           \"id\": \"str\"  # Download handler identifier. Required.\n  \
-    \     },\n       \"etag\": \"str\",  # Optional. File ETag.\n       \"fileId\"\
+    \   # response body for status code(s): 200\n   response == {\n       \"fileId\"\
     : \"str\",  # File identity, generated by server at import time.\n         Required.\n\
     \       \"fileName\": \"str\",  # File name. Required.\n       \"hashes\": {\n\
     \           \"str\": \"str\"  # Mapping of hashing algorithm to base64 encoded\
-    \ hash\n             values. Required.\n       },\n       \"mimeType\": \"str\"\
-    ,  # Optional. File MIME type.\n       \"properties\": {\n           \"str\":\
-    \ \"str\"  # Optional. Optional file properties (not consumed by\n           \
-    \  service but pass-through to device).\n       },\n       \"relatedFiles\": [\n\
-    \           {\n               \"fileName\": \"str\",  # File name. Required.\n\
+    \ hash\n             values. Required.\n       },\n       \"sizeInBytes\": 0,\
+    \  # File size in number of bytes. Required.\n       \"downloadHandler\": {\n\
+    \           \"id\": \"str\"  # Download handler identifier. Required.\n      \
+    \ },\n       \"etag\": \"str\",  # Optional. File ETag.\n       \"mimeType\":\
+    \ \"str\",  # Optional. File MIME type.\n       \"properties\": {\n          \
+    \ \"str\": \"str\"  # Optional. Optional file properties (not consumed by\n  \
+    \           service but pass-through to device).\n       },\n       \"relatedFiles\"\
+    : [\n           {\n               \"fileName\": \"str\",  # File name. Required.\n\
     \               \"hashes\": {\n                   \"str\": \"str\"  # Mapping\
     \ of hashing algorithm to\n                     base64 encoded hash values. Required.\n\
-    \               },\n               \"mimeType\": \"str\",  # Optional. File MIME\
-    \ type.\n               \"properties\": {\n                   \"str\": \"str\"\
-    \  # Optional. Optional file properties\n                     (not consumed by\
-    \ service but pass-through to device).\n               },\n               \"scanDetails\"\
-    : \"str\",  # Optional. Anti-malware scan details.\n               \"scanResult\"\
-    : \"str\",  # Optional. Anti-malware scan result.\n               \"sizeInBytes\"\
-    : 0  # File size in number of bytes. Required.\n           }\n       ],\n    \
-    \   \"scanDetails\": \"str\",  # Optional. Anti-malware scan details.\n      \
-    \ \"scanResult\": \"str\",  # Optional. Anti-malware scan result.\n       \"sizeInBytes\"\
-    : 0  # File size in number of bytes. Required.\n   }\n   ````\n"
-- uid: azure.iot.deviceupdate.operations.DeviceUpdateOperations.get_operation
-  name: get_operation
+    \               },\n               \"sizeInBytes\": 0,  # File size in number\
+    \ of bytes. Required.\n               \"mimeType\": \"str\",  # Optional. File\
+    \ MIME type.\n               \"properties\": {\n                   \"str\": \"\
+    str\"  # Optional. Optional file properties\n                     (not consumed\
+    \ by service but pass-through to device).\n               },\n               \"\
+    scanDetails\": \"str\",  # Optional. Anti-malware scan details.\n            \
+    \   \"scanResult\": \"str\"  # Optional. Anti-malware scan result.\n         \
+    \  }\n       ],\n       \"scanDetails\": \"str\",  # Optional. Anti-malware scan\
+    \ details.\n       \"scanResult\": \"str\"  # Optional. Anti-malware scan result.\n\
+    \   }\n   ````\n"
+- uid: azure.iot.deviceupdate.operations.DeviceUpdateOperations.get_operation_status
+  name: get_operation_status
   summary: Retrieve operation status.
-  signature: 'get_operation(operation_id: str, *, if_none_match: Optional[str] = None,
-    **kwargs: Any) -> Optional[collections.abc.MutableMapping[str, Any]]'
+  signature: 'get_operation_status(operation_id: str, *, if_none_match: Optional[str]
+    = None, **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
   parameters:
   - name: operation_id
     description: Operation identifier. Required.
@@ -197,10 +243,9 @@ methods:
     types:
     - <xref:str>
   return:
-    description: JSON object or None
+    description: JSON object
     types:
     - <xref:JSON>
-    - <xref:None>
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
   examples:
@@ -209,38 +254,37 @@ methods:
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"createdDateTime\"\
     : \"2020-02-20 00:00:00\",  # Date and time in UTC when the\n         operation\
-    \ was created. Required.\n       \"error\": {\n           \"code\": \"str\", \
-    \ # Server defined error code. Required.\n           \"details\": [\n        \
-    \       ...\n           ],\n           \"innererror\": {\n               \"code\"\
-    : \"str\",  # A more specific error code than what was\n                 provided\
-    \ by the containing error. Required.\n               \"errorDetail\": \"str\"\
-    ,  # Optional. The internal error or\n                 exception message.\n  \
-    \             \"innerError\": ...,\n               \"message\": \"str\"  # Optional.\
-    \ A human-readable representation\n                 of the error.\n          \
-    \ },\n           \"message\": \"str\",  # A human-readable representation of the\
-    \ error.\n             Required.\n           \"occurredDateTime\": \"2020-02-20\
-    \ 00:00:00\",  # Optional. Date and time\n             in UTC when the error occurred.\n\
-    \           \"target\": \"str\"  # Optional. The target of the error.\n      \
-    \ },\n       \"etag\": \"str\",  # Optional. Operation ETag.\n       \"lastActionDateTime\"\
-    : \"2020-02-20 00:00:00\",  # Date and time in UTC when the\n         operation\
-    \ status was last updated. Required.\n       \"operationId\": \"str\",  # Operation\
-    \ Id. Required.\n       \"resourceLocation\": \"str\",  # Optional. Location of\
-    \ the imported update when\n         operation is successful.\n       \"status\"\
-    : \"str\",  # Operation status. Required. Known values are:\n         \"NotStarted\"\
-    , \"Running\", \"Succeeded\", and \"Failed\".\n       \"traceId\": \"str\",  #\
-    \ Optional. Operation correlation identity that can used\n         by Microsoft\
-    \ Support for troubleshooting.\n       \"update\": {\n           \"description\"\
-    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
-    ,  # Optional. Friendly update name.\n           \"updateId\": {\n           \
-    \    \"name\": \"str\",  # Update name. Required.\n               \"provider\"\
+    \ was created. Required.\n       \"lastActionDateTime\": \"2020-02-20 00:00:00\"\
+    ,  # Date and time in UTC when the\n         operation status was last updated.\
+    \ Required.\n       \"operationId\": \"str\",  # Operation Id. Required.\n   \
+    \    \"status\": \"str\",  # Operation status. Required. Known values are:\n \
+    \        \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\".\n       \"\
+    error\": {\n           \"code\": \"str\",  # Server defined error code. Required.\n\
+    \           \"message\": \"str\",  # A human-readable representation of the error.\n\
+    \             Required.\n           \"details\": [\n               ...\n     \
+    \      ],\n           \"innererror\": {\n               \"code\": \"str\",  #\
+    \ A more specific error code than what was\n                 provided by the containing\
+    \ error. Required.\n               \"errorDetail\": \"str\",  # Optional. The\
+    \ internal error or\n                 exception message.\n               \"innerError\"\
+    : ...,\n               \"message\": \"str\"  # Optional. A human-readable representation\n\
+    \                 of the error.\n           },\n           \"occurredDateTime\"\
+    : \"2020-02-20 00:00:00\",  # Optional. Date and time\n             in UTC when\
+    \ the error occurred.\n           \"target\": \"str\"  # Optional. The target\
+    \ of the error.\n       },\n       \"etag\": \"str\",  # Optional. Operation ETag.\n\
+    \       \"resourceLocation\": \"str\",  # Optional. Location of the imported update\
+    \ when\n         operation is successful.\n       \"traceId\": \"str\",  # Optional.\
+    \ Operation correlation identity that can used\n         by Microsoft Support\
+    \ for troubleshooting.\n       \"update\": {\n           \"updateId\": {\n   \
+    \            \"name\": \"str\",  # Update name. Required.\n               \"provider\"\
     : \"str\",  # Update provider. Required.\n               \"version\": \"str\"\
-    \  # Update version. Required.\n           }\n       }\n   }\n   ````\n"
+    \  # Update version. Required.\n           },\n           \"description\": \"\
+    str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
+    \  # Optional. Friendly update name.\n       }\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.operations.DeviceUpdateOperations.get_update
   name: get_update
   summary: Get a specific update version.
   signature: 'get_update(provider: str, name: str, version: str, *, if_none_match:
-    Optional[str] = None, **kwargs: Any) -> Optional[collections.abc.MutableMapping[str,
-    Any]]'
+    Optional[str] = None, **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
   parameters:
   - name: provider
     description: Update provider. Required.
@@ -264,10 +308,9 @@ methods:
     types:
     - <xref:str>
   return:
-    description: JSON object or None
+    description: JSON object
     types:
     - <xref:JSON>
-    - <xref:None>
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
   examples:
@@ -278,42 +321,42 @@ methods:
     : [\n           {\n               \"str\": \"str\"  # List of update compatibility\
     \ information.\n                 Required.\n           }\n       ],\n       \"\
     createdDateTime\": \"2020-02-20 00:00:00\",  # Date and time in UTC when the\n\
-    \         update was created. Required.\n       \"description\": \"str\",  # Optional.\
+    \         update was created. Required.\n       \"importedDateTime\": \"2020-02-20\
+    \ 00:00:00\",  # Date and time in UTC when the\n         update was imported.\
+    \ Required.\n       \"manifestVersion\": \"str\",  # Schema version of manifest\
+    \ used to import the\n         update. Required.\n       \"updateId\": {\n   \
+    \        \"name\": \"str\",  # Update name. Required.\n           \"provider\"\
+    : \"str\",  # Update provider. Required.\n           \"version\": \"str\"  # Update\
+    \ version. Required.\n       },\n       \"description\": \"str\",  # Optional.\
     \ Update description specified by creator.\n       \"etag\": \"str\",  # Optional.\
     \ Update ETag.\n       \"friendlyName\": \"str\",  # Optional. Friendly update\
-    \ name specified by\n         importer.\n       \"importedDateTime\": \"2020-02-20\
-    \ 00:00:00\",  # Date and time in UTC when the\n         update was imported.\
-    \ Required.\n       \"installedCriteria\": \"str\",  # Optional. String interpreted\
-    \ by Device Update\n         client to determine if the update is installed on\
-    \ the device. Deprecated in\n         latest import manifest schema.\n       \"\
-    instructions\": {\n           \"steps\": [\n               {\n               \
-    \    \"description\": \"str\",  # Optional. Step description.\n              \
-    \     \"files\": [\n                       \"str\"  # Optional. Collection of\
-    \ file names\n                         to be passed to handler during execution.\
-    \ Required if step type\n                         is inline.\n               \
-    \    ],\n                   \"handler\": \"str\",  # Optional. Identity of handler\n\
-    \                     that will execute this step. Required if step type is inline.\n\
-    \                   \"handlerProperties\": {},  # Optional. Parameters to\n  \
-    \                   be passed to handler during execution.\n                 \
-    \  \"type\": \"inline\",  # Optional. Default value is\n                     \"\
-    inline\". Step type. Known values are: \"Inline\" and \"Reference\".\n       \
-    \            \"updateId\": {\n                       \"name\": \"str\",  # Update\
-    \ name. Required.\n                       \"provider\": \"str\",  # Update provider.\n\
-    \                         Required.\n                       \"version\": \"str\"\
-    \  # Update version. Required.\n                   }\n               }\n     \
-    \      ]\n       },\n       \"isDeployable\": True,  # Optional. Default value\
-    \ is True. Whether the update\n         can be deployed to a device on its own.\n\
-    \       \"manifestVersion\": \"str\",  # Schema version of manifest used to import\
-    \ the\n         update. Required.\n       \"referencedBy\": [\n           {\n\
+    \ name specified by\n         importer.\n       \"installedCriteria\": \"str\"\
+    ,  # Optional. String interpreted by Device Update\n         client to determine\
+    \ if the update is installed on the device. Deprecated in\n         latest import\
+    \ manifest schema.\n       \"instructions\": {\n           \"steps\": [\n    \
+    \           {\n                   \"description\": \"str\",  # Optional. Step\
+    \ description.\n                   \"files\": [\n                       \"str\"\
+    \  # Optional. Collection of file names\n                         to be passed\
+    \ to handler during execution. Required if step type\n                       \
+    \  is inline.\n                   ],\n                   \"handler\": \"str\"\
+    ,  # Optional. Identity of handler\n                     that will execute this\
+    \ step. Required if step type is inline.\n                   \"handlerProperties\"\
+    : {},  # Optional. Parameters to\n                     be passed to handler during\
+    \ execution.\n                   \"type\": \"inline\",  # Optional. Default value\
+    \ is\n                     \"inline\". Step type. Known values are: \"Inline\"\
+    \ and \"Reference\".\n                   \"updateId\": {\n                   \
+    \    \"name\": \"str\",  # Update name. Required.\n                       \"provider\"\
+    : \"str\",  # Update provider.\n                         Required.\n         \
+    \              \"version\": \"str\"  # Update version. Required.\n           \
+    \        }\n               }\n           ]\n       },\n       \"isDeployable\"\
+    : True,  # Optional. Default value is True. Whether the update\n         can be\
+    \ deployed to a device on its own.\n       \"referencedBy\": [\n           {\n\
     \               \"name\": \"str\",  # Update name. Required.\n               \"\
     provider\": \"str\",  # Update provider. Required.\n               \"version\"\
     : \"str\"  # Update version. Required.\n           }\n       ],\n       \"scanResult\"\
     : \"str\",  # Optional. Update aggregate scan result (calculated\n         from\
-    \ payload file scan results).\n       \"updateId\": {\n           \"name\": \"\
-    str\",  # Update name. Required.\n           \"provider\": \"str\",  # Update\
-    \ provider. Required.\n           \"version\": \"str\"  # Update version. Required.\n\
-    \       },\n       \"updateType\": \"str\"  # Optional. Update type. Deprecated\
-    \ in latest import\n         manifest schema.\n   }\n   ````\n"
+    \ payload file scan results).\n       \"updateType\": \"str\"  # Optional. Update\
+    \ type. Deprecated in latest import\n         manifest schema.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.operations.DeviceUpdateOperations.list_files
   name: list_files
   summary: Get a list of all update file identifiers for the specified version.
@@ -369,18 +412,18 @@ methods:
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == \"str\"  # Optional.\n\
     \   ````\n"
-- uid: azure.iot.deviceupdate.operations.DeviceUpdateOperations.list_operations
-  name: list_operations
+- uid: azure.iot.deviceupdate.operations.DeviceUpdateOperations.list_operation_statuses
+  name: list_operation_statuses
   summary: 'Get a list of all import update operations. Completed operations are kept
     for 7 days before
 
     auto-deleted. Delete operations are not returned by this API version.'
-  signature: 'list_operations(*, filter: Optional[str] = None, top: Optional[int]
+  signature: 'list_operation_statuses(*, filter: Optional[str] = None, top: Optional[int]
     = None, **kwargs: Any) -> Iterable[collections.abc.MutableMapping[str, Any]]'
   parameters:
   - name: filter
-    description: 'Restricts the set of operations returned. Only one specific filter
-      is
+    description: 'Optional to filter operations by status property. Only one specific
+      filter is
 
       supported: "status eq ''NotStarted'' or status eq ''Running''". Default value
       is None.'
@@ -408,32 +451,32 @@ methods:
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"createdDateTime\"\
     : \"2020-02-20 00:00:00\",  # Date and time in UTC when the\n         operation\
-    \ was created. Required.\n       \"error\": {\n           \"code\": \"str\", \
-    \ # Server defined error code. Required.\n           \"details\": [\n        \
-    \       ...\n           ],\n           \"innererror\": {\n               \"code\"\
-    : \"str\",  # A more specific error code than what was\n                 provided\
-    \ by the containing error. Required.\n               \"errorDetail\": \"str\"\
-    ,  # Optional. The internal error or\n                 exception message.\n  \
-    \             \"innerError\": ...,\n               \"message\": \"str\"  # Optional.\
-    \ A human-readable representation\n                 of the error.\n          \
-    \ },\n           \"message\": \"str\",  # A human-readable representation of the\
-    \ error.\n             Required.\n           \"occurredDateTime\": \"2020-02-20\
-    \ 00:00:00\",  # Optional. Date and time\n             in UTC when the error occurred.\n\
-    \           \"target\": \"str\"  # Optional. The target of the error.\n      \
-    \ },\n       \"etag\": \"str\",  # Optional. Operation ETag.\n       \"lastActionDateTime\"\
-    : \"2020-02-20 00:00:00\",  # Date and time in UTC when the\n         operation\
-    \ status was last updated. Required.\n       \"operationId\": \"str\",  # Operation\
-    \ Id. Required.\n       \"resourceLocation\": \"str\",  # Optional. Location of\
-    \ the imported update when\n         operation is successful.\n       \"status\"\
-    : \"str\",  # Operation status. Required. Known values are:\n         \"NotStarted\"\
-    , \"Running\", \"Succeeded\", and \"Failed\".\n       \"traceId\": \"str\",  #\
-    \ Optional. Operation correlation identity that can used\n         by Microsoft\
-    \ Support for troubleshooting.\n       \"update\": {\n           \"description\"\
-    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
-    ,  # Optional. Friendly update name.\n           \"updateId\": {\n           \
-    \    \"name\": \"str\",  # Update name. Required.\n               \"provider\"\
+    \ was created. Required.\n       \"lastActionDateTime\": \"2020-02-20 00:00:00\"\
+    ,  # Date and time in UTC when the\n         operation status was last updated.\
+    \ Required.\n       \"operationId\": \"str\",  # Operation Id. Required.\n   \
+    \    \"status\": \"str\",  # Operation status. Required. Known values are:\n \
+    \        \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\".\n       \"\
+    error\": {\n           \"code\": \"str\",  # Server defined error code. Required.\n\
+    \           \"message\": \"str\",  # A human-readable representation of the error.\n\
+    \             Required.\n           \"details\": [\n               ...\n     \
+    \      ],\n           \"innererror\": {\n               \"code\": \"str\",  #\
+    \ A more specific error code than what was\n                 provided by the containing\
+    \ error. Required.\n               \"errorDetail\": \"str\",  # Optional. The\
+    \ internal error or\n                 exception message.\n               \"innerError\"\
+    : ...,\n               \"message\": \"str\"  # Optional. A human-readable representation\n\
+    \                 of the error.\n           },\n           \"occurredDateTime\"\
+    : \"2020-02-20 00:00:00\",  # Optional. Date and time\n             in UTC when\
+    \ the error occurred.\n           \"target\": \"str\"  # Optional. The target\
+    \ of the error.\n       },\n       \"etag\": \"str\",  # Optional. Operation ETag.\n\
+    \       \"resourceLocation\": \"str\",  # Optional. Location of the imported update\
+    \ when\n         operation is successful.\n       \"traceId\": \"str\",  # Optional.\
+    \ Operation correlation identity that can used\n         by Microsoft Support\
+    \ for troubleshooting.\n       \"update\": {\n           \"updateId\": {\n   \
+    \            \"name\": \"str\",  # Update name. Required.\n               \"provider\"\
     : \"str\",  # Update provider. Required.\n               \"version\": \"str\"\
-    \  # Update version. Required.\n           }\n       }\n   }\n   ````\n"
+    \  # Update version. Required.\n           },\n           \"description\": \"\
+    str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
+    \  # Optional. Friendly update name.\n       }\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.operations.DeviceUpdateOperations.list_providers
   name: list_providers
   summary: Get a list of all update providers that have been imported to Device Update
@@ -464,7 +507,8 @@ methods:
     types:
     - <xref:str>
   - name: filter
-    description: Filter updates by its properties. Default value is None.
+    description: Optional to filter updates by isDeployable property. Default value
+      is None.
     types:
     - <xref:str>
   return:
@@ -481,42 +525,42 @@ methods:
     : [\n           {\n               \"str\": \"str\"  # List of update compatibility\
     \ information.\n                 Required.\n           }\n       ],\n       \"\
     createdDateTime\": \"2020-02-20 00:00:00\",  # Date and time in UTC when the\n\
-    \         update was created. Required.\n       \"description\": \"str\",  # Optional.\
+    \         update was created. Required.\n       \"importedDateTime\": \"2020-02-20\
+    \ 00:00:00\",  # Date and time in UTC when the\n         update was imported.\
+    \ Required.\n       \"manifestVersion\": \"str\",  # Schema version of manifest\
+    \ used to import the\n         update. Required.\n       \"updateId\": {\n   \
+    \        \"name\": \"str\",  # Update name. Required.\n           \"provider\"\
+    : \"str\",  # Update provider. Required.\n           \"version\": \"str\"  # Update\
+    \ version. Required.\n       },\n       \"description\": \"str\",  # Optional.\
     \ Update description specified by creator.\n       \"etag\": \"str\",  # Optional.\
     \ Update ETag.\n       \"friendlyName\": \"str\",  # Optional. Friendly update\
-    \ name specified by\n         importer.\n       \"importedDateTime\": \"2020-02-20\
-    \ 00:00:00\",  # Date and time in UTC when the\n         update was imported.\
-    \ Required.\n       \"installedCriteria\": \"str\",  # Optional. String interpreted\
-    \ by Device Update\n         client to determine if the update is installed on\
-    \ the device. Deprecated in\n         latest import manifest schema.\n       \"\
-    instructions\": {\n           \"steps\": [\n               {\n               \
-    \    \"description\": \"str\",  # Optional. Step description.\n              \
-    \     \"files\": [\n                       \"str\"  # Optional. Collection of\
-    \ file names\n                         to be passed to handler during execution.\
-    \ Required if step type\n                         is inline.\n               \
-    \    ],\n                   \"handler\": \"str\",  # Optional. Identity of handler\n\
-    \                     that will execute this step. Required if step type is inline.\n\
-    \                   \"handlerProperties\": {},  # Optional. Parameters to\n  \
-    \                   be passed to handler during execution.\n                 \
-    \  \"type\": \"inline\",  # Optional. Default value is\n                     \"\
-    inline\". Step type. Known values are: \"Inline\" and \"Reference\".\n       \
-    \            \"updateId\": {\n                       \"name\": \"str\",  # Update\
-    \ name. Required.\n                       \"provider\": \"str\",  # Update provider.\n\
-    \                         Required.\n                       \"version\": \"str\"\
-    \  # Update version. Required.\n                   }\n               }\n     \
-    \      ]\n       },\n       \"isDeployable\": True,  # Optional. Default value\
-    \ is True. Whether the update\n         can be deployed to a device on its own.\n\
-    \       \"manifestVersion\": \"str\",  # Schema version of manifest used to import\
-    \ the\n         update. Required.\n       \"referencedBy\": [\n           {\n\
+    \ name specified by\n         importer.\n       \"installedCriteria\": \"str\"\
+    ,  # Optional. String interpreted by Device Update\n         client to determine\
+    \ if the update is installed on the device. Deprecated in\n         latest import\
+    \ manifest schema.\n       \"instructions\": {\n           \"steps\": [\n    \
+    \           {\n                   \"description\": \"str\",  # Optional. Step\
+    \ description.\n                   \"files\": [\n                       \"str\"\
+    \  # Optional. Collection of file names\n                         to be passed\
+    \ to handler during execution. Required if step type\n                       \
+    \  is inline.\n                   ],\n                   \"handler\": \"str\"\
+    ,  # Optional. Identity of handler\n                     that will execute this\
+    \ step. Required if step type is inline.\n                   \"handlerProperties\"\
+    : {},  # Optional. Parameters to\n                     be passed to handler during\
+    \ execution.\n                   \"type\": \"inline\",  # Optional. Default value\
+    \ is\n                     \"inline\". Step type. Known values are: \"Inline\"\
+    \ and \"Reference\".\n                   \"updateId\": {\n                   \
+    \    \"name\": \"str\",  # Update name. Required.\n                       \"provider\"\
+    : \"str\",  # Update provider.\n                         Required.\n         \
+    \              \"version\": \"str\"  # Update version. Required.\n           \
+    \        }\n               }\n           ]\n       },\n       \"isDeployable\"\
+    : True,  # Optional. Default value is True. Whether the update\n         can be\
+    \ deployed to a device on its own.\n       \"referencedBy\": [\n           {\n\
     \               \"name\": \"str\",  # Update name. Required.\n               \"\
     provider\": \"str\",  # Update provider. Required.\n               \"version\"\
     : \"str\"  # Update version. Required.\n           }\n       ],\n       \"scanResult\"\
     : \"str\",  # Optional. Update aggregate scan result (calculated\n         from\
-    \ payload file scan results).\n       \"updateId\": {\n           \"name\": \"\
-    str\",  # Update name. Required.\n           \"provider\": \"str\",  # Update\
-    \ provider. Required.\n           \"version\": \"str\"  # Update version. Required.\n\
-    \       },\n       \"updateType\": \"str\"  # Optional. Update type. Deprecated\
-    \ in latest import\n         manifest schema.\n   }\n   ````\n"
+    \ payload file scan results).\n       \"updateType\": \"str\"  # Optional. Update\
+    \ type. Deprecated in latest import\n         manifest schema.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.operations.DeviceUpdateOperations.list_versions
   name: list_versions
   summary: Get a list of all update versions that match the specified provider and
@@ -535,7 +579,8 @@ methods:
     types:
     - <xref:str>
   - name: filter
-    description: Filter updates by its properties. Default value is None.
+    description: Optional to filter updates by isDeployable property. Default value
+      is None.
     types:
     - <xref:str>
   return:

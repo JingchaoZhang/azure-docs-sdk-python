@@ -5,35 +5,15 @@ fullName: azure.mgmt.securityinsight.aio.operations.IncidentCommentsOperations
 module: azure.mgmt.securityinsight.aio.operations
 inheritances:
 - builtins.object
-summary: 'IncidentCommentsOperations async operations.
-
-
-  You should not instantiate this class directly. Instead, you should create a Client
-  instance that
-
-  instantiates it for you and attaches it as an attribute.'
+summary: "> [!WARNING]\n> DO NOT instantiate this class directly.\n>\n> \n>\n> Instead,\
+  \ you should access the following operations through\n>\n> <xref:azure.mgmt.securityinsight.aio.SecurityInsights>'s\n\
+  >\n> <xref:incident_comments> attribute.\n>"
 constructor:
-  syntax: IncidentCommentsOperations(client, config, serializer, deserializer)
-  parameters:
-  - name: client
-    description: Client for service requests.
-    isRequired: true
-  - name: config
-    description: Configuration of service client.
-    isRequired: true
-  - name: serializer
-    description: An object model serializer.
-    isRequired: true
-  - name: deserializer
-    description: An object model deserializer.
-    isRequired: true
-variables:
-- description: Alias to model classes used in this operation group.
-  name: models
+  syntax: IncidentCommentsOperations(*args, **kwargs)
 methods:
 - uid: azure.mgmt.securityinsight.aio.operations.IncidentCommentsOperations.create_or_update
   name: create_or_update
-  summary: Creates or updates the incident comment.
+  summary: Creates or updates a comment for a given incident.
   signature: 'async create_or_update(resource_group_name: str, workspace_name: str,
     incident_id: str, incident_comment_id: str, incident_comment: azure.mgmt.securityinsight.models._models_py3.IncidentComment,
     **kwargs: Any) -> azure.mgmt.securityinsight.models._models_py3.IncidentComment'
@@ -75,7 +55,7 @@ methods:
   - type: azure.core.exceptions.HttpResponseError
 - uid: azure.mgmt.securityinsight.aio.operations.IncidentCommentsOperations.delete
   name: delete
-  summary: Delete the incident comment.
+  summary: Deletes a comment for a given incident.
   signature: 'async delete(resource_group_name: str, workspace_name: str, incident_id:
     str, incident_comment_id: str, **kwargs: Any) -> None'
   parameters:
@@ -111,7 +91,7 @@ methods:
   - type: azure.core.exceptions.HttpResponseError
 - uid: azure.mgmt.securityinsight.aio.operations.IncidentCommentsOperations.get
   name: get
-  summary: Gets an incident comment.
+  summary: Gets a comment for a given incident.
   signature: 'async get(resource_group_name: str, workspace_name: str, incident_id:
     str, incident_comment_id: str, **kwargs: Any) -> azure.mgmt.securityinsight.models._models_py3.IncidentComment'
   parameters:
@@ -147,7 +127,7 @@ methods:
   - type: azure.core.exceptions.HttpResponseError
 - uid: azure.mgmt.securityinsight.aio.operations.IncidentCommentsOperations.list
   name: list
-  summary: Gets all incident comments.
+  summary: Gets all comments for a given incident.
   signature: 'list(resource_group_name: str, workspace_name: str, incident_id: str,
     filter: Optional[str] = None, orderby: Optional[str] = None, top: Optional[int]
     = None, skip_token: Optional[str] = None, **kwargs: Any) -> AsyncIterable[azure.mgmt.securityinsight.models._models_py3.IncidentCommentList]'
@@ -168,17 +148,20 @@ methods:
     types:
     - <xref:str>
   - name: filter
-    description: Filters the results, based on a Boolean condition. Optional.
+    description: 'Filters the results, based on a Boolean condition. Optional. Default
+      value is
+
+      None.'
     isRequired: true
     types:
     - <xref:str>
   - name: orderby
-    description: Sorts the results. Optional.
+    description: Sorts the results. Optional. Default value is None.
     isRequired: true
     types:
     - <xref:str>
   - name: top
-    description: Returns only the first n results. Optional.
+    description: Returns only the first n results. Optional. Default value is None.
     isRequired: true
     types:
     - <xref:int>
@@ -190,7 +173,9 @@ methods:
       will include
 
       a skiptoken parameter that specifies a starting point to use for subsequent
-      calls. Optional.'
+      calls. Optional.
+
+      Default value is None.'
     isRequired: true
     types:
     - <xref:str>

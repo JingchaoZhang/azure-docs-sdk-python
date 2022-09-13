@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.power_shell_command_parameters
+name: power_shell_command_parameters
+fullName: azure.mgmt.servermanager.models.power_shell_command_parameters
+classes:
+- azure.mgmt.servermanager.models.power_shell_command_parameters.PowerShellCommandParameters

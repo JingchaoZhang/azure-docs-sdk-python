@@ -6,7 +6,7 @@ module: azure.iot.deviceupdate.aio
 inheritances:
 - builtins.object
 summary: 'Device Update for IoT Hub is an Azure service that enables customers to
-  publish update for
+  publish updates for
 
   their IoT devices to the cloud, and then deploy that update to their devices (approve
   updates
@@ -26,12 +26,15 @@ constructor:
     **kwargs: Any)'
   parameters:
   - name: endpoint
-    description: Account endpoint. Required.
+    description: 'The Device Update for IoT Hub account endpoint (hostname only, no
+      protocol).
+
+      Required.'
     isRequired: true
     types:
     - <xref:str>
   - name: instance_id
-    description: Account instance identifier. Required.
+    description: The Device Update for IoT Hub account instance identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -41,9 +44,10 @@ constructor:
     types:
     - <xref:azure.core.credentials_async.AsyncTokenCredential>
   - name: api_version
-    description: 'Api Version. Default value is "2022-07-01-preview". Note that overriding
+    description: 'Api Version. Default value is "2022-10-01". Note that overriding
+      this
 
-      this default value may result in unsupported behavior.'
+      default value may result in unsupported behavior.'
     types:
     - <xref:str>
   - name: polling_interval

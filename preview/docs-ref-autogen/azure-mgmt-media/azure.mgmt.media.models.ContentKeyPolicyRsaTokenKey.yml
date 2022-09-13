@@ -1,0 +1,27 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.media.models.ContentKeyPolicyRsaTokenKey
+name: ContentKeyPolicyRsaTokenKey
+fullName: azure.mgmt.media.models.ContentKeyPolicyRsaTokenKey
+module: azure.mgmt.media.models
+inheritances:
+- azure.mgmt.media.models._models_py3.ContentKeyPolicyRestrictionTokenKey
+summary: 'Specifies a RSA key for token validation.
+
+
+  All required parameters must be populated in order to send to Azure.'
+constructor:
+  syntax: 'ContentKeyPolicyRsaTokenKey(*, exponent: bytearray, modulus: bytearray,
+    **kwargs)'
+variables:
+- description: Required. The discriminator for derived types.Constant filled by server.
+  name: odata_type
+  types:
+  - <xref:str>
+- description: Required. The RSA Parameter exponent.
+  name: exponent
+  types:
+  - <xref:bytearray>
+- description: Required. The RSA Parameter modulus.
+  name: modulus
+  types:
+  - <xref:bytearray>

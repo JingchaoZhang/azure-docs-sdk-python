@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.power_shell_session_resource
+name: power_shell_session_resource
+fullName: azure.mgmt.servermanager.models.power_shell_session_resource
+classes:
+- azure.mgmt.servermanager.models.power_shell_session_resource.PowerShellSessionResource

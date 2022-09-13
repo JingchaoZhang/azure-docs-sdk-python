@@ -1,0 +1,70 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.GatewayProfile
+name: GatewayProfile
+fullName: azure.mgmt.servermanager.models.GatewayProfile
+module: azure.mgmt.servermanager.models
+inheritances:
+- msrest.serialization.Model
+summary: 'JSON properties that the gateway service uses know how to communicate with
+
+  the resource.'
+constructor:
+  syntax: 'GatewayProfile(*, data_plane_service_base_address: Optional[str] = None,
+    gateway_id: Optional[str] = None, environment: Optional[str] = None, upgrade_manifest_url:
+    Optional[str] = None, messaging_namespace: Optional[str] = None, messaging_account:
+    Optional[str] = None, messaging_key: Optional[str] = None, request_queue: Optional[str]
+    = None, response_topic: Optional[str] = None, status_blob_signature: Optional[str]
+    = None, **kwargs)'
+  parameters:
+  - name: data_plane_service_base_address
+    description: The Dataplane connection URL.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: gateway_id
+    description: The ID of the gateway.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: environment
+    description: 'The environment for the gateway (DEV, DogFood, or
+
+      Production).'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: upgrade_manifest_url
+    description: Gateway upgrade manifest URL.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: messaging_namespace
+    description: Messaging namespace.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: messaging_account
+    description: Messaging Account.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: messaging_key
+    description: Messaging Key.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: request_queue
+    description: Request queue name.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: response_topic
+    description: Response topic name.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: status_blob_signature
+    description: The gateway status blob SAS URL.
+    isRequired: true
+    types:
+    - <xref:str>

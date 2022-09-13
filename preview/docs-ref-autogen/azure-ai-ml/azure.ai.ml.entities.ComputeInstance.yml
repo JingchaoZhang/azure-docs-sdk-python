@@ -13,6 +13,7 @@ constructor:
     = None, network_settings: Optional[azure.ai.ml.entities._compute.compute.NetworkSettings]
     = None, ssh_settings: Optional[azure.ai.ml.entities._compute.compute_instance.ComputeInstanceSshSettings]
     = None, schedules: Optional[azure.ai.ml.entities._compute._schedule.ComputeSchedules]
+    = None, identity: Optional[azure.ai.ml.entities._compute._identity.IdentityConfiguration]
     = None, **kwargs)'
   parameters:
   - name: name
@@ -76,6 +77,12 @@ constructor:
     isRequired: true
     types:
     - <xref:Optional>[<xref:azure.ai.ml.entities.ComputeSchedules>], <xref:optional>
+  - name: identity
+    description: The identity configuration, identities that are associated with the
+      compute cluster.
+    isRequired: true
+    types:
+    - <xref:azure.ai.ml.entities.IdentityConfiguration>, <xref:optional>
 variables:
 - description: defaults to None
   name: state

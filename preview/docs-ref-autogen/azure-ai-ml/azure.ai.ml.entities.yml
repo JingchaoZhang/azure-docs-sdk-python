@@ -9,6 +9,8 @@ classes:
 - azure.ai.ml.entities.AmlComputeSshSettings
 - azure.ai.ml.entities.Asset
 - azure.ai.ml.entities.AssignedUserConfiguration
+- azure.ai.ml.entities.AutoPauseSettings
+- azure.ai.ml.entities.AutoScaleSettings
 - azure.ai.ml.entities.AzureBlobDatastore
 - azure.ai.ml.entities.AzureDataLakeGen1Datastore
 - azure.ai.ml.entities.AzureDataLakeGen2Datastore
@@ -40,6 +42,7 @@ classes:
 - azure.ai.ml.entities.IdentityConfiguration
 - azure.ai.ml.entities.InputPort
 - azure.ai.ml.entities.Job
+- azure.ai.ml.entities.JobResourceConfiguration
 - azure.ai.ml.entities.JobSchedule
 - azure.ai.ml.entities.KubernetesCompute
 - azure.ai.ml.entities.KubernetesOnlineDeployment
@@ -73,6 +76,12 @@ classes:
 - azure.ai.ml.entities.ResourceRequirementsSettings
 - azure.ai.ml.entities.ResourceSettings
 - azure.ai.ml.entities.RetrySettings
+- azure.ai.ml.entities.SparkComponent
+- azure.ai.ml.entities.SparkJob
+- azure.ai.ml.entities.SparkJobEntry
+- azure.ai.ml.entities.SparkJobEntryType
+- azure.ai.ml.entities.SparkResourceConfiguration
+- azure.ai.ml.entities.SynapseSparkCompute
 - azure.ai.ml.entities.TargetUtilizationScaleSettings
 - azure.ai.ml.entities.Uniform
 - azure.ai.ml.entities.UnsupportedCompute

@@ -1,0 +1,32 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.media.models.TrackPropertyCondition
+name: TrackPropertyCondition
+fullName: azure.mgmt.media.models.TrackPropertyCondition
+module: azure.mgmt.media.models
+inheritances:
+- msrest.serialization.Model
+summary: 'Class to specify one track property condition.
+
+
+  All required parameters must be populated in order to send to Azure.'
+constructor:
+  syntax: 'TrackPropertyCondition(*, property: Union[str, _models.TrackPropertyType],
+    operation: Union[str, _models.TrackPropertyCompareOperation], value: Optional[str]
+    = None, **kwargs)'
+variables:
+- description: 'Required. Track property type. Known values are: "Unknown", "FourCC".'
+  name: property
+  types:
+  - <xref:str>
+  - <xref:azure.mgmt.media.models.TrackPropertyType>
+- description: 'Required. Track property condition operation. Known values are: "Unknown",
+
+    "Equal".'
+  name: operation
+  types:
+  - <xref:str>
+  - <xref:azure.mgmt.media.models.TrackPropertyCompareOperation>
+- description: Track property value.
+  name: value
+  types:
+  - <xref:str>

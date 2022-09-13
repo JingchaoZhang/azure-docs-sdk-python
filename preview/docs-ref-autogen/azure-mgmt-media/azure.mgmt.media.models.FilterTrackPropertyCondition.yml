@@ -1,0 +1,36 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.media.models.FilterTrackPropertyCondition
+name: FilterTrackPropertyCondition
+fullName: azure.mgmt.media.models.FilterTrackPropertyCondition
+module: azure.mgmt.media.models
+inheritances:
+- msrest.serialization.Model
+summary: 'The class to specify one track property condition.
+
+
+  All required parameters must be populated in order to send to Azure.'
+constructor:
+  syntax: 'FilterTrackPropertyCondition(*, property: Union[str, _models.FilterTrackPropertyType],
+    value: str, operation: Union[str, _models.FilterTrackPropertyCompareOperation],
+    **kwargs)'
+variables:
+- description: 'Required. The track property type. Known values are: "Unknown", "Type",
+    "Name",
+
+    "Language", "FourCC", "Bitrate".'
+  name: property
+  types:
+  - <xref:str>
+  - <xref:azure.mgmt.media.models.FilterTrackPropertyType>
+- description: Required. The track property value.
+  name: value
+  types:
+  - <xref:str>
+- description: 'Required. The track property condition operation. Known values are:
+    "Equal",
+
+    "NotEqual".'
+  name: operation
+  types:
+  - <xref:str>
+  - <xref:azure.mgmt.media.models.FilterTrackPropertyCompareOperation>

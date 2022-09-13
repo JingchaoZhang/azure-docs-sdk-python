@@ -1,0 +1,20 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.datafactory.models.IntegrationRuntimeRegenerateKeyParameters
+name: IntegrationRuntimeRegenerateKeyParameters
+fullName: azure.mgmt.datafactory.models.IntegrationRuntimeRegenerateKeyParameters
+module: azure.mgmt.datafactory.models
+inheritances:
+- msrest.serialization.Model
+summary: Parameters to regenerate the authentication key.
+constructor:
+  syntax: 'IntegrationRuntimeRegenerateKeyParameters(*, key_name: Optional[Union[str,
+    _models.IntegrationRuntimeAuthKeyName]] = None, **kwargs)'
+variables:
+- description: 'The name of the authentication key to regenerate. Known values are:
+    "authKey1",
+
+    "authKey2".'
+  name: key_name
+  types:
+  - <xref:str>
+  - <xref:azure.mgmt.datafactory.models.IntegrationRuntimeAuthKeyName>

@@ -5,15 +5,17 @@ fullName: azure.schemaregistry.encoder.avroencoder.InvalidSchemaError
 module: azure.schemaregistry.encoder.avroencoder
 inheritances:
 - builtins.ValueError
-summary: 'Error during schema validation.
-
-  :param str message: The message object stringified as ''message'' attribute
-
-  :keyword error: The original exception, if any.'
+summary: Error during schema validation.
 constructor:
   syntax: InvalidSchemaError(message, *args, **kwargs)
   parameters:
   - name: message
+    description: The message object stringified as 'message' attribute
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: error
+    description: The original exception, if any.
 variables:
 - description: A stringified version of the message parameter
   name: message

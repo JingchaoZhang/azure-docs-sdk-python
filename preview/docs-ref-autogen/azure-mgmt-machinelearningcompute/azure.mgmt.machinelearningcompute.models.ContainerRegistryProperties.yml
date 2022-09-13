@@ -1,0 +1,22 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.machinelearningcompute.models.ContainerRegistryProperties
+name: ContainerRegistryProperties
+fullName: azure.mgmt.machinelearningcompute.models.ContainerRegistryProperties
+module: azure.mgmt.machinelearningcompute.models
+inheritances:
+- msrest.serialization.Model
+summary: Properties of Azure Container Registry.
+constructor:
+  syntax: 'ContainerRegistryProperties(*, resource_id: Optional[str] = None, **kwargs)'
+  parameters:
+  - name: resource_id
+    description: 'ARM resource ID of the Azure Container Registry used to store Docker
+      images
+
+      for web services in the cluster. If not provided one will be created. This cannot
+      be changed
+
+      once the cluster is created.'
+    isRequired: true
+    types:
+    - <xref:str>

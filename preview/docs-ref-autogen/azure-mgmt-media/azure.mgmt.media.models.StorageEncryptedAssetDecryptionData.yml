@@ -1,0 +1,21 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.media.models.StorageEncryptedAssetDecryptionData
+name: StorageEncryptedAssetDecryptionData
+fullName: azure.mgmt.media.models.StorageEncryptedAssetDecryptionData
+module: azure.mgmt.media.models
+inheritances:
+- msrest.serialization.Model
+summary: Data needed to decrypt asset files encrypted with legacy storage encryption.
+constructor:
+  syntax: 'StorageEncryptedAssetDecryptionData(*, key: Optional[bytearray] = None,
+    asset_file_encryption_metadata: Optional[List[_models.AssetFileEncryptionMetadata]]
+    = None, **kwargs)'
+variables:
+- description: The Asset File storage encryption key.
+  name: key
+  types:
+  - <xref:bytearray>
+- description: Asset File encryption metadata.
+  name: asset_file_encryption_metadata
+  types:
+  - <xref:list>[<xref:azure.mgmt.media.models.AssetFileEncryptionMetadata>]

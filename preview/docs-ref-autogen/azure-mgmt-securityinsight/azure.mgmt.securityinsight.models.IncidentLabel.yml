@@ -19,7 +19,7 @@ variables:
   name: label_name
   types:
   - <xref:str>
-- description: 'The type of the label. Possible values include: "User", "AutoAssigned".'
+- description: 'The type of the label. Known values are: "User", "AutoAssigned".'
   name: label_type
   types:
   - <xref:str>
