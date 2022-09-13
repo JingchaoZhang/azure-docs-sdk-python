@@ -3,22 +3,24 @@ title: Azure Text Analytics client library for Python
 keywords: Azure, python, SDK, API, azure-ai-textanalytics, textanalytics
 author: kristapratico
 ms.author: krpratic
-ms.date: 08/11/2022
+ms.date: 09/13/2022
 ms.topic: reference
 ms.devlang: python
 ms.service: textanalytics
 ---
-# Azure Text Analytics client library for Python - version 5.2.0b5 
+# Azure Text Analytics client library for Python - version 5.2.1a20220913001 
 
 
 The Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text, and includes the following main features:
 
 - Sentiment Analysis
-- Entity Recognition (Named, Linked, and Personally Identifiable Information (PII) entities)
+- Named Entity Recognition
 - Language Detection
 - Key Phrase Extraction
+- Entity Linking
 - Multiple Analysis
-- Healthcare Entities Analysis
+- Personally Identifiable Information (PII) Detection
+- Text Analytics for Health
 - Custom Named Entity Recognition
 - Custom Text Classification
 
@@ -85,18 +87,18 @@ For example, `https://<region>.api.cognitive.microsoft.com/`.
 Install the Azure Text Analytics client library for Python with [pip][pip]:
 
 ```bash
-pip install azure-ai-textanalytics --pre
+pip install azure-ai-textanalytics
 ```
 
-> Note that `5.2.0b4` was the first version of the client library that targeted the Azure Cognitive Service for Language APIs which include the existing text analysis and natural language processing features found in the Text Analytics client library.
+> Note that `5.2.X` targets the Azure Cognitive Service for Language APIs. These APIs include the text analysis and natural language processing features found in the previous versions of the Text Analytics client library.
 In addition, the service API has changed from semantic to date-based versioning. This version of the client library defaults to the latest supported API version, which currently is `2022-05-01`.
 
 This table shows the relationship between SDK versions and supported API versions of the service
 
 | SDK version  | Supported API version of service  |
 | ------------ | --------------------------------- |
-| 5.2.0b5 - Latest beta release | 3.0, 3.1, 2022-05-01 (default) |
-| 5.1.0 - Latest stable release | 3.0, 3.1 (default) |
+| 5.2.0 - Latest stable release | 3.0, 3.1, 2022-05-01 (default) |
+| 5.1.0  | 3.0, 3.1 (default) |
 | 5.0.0  | 3.0 |
 
 API version can be selected by passing the [api_version][text_analytics_client] keyword argument into the client.
@@ -243,7 +245,7 @@ Long-running operations are operations which consist of an initial request sent 
 followed by polling the service at intervals to determine whether the operation has completed or failed, and if it has
 succeeded, to get the result.
 
-Methods that support healthcare analysis or multiple analyses are modeled as long-running operations.
+Methods that support healthcare analysis, custom text analysis, or multiple analyses are modeled as long-running operations.
 The client exposes a `begin_<method-name>` method that returns a poller object. Callers should wait
 for the operation to complete by calling `result()` on the poller object returned from the `begin_<method-name>` method.
 Sample code snippets are provided to illustrate using long-running operations [below](#examples "Examples").
@@ -412,7 +414,7 @@ The returned response is a heterogeneous list of result and error objects: list[
 
 Please refer to the service documentation for [supported PII entity types][pii_entity_categories].
 
-Note: The Recognize PII Entities service is available in API version v3.1 and up.
+Note: The Recognize PII Entities service is available in API version v3.1 and newer.
 
 ### Extract key phrases
 
@@ -528,7 +530,7 @@ for idx, doc in enumerate(docs):
     print("------------------------------------------")
 ```
 
-Note: The Healthcare Entities Analysis service is only available in the Standard pricing tier with API versions v3.1 and up.
+Note: Healthcare Entities Analysis is only available with API version v3.1 and newer.
 
 ### Multiple Analysis
 
@@ -539,10 +541,10 @@ Note: The Healthcare Entities Analysis service is only available in the Standard
 - Linked Entity Recognition
 - Key Phrase Extraction
 - Sentiment Analysis
-- Custom Entity Recognition (see sample [here][recognize_custom_entities_sample])
-- Custom Single Label Classification (see sample [here][single_label_classify_sample])
-- Custom Multi Label Classification (see sample [here][multi_label_classify_sample])
-- Healthcare Entities Analysis (see sample [here][healthcare_action_sample])
+- Custom Entity Recognition
+- Custom Single Label Classification
+- Custom Multi Label Classification
+- Healthcare Entities Analysis
 
 ```python
 from azure.core.credentials import AzureKeyCredential
@@ -597,7 +599,7 @@ for doc, action_results in zip(documents, document_results):
 
 The returned response is an object encapsulating multiple iterables, each representing results of individual analyses.
 
-Note: Multiple analysis is available in API version v3.1 and up.
+Note: Multiple analysis is available in API version v3.1 and newer.
 
 ## Optional Configuration
 
@@ -692,10 +694,10 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 
 <!-- LINKS -->
 
-[source_code]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/azure/ai/textanalytics
+[source_code]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/azure/ai/textanalytics
 [ta_pypi]: https://pypi.org/project/azure-ai-textanalytics/
 [ta_ref_docs]: https://aka.ms/azsdk-python-textanalytics-ref-docs
-[ta_samples]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples
+[ta_samples]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples
 [language_product_documentation]: /azure/cognitive-services/language-service
 [azure_subscription]: https://azure.microsoft.com/free/
 [ta_or_cs_resource]: /azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows
@@ -707,14 +709,14 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [azure_portal_get_endpoint]: /azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#get-the-keys-for-your-resource
 [cognitive_authentication]: /azure/cognitive-services/authentication
 [cognitive_authentication_api_key]: /azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#get-the-keys-for-your-resource
-[install_azure_identity]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b5/sdk/identity/azure-identity#install-the-package
+[install_azure_identity]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#install-the-package
 [register_aad_app]: /azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
 [grant_role_access]: /azure/cognitive-services/authentication#assign-a-role-to-a-service-principal
 [cognitive_custom_subdomain]: /azure/cognitive-services/cognitive-services-custom-subdomains
 [custom_subdomain]: /azure/cognitive-services/authentication#create-a-resource-with-a-custom-subdomain
 [cognitive_authentication_aad]: /azure/cognitive-services/authentication#authenticate-with-azure-active-directory
-[azure_identity_credentials]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b5/sdk/identity/azure-identity#credentials
-[default_azure_credential]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b5/sdk/identity/azure-identity#defaultazurecredential
+[azure_identity_credentials]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#credentials
+[default_azure_credential]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#defaultazurecredential
 [service_limits]: https://aka.ms/azsdk/textanalytics/data-limits
 [azure-key-credential]: https://aka.ms/azsdk-python-core-azurekeycredential
 [document_error]: https://aka.ms/azsdk-python-textanalytics-documenterror
@@ -745,36 +747,36 @@ This project has adopted the [Microsoft Open Source Code of Conduct][code_of_con
 [named_entity_recognition]: /azure/cognitive-services/language-service/named-entity-recognition/overview
 [named_entity_categories]: https://aka.ms/taner
 [azure_core_ref_docs]: https://aka.ms/azsdk-python-core-policies
-[azure_core]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/core/azure-core/README.md
-[azure_identity]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b5/sdk/identity/azure-identity
+[azure_core]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/core/azure-core/README.md
+[azure_identity]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity
 [python_logging]: https://docs.python.org/3/library/logging.html
-[sample_authentication]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_authentication.py
-[sample_authentication_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_authentication_async.py
-[detect_language_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_detect_language.py
-[detect_language_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_detect_language_async.py
-[analyze_sentiment_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_sentiment.py
-[analyze_sentiment_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_sentiment_async.py
-[extract_key_phrases_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_extract_key_phrases.py
-[extract_key_phrases_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_extract_key_phrases_async.py
-[recognize_entities_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_entities.py
-[recognize_entities_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_recognize_entities_async.py
-[recognize_linked_entities_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_linked_entities.py
-[recognize_linked_entities_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_recognize_linked_entities_async.py
-[recognize_pii_entities_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_pii_entities.py
-[recognize_pii_entities_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_recognize_pii_entities_async.py
-[analyze_healthcare_entities_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_healthcare_entities.py
-[analyze_healthcare_entities_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_healthcare_entities_async.py
-[analyze_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py
-[analyze_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_actions_async.py
-[opinion_mining_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_sentiment_with_opinion_mining.py
-[opinion_mining_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_sentiment_with_opinion_mining_async.py
-[recognize_custom_entities_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py
-[recognize_custom_entities_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_recognize_custom_entities_async.py
-[single_label_classify_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_single_label_classify.py
-[single_label_classify_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_single_label_classify_async.py
-[multi_label_classify_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_multi_label_classify.py
-[multi_label_classify_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_multi_label_classify_async.py
-[healthcare_action_sample]: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.2.0b5/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_healthcare_action.py
+[sample_authentication]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_authentication.py
+[sample_authentication_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_authentication_async.py
+[detect_language_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_detect_language.py
+[detect_language_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_detect_language_async.py
+[analyze_sentiment_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_sentiment.py
+[analyze_sentiment_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_sentiment_async.py
+[extract_key_phrases_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_extract_key_phrases.py
+[extract_key_phrases_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_extract_key_phrases_async.py
+[recognize_entities_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_entities.py
+[recognize_entities_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_recognize_entities_async.py
+[recognize_linked_entities_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_linked_entities.py
+[recognize_linked_entities_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_recognize_linked_entities_async.py
+[recognize_pii_entities_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_pii_entities.py
+[recognize_pii_entities_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_recognize_pii_entities_async.py
+[analyze_healthcare_entities_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_healthcare_entities.py
+[analyze_healthcare_entities_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_healthcare_entities_async.py
+[analyze_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py
+[analyze_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_actions_async.py
+[opinion_mining_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_sentiment_with_opinion_mining.py
+[opinion_mining_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_analyze_sentiment_with_opinion_mining_async.py
+[recognize_custom_entities_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py
+[recognize_custom_entities_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_recognize_custom_entities_async.py
+[single_label_classify_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_single_label_classify.py
+[single_label_classify_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_single_label_classify_async.py
+[multi_label_classify_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_multi_label_classify.py
+[multi_label_classify_sample_async]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples/sample_multi_label_classify_async.py
+[healthcare_action_sample]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_healthcare_action.py
 [cla]: https://cla.microsoft.com
 [code_of_conduct]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
