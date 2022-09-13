@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-agfood",
+  "Version": "1.0.0a20220913001",
+  "DevVersion": "1.0.0a20220913001",
+  "DirectoryPath": "sdk/agfood/azure-mgmt-agfood",
+  "ServiceDirectory": "agfood",
+  "ReadMePath": "sdk/agfood/azure-mgmt-agfood/README.md",
+  "ChangeLogPath": "sdk/agfood/azure-mgmt-agfood/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-agfood",
+  "ReleaseStatus": "2021-05-17"
+}
