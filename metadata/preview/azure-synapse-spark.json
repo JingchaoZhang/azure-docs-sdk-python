@@ -1,7 +1,7 @@
 {
   "Name": "azure-synapse-spark",
-  "Version": "0.8.0a20220330001",
-  "DevVersion": "0.8.0a20220330001",
+  "Version": "0.8.0a20220913001",
+  "DevVersion": "0.8.0a20220913001",
   "DirectoryPath": "sdk/synapse/azure-synapse-spark",
   "ServiceDirectory": "synapse",
   "ReadMePath": "sdk/synapse/azure-synapse-spark/README.md",
