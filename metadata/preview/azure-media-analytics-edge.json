@@ -1,7 +1,7 @@
 {
   "Name": "azure-media-analytics-edge",
-  "Version": "1.0.0b2",
-  "DevVersion": null,
+  "Version": "1.0.0a20220914001",
+  "DevVersion": "1.0.0a20220914001",
   "DirectoryPath": "sdk/media/azure-media-analytics-edge",
   "ServiceDirectory": "media",
   "ReadMePath": "sdk/media/azure-media-analytics-edge/README.md",
