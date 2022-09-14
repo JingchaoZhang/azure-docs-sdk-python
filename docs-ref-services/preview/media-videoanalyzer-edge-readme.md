@@ -3,12 +3,12 @@ title: Azure Video Analyzer Edge client library for Python
 keywords: Azure, python, SDK, API, azure-media-videoanalyzer-edge, videoanalyzer
 author: hivyas
 ms.author: hivyas
-ms.date: 04/30/2022
+ms.date: 09/14/2022
 ms.topic: reference
 ms.devlang: python
 ms.service: videoanalyzer
 ---
-# Azure Video Analyzer Edge client library for Python - version 1.0.0b4 
+# Azure Video Analyzer Edge client library for Python - version 1.0.0a20220914001 
 
 
 Deprecated. We’re retiring the Azure Video Analyzer preview service, you're advised to transition your applications off of Video Analyzer by 01 December 2022. This SDK is not longer maintained.
@@ -34,7 +34,7 @@ pip install azure-media-videoanalyzer-edge
 
 ### Prerequisites
 
-- Python 2.7, or 3.6 or later is required to use this package.
+- 3.6 or later is required to use this package.
 - You need an active [Azure subscription][azure_sub], and a IoT device connection string to use this package.
 - To interact with Azure IoT Hub you will need to run `pip install azure-iot-hub`
 - You will need to use the version of the SDK that corresponds to the version of the Video Analyzer Edge module you are using.
@@ -155,7 +155,7 @@ additional questions or comments.
 [coc_contact]: mailto:opencode@microsoft.com
 [doc_pipelines]: https://go.microsoft.com/fwlink/?linkid=2162396
 [package]: https://aka.ms/ava/sdk/client/python
-[source]: https://github.com/Azure/azure-sdk-for-python/tree/azure-media-videoanalyzer-edge_1.0.0b4/sdk/videoanalyzer
+[source]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/videoanalyzer
 [samples]: https://go.microsoft.com/fwlink/?linkid=2162278
 [doc_product]: https://go.microsoft.com/fwlink/?linkid=2162396
 [doc_direct_methods]: https://go.microsoft.com/fwlink/?linkid=2162396
