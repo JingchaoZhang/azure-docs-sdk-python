@@ -1,7 +1,7 @@
 {
   "Name": "azure-mgmt-devcenter",
-  "Version": "1.0.0b1",
-  "DevVersion": null,
+  "Version": "1.0.0a20220915001",
+  "DevVersion": "1.0.0a20220915001",
   "DirectoryPath": "sdk/devcenter/azure-mgmt-devcenter",
   "ServiceDirectory": "devcenter",
   "ReadMePath": "sdk/devcenter/azure-mgmt-devcenter/README.md",
