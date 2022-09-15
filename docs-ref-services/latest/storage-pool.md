@@ -1,12 +1,12 @@
 ---
-title: Azure Storage Pool SDK for Python
-ms.topic: reference
-ms.author: antisch
-ms.devlang: python
-ms.data: 09/13/2022
-author: annatisch
 description: Reference for Azure Storage Pool SDK for Python
+ms.topic: reference
+author: annatisch
+ms.devlang: python
 ms.service: storagepool
+ms.author: antisch
+title: Azure Storage Pool SDK for Python
+ms.data: 09/14/2022
 ---
 # Azure Storage Pool SDK for Python - latest
 

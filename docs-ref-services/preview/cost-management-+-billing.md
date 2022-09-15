@@ -1,19 +1,18 @@
 ---
-title: Azure Billing libraries for python
-description: Reference for Azure Billing libraries for python
-keywords: Azure, python, SDK, API, Billing
-author: sptramer
-ms.author: sttramer
-manager: douge
-
-ms.date: 07/10/2017
+description: Reference for Azure Cost Management + Billing SDK for Python
 ms.topic: reference
-ms.prod: azure
-ms.technology: azure
+author: lmazuel
 ms.devlang: python
-ms.service: multiple
+ms.service: costmanagement+billing
+ms.author: lmazuel
+title: Azure Cost Management + Billing SDK for Python
+ms.data: 09/14/2022
+ms.date: 07/10/2017
+ms.technology: azure
+manager: douge
+ms.prod: azure
+keywords: Azure, python, SDK, API, Billing
 ---
-
 # Azure Billing libraries for python
 
 ## Install the libraries
