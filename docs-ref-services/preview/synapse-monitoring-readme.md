@@ -3,10 +3,8 @@ title:
 keywords: Azure, python, SDK, API, azure-synapse-monitoring, synapse
 author: wonner
 ms.author: wanyang
-ms.date: 03/31/2022
+ms.date: 09/15/2022
 ms.topic: reference
-ms.prod: azure
-ms.technology: azure
 ms.devlang: python
 ms.service: synapse
 ---
@@ -22,7 +20,7 @@ _Azure SDK Python packages support for Python 2.7 has ended 01 January 2022. For
 
 # Usage
 
-For code examples, see [Synapse Monitoring](https://docs.microsoft.com/python/api/overview/azure/) on docs.microsoft.com.
+For code examples, see [Synapse Monitoring](/python/api/overview/azure/) on docs.microsoft.com.
 
 # Provide Feedback
 

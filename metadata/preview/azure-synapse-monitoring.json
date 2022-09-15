@@ -1,7 +1,7 @@
 {
   "Name": "azure-synapse-monitoring",
-  "Version": "0.3.0a20220330001",
-  "DevVersion": "0.3.0a20220330001",
+  "Version": "0.3.0a20220914001",
+  "DevVersion": "0.3.0a20220914001",
   "DirectoryPath": "sdk/synapse/azure-synapse-monitoring",
   "ServiceDirectory": "synapse",
   "ReadMePath": "sdk/synapse/azure-synapse-monitoring/README.md",
