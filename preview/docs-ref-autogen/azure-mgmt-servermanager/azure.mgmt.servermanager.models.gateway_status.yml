@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.gateway_status
+name: gateway_status
+fullName: azure.mgmt.servermanager.models.gateway_status
+classes:
+- azure.mgmt.servermanager.models.gateway_status.GatewayStatus

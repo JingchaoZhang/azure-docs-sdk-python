@@ -1,0 +1,18 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.devspaces.models.DevSpacesErrorResponse
+name: DevSpacesErrorResponse
+fullName: azure.mgmt.devspaces.models.DevSpacesErrorResponse
+module: azure.mgmt.devspaces.models
+inheritances:
+- msrest.serialization.Model
+summary: Error response indicates that the service is not able to process the incoming
+  request. The reason is provided in the error message.
+constructor:
+  syntax: 'DevSpacesErrorResponse(*, error: Optional[azure.mgmt.devspaces.models._models_py3.ErrorDetails]
+    = None, **kwargs)'
+  parameters:
+  - name: error
+    description: The details of the error.
+    isRequired: true
+    types:
+    - <xref:dev_spaces_management_client.models.ErrorDetails>

@@ -11,8 +11,8 @@ constructor:
 methods:
 - uid: azure.schemaregistry.encoder.avroencoder.MessageType.from_message_content
   name: from_message_content
-  summary: "Creates an object that is a subtype of MessageType given content type\
-    \ and\n   a content value to be set as body."
+  summary: "Creates an object that is a subtype of MessageType, given content type\
+    \ and\n   a content value to be set on the object."
   signature: 'from_message_content(content: bytes, content_type: str, **kwargs: Any)
     -> azure.schemaregistry.encoder.avroencoder._message_protocol.MessageType'
   parameters:

@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.operations.node_operations
+name: node_operations
+fullName: azure.mgmt.servermanager.operations.node_operations
+classes:
+- azure.mgmt.servermanager.operations.node_operations.NodeOperations

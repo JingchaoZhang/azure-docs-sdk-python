@@ -15,12 +15,10 @@ summary: 'Represents Fusion alert rule template.
 constructor:
   syntax: 'FusionAlertRuleTemplate(*, alert_rules_created_by_template_count: Optional[int]
     = None, description: Optional[str] = None, display_name: Optional[str] = None,
-    required_data_connectors: Optional[List[azure.mgmt.securityinsight.models._models_py3.AlertRuleTemplateDataSource]]
-    = None, status: Optional[Union[str, azure.mgmt.securityinsight.models._security_insights_enums.TemplateStatus]]
-    = None, severity: Optional[Union[str, azure.mgmt.securityinsight.models._security_insights_enums.AlertSeverity]]
-    = None, tactics: Optional[List[Union[str, azure.mgmt.securityinsight.models._security_insights_enums.AttackTactic]]]
-    = None, techniques: Optional[List[str]] = None, source_settings: Optional[List[azure.mgmt.securityinsight.models._models_py3.FusionTemplateSourceSetting]]
-    = None, **kwargs)'
+    required_data_connectors: Optional[List[_models.AlertRuleTemplateDataSource]]
+    = None, status: Optional[Union[str, _models.TemplateStatus]] = None, severity:
+    Optional[Union[str, _models.AlertSeverity]] = None, tactics: Optional[List[Union[str,
+    _models.AttackTactic]]] = None, **kwargs)'
 variables:
 - description: 'Fully qualified resource ID for the resource. Ex -
 
@@ -45,12 +43,10 @@ variables:
   name: system_data
   types:
   - <xref:azure.mgmt.securityinsight.models.SystemData>
-- description: 'Required. The kind of the alert rule.Constant filled by server. Possible
-    values
+- description: 'Required. The alert rule kind.Constant filled by server. Known values
+    are:
 
-    include: "Scheduled", "MicrosoftSecurityIncidentCreation", "Fusion", "MLBehaviorAnalytics",
-
-    "ThreatIntelligence", "NRT".'
+    "Scheduled", "MicrosoftSecurityIncidentCreation", "Fusion".'
   name: kind
   types:
   - <xref:str>
@@ -81,17 +77,17 @@ variables:
   name: required_data_connectors
   types:
   - <xref:list>[<xref:azure.mgmt.securityinsight.models.AlertRuleTemplateDataSource>]
-- description: 'The alert rule template status. Possible values include: "Installed",
+- description: 'The alert rule template status. Known values are: "Installed", "Available",
 
-    "Available", "NotAvailable".'
+    "NotAvailable".'
   name: status
   types:
   - <xref:str>
   - <xref:azure.mgmt.securityinsight.models.TemplateStatus>
-- description: 'The severity for alerts created by this alert rule. Possible values
-    include:
+- description: 'The severity for alerts created by this alert rule. Known values are:
+    "High",
 
-    "High", "Medium", "Low", "Informational".'
+    "Medium", "Low", "Informational".'
   name: severity
   types:
   - <xref:str>
@@ -101,11 +97,3 @@ variables:
   types:
   - <xref:list>[<xref:str>
   - <xref:azure.mgmt.securityinsight.models.AttackTactic>]
-- description: The techniques of the alert rule.
-  name: techniques
-  types:
-  - <xref:list>[<xref:str>]
-- description: All supported source signal configurations consumed in fusion detection.
-  name: source_settings
-  types:
-  - <xref:list>[<xref:azure.mgmt.securityinsight.models.FusionTemplateSourceSetting>]

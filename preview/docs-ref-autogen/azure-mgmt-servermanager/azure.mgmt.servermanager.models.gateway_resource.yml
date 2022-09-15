@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.gateway_resource
+name: gateway_resource
+fullName: azure.mgmt.servermanager.models.gateway_resource
+classes:
+- azure.mgmt.servermanager.models.gateway_resource.GatewayResource

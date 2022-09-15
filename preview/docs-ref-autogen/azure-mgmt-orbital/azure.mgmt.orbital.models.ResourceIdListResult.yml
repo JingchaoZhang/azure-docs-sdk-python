@@ -13,13 +13,11 @@ summary: 'Response for an API service call that lists the resource IDs of resour
 constructor:
   syntax: 'ResourceIdListResult(*, value: Optional[List[azure.mgmt.orbital.models._models_py3.ResourceIdListResultValueItem]]
     = None, **kwargs)'
-  parameters:
-  - name: value
-    description: A list of Azure Resource IDs.
-    isRequired: true
-    types:
-    - <xref:list>[<xref:azure_orbital.models.ResourceIdListResultValueItem>]
 variables:
+- description: A list of Azure Resource IDs.
+  name: value
+  types:
+  - <xref:list>[<xref:azure.mgmt.orbital.models.ResourceIdListResultValueItem>]
 - description: The URL to get the next set of results.
   name: next_link
   types:

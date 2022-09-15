@@ -1,0 +1,17 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.ErrorException
+name: ErrorException
+fullName: azure.mgmt.servermanager.models.ErrorException
+module: azure.mgmt.servermanager.models
+inheritances:
+- msrest.exceptions.HttpOperationError
+summary: 'Server responded with exception of type: ''Error''.'
+constructor:
+  syntax: ErrorException(deserialize, response, *args)
+  parameters:
+  - name: deserialize
+    description: A deserializer
+    isRequired: true
+  - name: response
+    description: Server response to be deserialized.
+    isRequired: true

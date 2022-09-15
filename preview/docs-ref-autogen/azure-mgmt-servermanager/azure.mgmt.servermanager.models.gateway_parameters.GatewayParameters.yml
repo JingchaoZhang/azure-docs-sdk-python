@@ -1,0 +1,33 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.gateway_parameters.GatewayParameters
+name: GatewayParameters
+fullName: azure.mgmt.servermanager.models.gateway_parameters.GatewayParameters
+module: azure.mgmt.servermanager.models.gateway_parameters
+inheritances:
+- msrest.serialization.Model
+summary: Collection of parameters for operations on a gateway resource.
+constructor:
+  syntax: GatewayParameters(**kwargs)
+  parameters:
+  - name: location
+    description: Location of the resource.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: tags
+    description: Resource tags.
+    isRequired: true
+    types:
+    - <xref:object>
+  - name: upgrade_mode
+    description: 'The upgradeMode property gives the flexibility to
+
+      gateway to auto upgrade itself. If properties value not specified, then we
+
+      assume upgradeMode = Automatic. Possible values include: ''Manual'',
+
+      ''Automatic'''
+    isRequired: true
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.servermanager.models.UpgradeMode>

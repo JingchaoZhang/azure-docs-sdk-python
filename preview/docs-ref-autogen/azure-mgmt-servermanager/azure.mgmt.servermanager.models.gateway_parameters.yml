@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.gateway_parameters
+name: gateway_parameters
+fullName: azure.mgmt.servermanager.models.gateway_parameters
+classes:
+- azure.mgmt.servermanager.models.gateway_parameters.GatewayParameters

@@ -54,52 +54,6 @@ methods:
     - <xref:azure.core.polling.AsyncLROPoller>[<xref:None>]
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.collect_logs
-  name: collect_logs
-  summary: Start the device diagnostics log collection operation on specified devices.
-  signature: 'async collect_logs(operation_id: str, log_collection_request: JSON,
-    *, content_type: str = "''application/json''", **kwargs: Any) -> JSON'
-  parameters:
-  - name: operation_id
-    description: Operation identifier. Required.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: log_collection_request
-    description: 'The deployment properties. Is either a model type or a IO type.
-
-      Required.'
-    isRequired: true
-    types:
-    - <xref:JSON>
-    - <xref:IO>
-  - name: content_type
-    description: 'Body Parameter content-type. Known values are: ''application/json''.
-
-      Default value is None.'
-    types:
-    - <xref:str>
-  return:
-    description: JSON object
-    types:
-    - <xref:JSON>
-  exceptions:
-  - type: azure.core.exceptions.HttpResponseError
-  examples:
-  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
-    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
-    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 201\n   response == {\n       \"createdDateTime\"\
-    : \"str\",  # Optional. The timestamp when the operation was\n         created.\n\
-    \       \"description\": \"str\",  # Optional. Description of the diagnostics\
-    \ operation.\n       \"deviceList\": [\n           {\n               \"deviceId\"\
-    : \"str\",  # Device Id. Required.\n               \"moduleId\": \"str\"  # Optional.\
-    \ Module Id.\n           }\n       ],\n       \"lastActionDateTime\": \"str\"\
-    ,  # Optional. A timestamp for when the current\n         state was entered.\n\
-    \       \"operationId\": \"str\",  # Optional. The diagnostics operation id.\n\
-    \       \"status\": \"str\"  # Optional. Operation status. Known values are:\n\
-    \         \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\".\n   }\n\
-    \   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.create_or_update_deployment
   name: create_or_update_deployment
   summary: Creates or updates a deployment.
@@ -108,7 +62,7 @@ methods:
     -> JSON'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -140,30 +94,38 @@ methods:
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"deploymentId\"\
-    : \"str\",  # The deployment identifier. Required.\n       \"deviceClassSubgroups\"\
-    : [\n           \"str\"  # Optional. The device class subgroups for the deployment.\n\
-    \       ],\n       \"groupId\": \"str\",  # The group identity. Required.\n  \
-    \     \"isCanceled\": bool,  # Optional. Boolean flag indicating whether the\n\
-    \         deployment was canceled.\n       \"isCloudInitiatedRollback\": bool,\
-    \  # Optional. Boolean flag indicating\n         whether the deployment is a rollback\
-    \ deployment.\n       \"isRetried\": bool,  # Optional. Boolean flag indicating\
-    \ whether the\n         deployment has been retried.\n       \"rollbackPolicy\"\
-    : {\n           \"failure\": {\n               \"devicesFailedCount\": 0,  # Number\
-    \ of devices that failed.\n                 Required.\n               \"devicesFailedPercentage\"\
-    : 0  # Percentage of devices that\n                 failed. Required.\n      \
-    \     },\n           \"update\": {\n               \"description\": \"str\", \
-    \ # Optional. Update description.\n               \"friendlyName\": \"str\", \
-    \ # Optional. Friendly update name.\n               \"updateId\": {\n        \
-    \           \"name\": \"str\",  # Update name. Required.\n                   \"\
-    provider\": \"str\",  # Update provider. Required.\n                   \"version\"\
-    : \"str\"  # Update version. Required.\n               }\n           }\n     \
-    \  },\n       \"startDateTime\": \"2020-02-20 00:00:00\",  # The deployment start\
-    \ datetime.\n         Required.\n       \"update\": {\n           \"description\"\
-    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
-    ,  # Optional. Friendly update name.\n           \"updateId\": {\n           \
-    \    \"name\": \"str\",  # Update name. Required.\n               \"provider\"\
-    : \"str\",  # Update provider. Required.\n               \"version\": \"str\"\
-    \  # Update version. Required.\n           }\n       }\n   }\n   ````\n"
+    : \"str\",  # The caller-provided deployment identifier. This\n         cannot\
+    \ be longer than 73 characters, must be all lower-case, and cannot contain\n \
+    \        '&', '^', '[', ']', '{', '}', '|', '<', '>', forward slash, backslash,\
+    \ or double\n         quote. The Updates view in the Azure Portal IoT Hub resource\
+    \ generates a GUID for\n         deploymentId when you create a deployment. Required.\n\
+    \       \"groupId\": \"str\",  # The group identity for the devices the deployment\
+    \ is\n         intended to update. Required.\n       \"startDateTime\": \"2020-02-20\
+    \ 00:00:00\",  # The deployment start datetime.\n         Required.\n       \"\
+    update\": {\n           \"updateId\": {\n               \"name\": \"str\",  #\
+    \ Update name. Required.\n               \"provider\": \"str\",  # Update provider.\
+    \ Required.\n               \"version\": \"str\"  # Update version. Required.\n\
+    \           },\n           \"description\": \"str\",  # Optional. Update description.\n\
+    \           \"friendlyName\": \"str\"  # Optional. Friendly update name.\n   \
+    \    },\n       \"deviceClassSubgroups\": [\n           \"str\"  # Optional. The\
+    \ device class subgroups the deployment is\n             compatible with and subgroup\
+    \ deployments have been created for. This is not\n             provided by the\
+    \ caller during CreateOrUpdateDeployment but is automatically\n             determined\
+    \ by Device Update.\n       ],\n       \"isCanceled\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment was canceled.\n       \"isCloudInitiatedRollback\"\
+    : bool,  # Optional. Boolean flag indicating\n         whether the deployment\
+    \ is a rollback deployment.\n       \"isRetried\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment has been retried.\n       \"\
+    rollbackPolicy\": {\n           \"failure\": {\n               \"devicesFailedCount\"\
+    : 0,  # Number of devices that failed.\n                 Required.\n         \
+    \      \"devicesFailedPercentage\": 0  # Percentage of devices that\n        \
+    \         failed. Required.\n           },\n           \"update\": {\n       \
+    \        \"updateId\": {\n                   \"name\": \"str\",  # Update name.\
+    \ Required.\n                   \"provider\": \"str\",  # Update provider. Required.\n\
+    \                   \"version\": \"str\"  # Update version. Required.\n      \
+    \         },\n               \"description\": \"str\",  # Optional. Update description.\n\
+    \               \"friendlyName\": \"str\"  # Optional. Friendly update name.\n\
+    \           }\n       }\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.delete_deployment
   name: delete_deployment
   summary: Deletes a deployment.
@@ -171,7 +133,34 @@ methods:
     Any) -> None'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: deployment_id
+    description: Deployment identifier. Required.
+    isRequired: true
+    types:
+    - <xref:str>
+  return:
+    description: None
+    types:
+    - <xref:None>
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.delete_deployment_for_device_class_subgroup
+  name: delete_deployment_for_device_class_subgroup
+  summary: Deletes a device class subgroup deployment.
+  signature: 'async delete_deployment_for_device_class_subgroup(group_id: str, device_class_id:
+    str, deployment_id: str, **kwargs: Any) -> None'
+  parameters:
+  - name: group_id
+    description: Group identifier. Required.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: device_class_id
+    description: Device class identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -188,7 +177,22 @@ methods:
   - type: azure.core.exceptions.HttpResponseError
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.delete_device_class
   name: delete_device_class
-  summary: Deletes a device class.
+  summary: 'Deletes a device class. Device classes are created automatically when
+    Device Update-enabled
+
+    devices are connected to the hub but are not automatically cleaned up since they
+    are referenced
+
+    by DeviceClassSubgroups. If the user has deleted all DeviceClassSubgroups for
+    a device class
+
+    they can also delete the device class to remove the records from the system and
+    to stop
+
+    checking the compatibility of this device class with new updates. If a device
+    is ever
+
+    reconnected for this device class it will be re-created.'
   signature: 'async delete_device_class(device_class_id: str, **kwargs: Any) -> None'
   parameters:
   - name: device_class_id
@@ -204,44 +208,33 @@ methods:
   - type: azure.core.exceptions.HttpResponseError
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.delete_device_class_subgroup
   name: delete_device_class_subgroup
-  summary: Deletes a device class subgroup.
+  summary: 'Deletes a device class subgroup. This subgroup is automatically created
+    when a Device
+
+    Update-enabled device is connected to the hub and reports its properties. Groups,
+    subgroups,
+
+    and deployments are not automatically cleaned up but are retained for history
+    purposes. Users
+
+    can call this method to delete a subgroup if they do not need to retain any of
+    the history of
+
+    the subgroup and no longer need it. If a device is ever connected again for this
+    subgroup after
+
+    the subgroup was deleted it will be automatically re-created but there will be
+    no history.'
   signature: 'async delete_device_class_subgroup(group_id: str, device_class_id: str,
     **kwargs: Any) -> None'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
   - name: device_class_id
     description: Device class identifier. Required.
-    isRequired: true
-    types:
-    - <xref:str>
-  return:
-    description: None
-    types:
-    - <xref:None>
-  exceptions:
-  - type: azure.core.exceptions.HttpResponseError
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.delete_device_class_subgroup_deployment
-  name: delete_device_class_subgroup_deployment
-  summary: Deletes a device class subgroup deployment.
-  signature: 'async delete_device_class_subgroup_deployment(group_id: str, device_class_id:
-    str, deployment_id: str, **kwargs: Any) -> None'
-  parameters:
-  - name: group_id
-    description: Group identity. Required.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: device_class_id
-    description: Device class identifier. Required.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: deployment_id
-    description: Deployment identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -253,11 +246,26 @@ methods:
   - type: azure.core.exceptions.HttpResponseError
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.delete_group
   name: delete_group
-  summary: Deletes a device group.
+  summary: 'Deletes a device group. This group is automatically created when a Device
+    Update-enabled device
+
+    is connected to the hub and reports its properties. Groups, subgroups, and deployments
+    are not
+
+    automatically cleaned up but are retained for history purposes. Users can call
+    this method to
+
+    delete a group if they do not need to retain any of the history of the group and
+    no longer need
+
+    it. If a device is ever connected again for this group after the group was deleted
+    it will be
+
+    automatically re-created but there will be no history.'
   signature: 'async delete_group(group_id: str, **kwargs: Any) -> None'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -267,6 +275,45 @@ methods:
     - <xref:None>
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_best_updates_for_device_class_subgroup
+  name: get_best_updates_for_device_class_subgroup
+  summary: 'Get the best available update for a device class subgroup and a count
+    of how many devices need
+
+    this update.'
+  signature: 'async get_best_updates_for_device_class_subgroup(group_id: str, device_class_id:
+    str, **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
+  parameters:
+  - name: group_id
+    description: Group identifier. Required.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: device_class_id
+    description: Device class identifier. Required.
+    isRequired: true
+    types:
+    - <xref:str>
+  return:
+    description: JSON object
+    types:
+    - <xref:JSON>
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+  examples:
+  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
+    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
+    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
+    \   # response body for status code(s): 200\n   response == {\n       \"deviceClassId\"\
+    : \"str\",  # The device class subgroup's device class Id.\n         Required.\n\
+    \       \"deviceCount\": 0,  # Total number of devices for which the update is\n\
+    \         applicable. Required.\n       \"groupId\": \"str\",  # The group Id.\
+    \ Required.\n       \"update\": {\n           \"updateId\": {\n              \
+    \ \"name\": \"str\",  # Update name. Required.\n               \"provider\": \"\
+    str\",  # Update provider. Required.\n               \"version\": \"str\"  # Update\
+    \ version. Required.\n           },\n           \"description\": \"str\",  # Optional.\
+    \ Update description.\n           \"friendlyName\": \"str\"  # Optional. Friendly\
+    \ update name.\n       }\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_deployment
   name: get_deployment
   summary: Gets the deployment properties.
@@ -274,7 +321,7 @@ methods:
     -> collections.abc.MutableMapping[str, Any]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -294,30 +341,38 @@ methods:
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"deploymentId\"\
-    : \"str\",  # The deployment identifier. Required.\n       \"deviceClassSubgroups\"\
-    : [\n           \"str\"  # Optional. The device class subgroups for the deployment.\n\
-    \       ],\n       \"groupId\": \"str\",  # The group identity. Required.\n  \
-    \     \"isCanceled\": bool,  # Optional. Boolean flag indicating whether the\n\
-    \         deployment was canceled.\n       \"isCloudInitiatedRollback\": bool,\
-    \  # Optional. Boolean flag indicating\n         whether the deployment is a rollback\
-    \ deployment.\n       \"isRetried\": bool,  # Optional. Boolean flag indicating\
-    \ whether the\n         deployment has been retried.\n       \"rollbackPolicy\"\
-    : {\n           \"failure\": {\n               \"devicesFailedCount\": 0,  # Number\
-    \ of devices that failed.\n                 Required.\n               \"devicesFailedPercentage\"\
-    : 0  # Percentage of devices that\n                 failed. Required.\n      \
-    \     },\n           \"update\": {\n               \"description\": \"str\", \
-    \ # Optional. Update description.\n               \"friendlyName\": \"str\", \
-    \ # Optional. Friendly update name.\n               \"updateId\": {\n        \
-    \           \"name\": \"str\",  # Update name. Required.\n                   \"\
-    provider\": \"str\",  # Update provider. Required.\n                   \"version\"\
-    : \"str\"  # Update version. Required.\n               }\n           }\n     \
-    \  },\n       \"startDateTime\": \"2020-02-20 00:00:00\",  # The deployment start\
-    \ datetime.\n         Required.\n       \"update\": {\n           \"description\"\
-    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
-    ,  # Optional. Friendly update name.\n           \"updateId\": {\n           \
-    \    \"name\": \"str\",  # Update name. Required.\n               \"provider\"\
-    : \"str\",  # Update provider. Required.\n               \"version\": \"str\"\
-    \  # Update version. Required.\n           }\n       }\n   }\n   ````\n"
+    : \"str\",  # The caller-provided deployment identifier. This\n         cannot\
+    \ be longer than 73 characters, must be all lower-case, and cannot contain\n \
+    \        '&', '^', '[', ']', '{', '}', '|', '<', '>', forward slash, backslash,\
+    \ or double\n         quote. The Updates view in the Azure Portal IoT Hub resource\
+    \ generates a GUID for\n         deploymentId when you create a deployment. Required.\n\
+    \       \"groupId\": \"str\",  # The group identity for the devices the deployment\
+    \ is\n         intended to update. Required.\n       \"startDateTime\": \"2020-02-20\
+    \ 00:00:00\",  # The deployment start datetime.\n         Required.\n       \"\
+    update\": {\n           \"updateId\": {\n               \"name\": \"str\",  #\
+    \ Update name. Required.\n               \"provider\": \"str\",  # Update provider.\
+    \ Required.\n               \"version\": \"str\"  # Update version. Required.\n\
+    \           },\n           \"description\": \"str\",  # Optional. Update description.\n\
+    \           \"friendlyName\": \"str\"  # Optional. Friendly update name.\n   \
+    \    },\n       \"deviceClassSubgroups\": [\n           \"str\"  # Optional. The\
+    \ device class subgroups the deployment is\n             compatible with and subgroup\
+    \ deployments have been created for. This is not\n             provided by the\
+    \ caller during CreateOrUpdateDeployment but is automatically\n             determined\
+    \ by Device Update.\n       ],\n       \"isCanceled\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment was canceled.\n       \"isCloudInitiatedRollback\"\
+    : bool,  # Optional. Boolean flag indicating\n         whether the deployment\
+    \ is a rollback deployment.\n       \"isRetried\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment has been retried.\n       \"\
+    rollbackPolicy\": {\n           \"failure\": {\n               \"devicesFailedCount\"\
+    : 0,  # Number of devices that failed.\n                 Required.\n         \
+    \      \"devicesFailedPercentage\": 0  # Percentage of devices that\n        \
+    \         failed. Required.\n           },\n           \"update\": {\n       \
+    \        \"updateId\": {\n                   \"name\": \"str\",  # Update name.\
+    \ Required.\n                   \"provider\": \"str\",  # Update provider. Required.\n\
+    \                   \"version\": \"str\"  # Update version. Required.\n      \
+    \         },\n               \"description\": \"str\",  # Optional. Update description.\n\
+    \               \"friendlyName\": \"str\"  # Optional. Friendly update name.\n\
+    \           }\n       }\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_deployment_for_device_class_subgroup
   name: get_deployment_for_device_class_subgroup
   summary: Gets the deployment properties.
@@ -326,7 +381,7 @@ methods:
     Any]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -351,30 +406,38 @@ methods:
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"deploymentId\"\
-    : \"str\",  # The deployment identifier. Required.\n       \"deviceClassSubgroups\"\
-    : [\n           \"str\"  # Optional. The device class subgroups for the deployment.\n\
-    \       ],\n       \"groupId\": \"str\",  # The group identity. Required.\n  \
-    \     \"isCanceled\": bool,  # Optional. Boolean flag indicating whether the\n\
-    \         deployment was canceled.\n       \"isCloudInitiatedRollback\": bool,\
-    \  # Optional. Boolean flag indicating\n         whether the deployment is a rollback\
-    \ deployment.\n       \"isRetried\": bool,  # Optional. Boolean flag indicating\
-    \ whether the\n         deployment has been retried.\n       \"rollbackPolicy\"\
-    : {\n           \"failure\": {\n               \"devicesFailedCount\": 0,  # Number\
-    \ of devices that failed.\n                 Required.\n               \"devicesFailedPercentage\"\
-    : 0  # Percentage of devices that\n                 failed. Required.\n      \
-    \     },\n           \"update\": {\n               \"description\": \"str\", \
-    \ # Optional. Update description.\n               \"friendlyName\": \"str\", \
-    \ # Optional. Friendly update name.\n               \"updateId\": {\n        \
-    \           \"name\": \"str\",  # Update name. Required.\n                   \"\
-    provider\": \"str\",  # Update provider. Required.\n                   \"version\"\
-    : \"str\"  # Update version. Required.\n               }\n           }\n     \
-    \  },\n       \"startDateTime\": \"2020-02-20 00:00:00\",  # The deployment start\
-    \ datetime.\n         Required.\n       \"update\": {\n           \"description\"\
-    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
-    ,  # Optional. Friendly update name.\n           \"updateId\": {\n           \
-    \    \"name\": \"str\",  # Update name. Required.\n               \"provider\"\
-    : \"str\",  # Update provider. Required.\n               \"version\": \"str\"\
-    \  # Update version. Required.\n           }\n       }\n   }\n   ````\n"
+    : \"str\",  # The caller-provided deployment identifier. This\n         cannot\
+    \ be longer than 73 characters, must be all lower-case, and cannot contain\n \
+    \        '&', '^', '[', ']', '{', '}', '|', '<', '>', forward slash, backslash,\
+    \ or double\n         quote. The Updates view in the Azure Portal IoT Hub resource\
+    \ generates a GUID for\n         deploymentId when you create a deployment. Required.\n\
+    \       \"groupId\": \"str\",  # The group identity for the devices the deployment\
+    \ is\n         intended to update. Required.\n       \"startDateTime\": \"2020-02-20\
+    \ 00:00:00\",  # The deployment start datetime.\n         Required.\n       \"\
+    update\": {\n           \"updateId\": {\n               \"name\": \"str\",  #\
+    \ Update name. Required.\n               \"provider\": \"str\",  # Update provider.\
+    \ Required.\n               \"version\": \"str\"  # Update version. Required.\n\
+    \           },\n           \"description\": \"str\",  # Optional. Update description.\n\
+    \           \"friendlyName\": \"str\"  # Optional. Friendly update name.\n   \
+    \    },\n       \"deviceClassSubgroups\": [\n           \"str\"  # Optional. The\
+    \ device class subgroups the deployment is\n             compatible with and subgroup\
+    \ deployments have been created for. This is not\n             provided by the\
+    \ caller during CreateOrUpdateDeployment but is automatically\n             determined\
+    \ by Device Update.\n       ],\n       \"isCanceled\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment was canceled.\n       \"isCloudInitiatedRollback\"\
+    : bool,  # Optional. Boolean flag indicating\n         whether the deployment\
+    \ is a rollback deployment.\n       \"isRetried\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment has been retried.\n       \"\
+    rollbackPolicy\": {\n           \"failure\": {\n               \"devicesFailedCount\"\
+    : 0,  # Number of devices that failed.\n                 Required.\n         \
+    \      \"devicesFailedPercentage\": 0  # Percentage of devices that\n        \
+    \         failed. Required.\n           },\n           \"update\": {\n       \
+    \        \"updateId\": {\n                   \"name\": \"str\",  # Update name.\
+    \ Required.\n                   \"provider\": \"str\",  # Update provider. Required.\n\
+    \                   \"version\": \"str\"  # Update version. Required.\n      \
+    \         },\n               \"description\": \"str\",  # Optional. Update description.\n\
+    \               \"friendlyName\": \"str\"  # Optional. Friendly update name.\n\
+    \           }\n       }\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_deployment_status
   name: get_deployment_status
   summary: 'Gets the status of a deployment including a breakdown of how many devices
@@ -385,7 +448,7 @@ methods:
     Any) -> collections.abc.MutableMapping[str, Any]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -407,24 +470,13 @@ methods:
     \   # response body for status code(s): 200\n   response == {\n       \"deploymentState\"\
     : \"str\",  # The state of the deployment. Required. Known\n         values are:\
     \ \"Active\", \"ActiveWithSubgroupFailures\", \"Failed\", \"Inactive\", and\n\
-    \         \"Canceled\".\n       \"error\": {\n           \"code\": \"str\",  #\
-    \ Server defined error code. Required.\n           \"details\": [\n          \
-    \     ...\n           ],\n           \"innererror\": {\n               \"code\"\
-    : \"str\",  # A more specific error code than what was\n                 provided\
-    \ by the containing error. Required.\n               \"errorDetail\": \"str\"\
-    ,  # Optional. The internal error or\n                 exception message.\n  \
-    \             \"innerError\": ...,\n               \"message\": \"str\"  # Optional.\
-    \ A human-readable representation\n                 of the error.\n          \
-    \ },\n           \"message\": \"str\",  # A human-readable representation of the\
-    \ error.\n             Required.\n           \"occurredDateTime\": \"2020-02-20\
-    \ 00:00:00\",  # Optional. Date and time\n             in UTC when the error occurred.\n\
-    \           \"target\": \"str\"  # Optional. The target of the error.\n      \
-    \ },\n       \"groupId\": \"str\",  # The group identity. Required.\n       \"\
-    subgroupStatus\": [\n           {\n               \"deploymentState\": \"str\"\
-    ,  # The state of the subgroup\n                 deployment. Required. Known values\
-    \ are: \"Active\", \"Failed\", \"Inactive\",\n                 and \"Canceled\"\
-    .\n               \"deviceClassId\": \"str\",  # The device class subgroup\n \
-    \                identity. Required.\n               \"devicesCanceledCount\"\
+    \         \"Canceled\".\n       \"groupId\": \"str\",  # The group identity. Required.\n\
+    \       \"subgroupStatus\": [\n           {\n               \"deploymentState\"\
+    : \"str\",  # The state of the subgroup\n                 deployment. Required.\
+    \ Known values are: \"Active\", \"Failed\", \"Inactive\",\n                 and\
+    \ \"Canceled\".\n               \"deviceClassId\": \"str\",  # The device class\
+    \ subgroup\n                 identity. Required.\n               \"groupId\":\
+    \ \"str\",  # The group identity. Required.\n               \"devicesCanceledCount\"\
     : 0,  # Optional. The number of devices\n                 which have had their\
     \ deployment canceled.\n               \"devicesCompletedFailedCount\": 0,  #\
     \ Optional. The number of\n                 devices that have completed deployment\
@@ -433,22 +485,33 @@ methods:
     \               \"devicesInProgressCount\": 0,  # Optional. The number of\n  \
     \               devices that are currently in deployment.\n               \"error\"\
     : {\n                   \"code\": \"str\",  # Server defined error code.\n   \
-    \                  Required.\n                   \"details\": [\n            \
-    \           ...\n                   ],\n                   \"innererror\": {\n\
-    \                       \"code\": \"str\",  # A more specific error code\n   \
-    \                      than what was provided by the containing error. Required.\n\
-    \                       \"errorDetail\": \"str\",  # Optional. The\n         \
-    \                internal error or exception message.\n                      \
-    \ \"innerError\": ...,\n                       \"message\": \"str\"  # Optional.\
-    \ A\n                         human-readable representation of the error.\n  \
-    \                 },\n                   \"message\": \"str\",  # A human-readable\
+    \                  Required.\n                   \"message\": \"str\",  # A human-readable\
     \ representation\n                     of the error. Required.\n             \
-    \      \"occurredDateTime\": \"2020-02-20 00:00:00\",  #\n                   \
-    \  Optional. Date and time in UTC when the error occurred.\n                 \
-    \  \"target\": \"str\"  # Optional. The target of the error.\n               },\n\
-    \               \"groupId\": \"str\",  # The group identity. Required.\n     \
-    \          \"totalDevices\": 0  # Optional. The total number of devices in\n \
-    \                the deployment.\n           }\n       ]\n   }\n   ````\n"
+    \      \"details\": [\n                       ...\n                   ],\n   \
+    \                \"innererror\": {\n                       \"code\": \"str\",\
+    \  # A more specific error code\n                         than what was provided\
+    \ by the containing error. Required.\n                       \"errorDetail\":\
+    \ \"str\",  # Optional. The\n                         internal error or exception\
+    \ message.\n                       \"innerError\": ...,\n                    \
+    \   \"message\": \"str\"  # Optional. A\n                         human-readable\
+    \ representation of the error.\n                   },\n                   \"occurredDateTime\"\
+    : \"2020-02-20 00:00:00\",  #\n                     Optional. Date and time in\
+    \ UTC when the error occurred.\n                   \"target\": \"str\"  # Optional.\
+    \ The target of the error.\n               },\n               \"totalDevices\"\
+    : 0  # Optional. The total number of devices in\n                 the deployment.\n\
+    \           }\n       ],\n       \"error\": {\n           \"code\": \"str\", \
+    \ # Server defined error code. Required.\n           \"message\": \"str\",  #\
+    \ A human-readable representation of the error.\n             Required.\n    \
+    \       \"details\": [\n               ...\n           ],\n           \"innererror\"\
+    : {\n               \"code\": \"str\",  # A more specific error code than what\
+    \ was\n                 provided by the containing error. Required.\n        \
+    \       \"errorDetail\": \"str\",  # Optional. The internal error or\n       \
+    \          exception message.\n               \"innerError\": ...,\n         \
+    \      \"message\": \"str\"  # Optional. A human-readable representation\n   \
+    \              of the error.\n           },\n           \"occurredDateTime\":\
+    \ \"2020-02-20 00:00:00\",  # Optional. Date and time\n             in UTC when\
+    \ the error occurred.\n           \"target\": \"str\"  # Optional. The target\
+    \ of the error.\n       }\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_device
   name: get_device
   summary: 'Gets the device properties and latest deployment status for a device connected
@@ -473,46 +536,47 @@ methods:
   - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"deploymentStatus\"\
-    : \"str\",  # Optional. State of the device in its last\n         deployment.\
-    \ Known values are: \"Succeeded\", \"InProgress\", \"Canceled\", and\n       \
-    \  \"Failed\".\n       \"deviceClassId\": \"str\",  # Device class identity. Required.\n\
-    \       \"deviceId\": \"str\",  # Device identity. Required.\n       \"groupId\"\
-    : \"str\",  # Optional. Device group identity.\n       \"installedUpdate\": {\n\
-    \           \"description\": \"str\",  # Optional. Update description.\n     \
-    \      \"friendlyName\": \"str\",  # Optional. Friendly update name.\n       \
-    \    \"updateId\": {\n               \"name\": \"str\",  # Update name. Required.\n\
-    \               \"provider\": \"str\",  # Update provider. Required.\n       \
-    \        \"version\": \"str\"  # Update version. Required.\n           }\n   \
-    \    },\n       \"lastAttemptedUpdate\": {\n           \"description\": \"str\"\
-    ,  # Optional. Update description.\n           \"friendlyName\": \"str\",  # Optional.\
-    \ Friendly update name.\n           \"updateId\": {\n               \"name\":\
-    \ \"str\",  # Update name. Required.\n               \"provider\": \"str\",  #\
-    \ Update provider. Required.\n               \"version\": \"str\"  # Update version.\
-    \ Required.\n           }\n       },\n       \"lastDeploymentId\": \"str\",  #\
-    \ Optional. The deployment identifier for the\n         last deployment to the\
-    \ device.\n       \"lastInstallResult\": {\n           \"extendedResultCode\"\
-    : 0,  # Install extended result code. Required.\n           \"resultCode\": 0,\
-    \  # Install result code. Required.\n           \"resultDetails\": \"str\",  #\
-    \ Optional. A string containing further\n             details about the install\
-    \ result.\n           \"stepResults\": [\n               {\n                 \
-    \  \"description\": \"str\",  # Optional. Step description.\n                \
-    \   \"extendedResultCode\": 0,  # Install extended result\n                  \
-    \   code. Required.\n                   \"resultCode\": 0,  # Install result code.\
-    \ Required.\n                   \"resultDetails\": \"str\",  # Optional. A string\n\
-    \                     containing further details about the install result.\n \
-    \                  \"update\": {\n                       \"description\": \"str\"\
-    ,  # Optional. Update\n                         description.\n               \
-    \        \"friendlyName\": \"str\",  # Optional. Friendly\n                  \
-    \       update name.\n                       \"updateId\": {\n               \
-    \            \"name\": \"str\",  # Update name.\n                            \
-    \ Required.\n                           \"provider\": \"str\",  # Update\n   \
-    \                          provider. Required.\n                           \"\
-    version\": \"str\"  # Update version.\n                             Required.\n\
-    \                       }\n                   }\n               }\n          \
-    \ ]\n       },\n       \"moduleId\": \"str\",  # Optional. Device module identity.\n\
-    \       \"onLatestUpdate\": bool  # Boolean flag indicating whether the latest\
-    \ update\n         is installed on the device. Required.\n   }\n   ````\n"
+    \   # response body for status code(s): 200\n   response == {\n       \"deviceClassId\"\
+    : \"str\",  # Device class identity. Required.\n       \"deviceId\": \"str\",\
+    \  # Device identity. Required.\n       \"onLatestUpdate\": bool,  # Boolean flag\
+    \ indicating whether the latest update\n         (the best compatible update for\
+    \ the device's device class and group) is installed\n         on the device. Required.\n\
+    \       \"deploymentStatus\": \"str\",  # Optional. State of the device in its\
+    \ last\n         deployment. Known values are: \"Succeeded\", \"InProgress\",\
+    \ \"Canceled\", and\n         \"Failed\".\n       \"groupId\": \"str\",  # Optional.\
+    \ Device group identity.\n       \"installedUpdate\": {\n           \"updateId\"\
+    : {\n               \"name\": \"str\",  # Update name. Required.\n           \
+    \    \"provider\": \"str\",  # Update provider. Required.\n               \"version\"\
+    : \"str\"  # Update version. Required.\n           },\n           \"description\"\
+    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
+    \  # Optional. Friendly update name.\n       },\n       \"lastAttemptedUpdate\"\
+    : {\n           \"updateId\": {\n               \"name\": \"str\",  # Update name.\
+    \ Required.\n               \"provider\": \"str\",  # Update provider. Required.\n\
+    \               \"version\": \"str\"  # Update version. Required.\n          \
+    \ },\n           \"description\": \"str\",  # Optional. Update description.\n\
+    \           \"friendlyName\": \"str\"  # Optional. Friendly update name.\n   \
+    \    },\n       \"lastDeploymentId\": \"str\",  # Optional. The deployment identifier\
+    \ for the\n         last deployment to the device.\n       \"lastInstallResult\"\
+    : {\n           \"extendedResultCode\": 0,  # Install extended result code. Required.\n\
+    \           \"resultCode\": 0,  # Install result code. Required.\n           \"\
+    resultDetails\": \"str\",  # Optional. A string containing further\n         \
+    \    details about the install result.\n           \"stepResults\": [\n      \
+    \         {\n                   \"extendedResultCode\": 0,  # Install extended\
+    \ result\n                     code. Required.\n                   \"resultCode\"\
+    : 0,  # Install result code. Required.\n                   \"description\": \"\
+    str\",  # Optional. Step description.\n                   \"resultDetails\": \"\
+    str\",  # Optional. A string\n                     containing further details\
+    \ about the install result.\n                   \"update\": {\n              \
+    \         \"updateId\": {\n                           \"name\": \"str\",  # Update\
+    \ name.\n                             Required.\n                           \"\
+    provider\": \"str\",  # Update\n                             provider. Required.\n\
+    \                           \"version\": \"str\"  # Update version.\n        \
+    \                     Required.\n                       },\n                 \
+    \      \"description\": \"str\",  # Optional. Update\n                       \
+    \  description.\n                       \"friendlyName\": \"str\"  # Optional.\
+    \ Friendly\n                         update name.\n                   }\n    \
+    \           }\n           ]\n       },\n       \"moduleId\": \"str\"  # Optional.\
+    \ Device module identity.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_device_class
   name: get_device_class
   summary: Gets the properties of a device class.
@@ -534,28 +598,72 @@ methods:
   - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"bestCompatibleUpdate\"\
-    : {\n           \"description\": \"str\",  # Optional. Update description.\n \
-    \          \"friendlyName\": \"str\",  # Optional. Friendly update name.\n   \
-    \        \"updateId\": {\n               \"name\": \"str\",  # Update name. Required.\n\
-    \               \"provider\": \"str\",  # Update provider. Required.\n       \
-    \        \"version\": \"str\"  # Update version. Required.\n           }\n   \
-    \    },\n       \"deviceClassId\": \"str\",  # The device class identifier. Required.\n\
-    \       \"deviceClassProperties\": {\n           \"compatProperties\": {\n   \
-    \            \"str\": \"str\"  # The compat properties of the device class.\n\
-    \                 This object can be thought of as a set of key-value pairs where\
-    \ the key\n                 is the name of the compatibility property and the\
-    \ value is the value of\n                 the compatibility property. There will\
-    \ always be at least 1 compat\n                 property. Required.\n        \
-    \   },\n           \"contractModel\": {\n               \"id\": \"str\",  # The\
-    \ Device Update agent contract model Id of\n                 the device class.\
-    \ This is also used to calculate the device class Id.\n                 Required.\n\
-    \               \"name\": \"str\"  # The Device Update agent contract model name\n\
-    \                 of the device class. Intended to be a more readable form of\
-    \ the contract\n                 model Id. Required.\n           }\n       },\n\
-    \       \"friendlyName\": \"str\"  # Optional. The device class friendly name.\
-    \ This can\n         be updated by callers after the device class has been automatically\
-    \ created.\n   }\n   ````\n"
+    \   # response body for status code(s): 200\n   response == {\n       \"deviceClassId\"\
+    : \"str\",  # The device class identifier. This is generated\n         from the\
+    \ model Id and the compat properties reported by the device update agent\n   \
+    \      in the Device Update PnP interface in IoT Hub. It is a hex-encoded SHA1\
+    \ hash.\n         Required.\n       \"deviceClassProperties\": {\n           \"\
+    compatProperties\": {\n               \"str\": \"str\"  # The compat properties\
+    \ of the device class.\n                 This object can be thought of as a set\
+    \ of key-value pairs where the key\n                 is the name of the compatibility\
+    \ property and the value is the value of\n                 the compatibility property.\
+    \ There will always be at least 1 compat\n                 property. Required.\n\
+    \           },\n           \"contractModel\": {\n               \"id\": \"str\"\
+    ,  # The Device Update agent contract model Id of\n                 the device\
+    \ class. This is also used to calculate the device class Id.\n               \
+    \  Required.\n               \"name\": \"str\"  # The Device Update agent contract\
+    \ model name\n                 of the device class. Intended to be a more readable\
+    \ form of the contract\n                 model Id. Required.\n           }\n \
+    \      },\n       \"bestCompatibleUpdate\": {\n           \"updateId\": {\n  \
+    \             \"name\": \"str\",  # Update name. Required.\n               \"\
+    provider\": \"str\",  # Update provider. Required.\n               \"version\"\
+    : \"str\"  # Update version. Required.\n           },\n           \"description\"\
+    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
+    \  # Optional. Friendly update name.\n       },\n       \"friendlyName\": \"str\"\
+    \  # Optional. The device class friendly name. This can\n         be updated by\
+    \ callers after the device class has been automatically created.\n   }\n   ````\n"
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_device_class_subgroup
+  name: get_device_class_subgroup
+  summary: 'Gets device class subgroup details. A device class subgroup is the set
+    of devices within the
+
+    group that share the same device class. All devices within the same device class
+    are compatible
+
+    with the same updates.'
+  signature: 'async get_device_class_subgroup(group_id: str, device_class_id: str,
+    **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
+  parameters:
+  - name: group_id
+    description: Group identifier. Required.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: device_class_id
+    description: Device class identifier. Required.
+    isRequired: true
+    types:
+    - <xref:str>
+  return:
+    description: JSON object
+    types:
+    - <xref:JSON>
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+  examples:
+  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
+    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
+    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
+    \   # response body for status code(s): 200\n   response == {\n       \"createdDateTime\"\
+    : \"str\",  # Date and time when the device class subgroup was\n         created.\
+    \ Required.\n       \"deviceClassId\": \"str\",  # Device class subgroup identity.\
+    \ This is generated\n         from the model Id and the compat properties reported\
+    \ by the device update agent\n         in the Device Update PnP interface in IoT\
+    \ Hub. It is a hex-encoded SHA1 hash.\n         Required.\n       \"groupId\"\
+    : \"str\",  # Group identity. Required.\n       \"deploymentId\": \"str\",  #\
+    \ Optional. The active deployment Id for the device\n         class subgroup.\n\
+    \       \"deviceCount\": 0  # Optional. The number of devices in the device class\n\
+    \         subgroup.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_device_class_subgroup_deployment_status
   name: get_device_class_subgroup_deployment_status
   summary: 'Gets the status of a deployment including a breakdown of how many devices
@@ -567,7 +675,7 @@ methods:
     Any]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -595,60 +703,26 @@ methods:
     : \"str\",  # The state of the subgroup deployment. Required.\n         Known\
     \ values are: \"Active\", \"Failed\", \"Inactive\", and \"Canceled\".\n      \
     \ \"deviceClassId\": \"str\",  # The device class subgroup identity. Required.\n\
-    \       \"devicesCanceledCount\": 0,  # Optional. The number of devices which\
-    \ have had\n         their deployment canceled.\n       \"devicesCompletedFailedCount\"\
-    : 0,  # Optional. The number of devices that\n         have completed deployment\
-    \ with a failure.\n       \"devicesCompletedSucceededCount\": 0,  # Optional.\
-    \ The number of devices which\n         have successfully completed deployment.\n\
-    \       \"devicesInProgressCount\": 0,  # Optional. The number of devices that\
-    \ are\n         currently in deployment.\n       \"error\": {\n           \"code\"\
-    : \"str\",  # Server defined error code. Required.\n           \"details\": [\n\
-    \               ...\n           ],\n           \"innererror\": {\n           \
-    \    \"code\": \"str\",  # A more specific error code than what was\n        \
-    \         provided by the containing error. Required.\n               \"errorDetail\"\
-    : \"str\",  # Optional. The internal error or\n                 exception message.\n\
-    \               \"innerError\": ...,\n               \"message\": \"str\"  # Optional.\
+    \       \"groupId\": \"str\",  # The group identity. Required.\n       \"devicesCanceledCount\"\
+    : 0,  # Optional. The number of devices which have had\n         their deployment\
+    \ canceled.\n       \"devicesCompletedFailedCount\": 0,  # Optional. The number\
+    \ of devices that\n         have completed deployment with a failure.\n      \
+    \ \"devicesCompletedSucceededCount\": 0,  # Optional. The number of devices which\n\
+    \         have successfully completed deployment.\n       \"devicesInProgressCount\"\
+    : 0,  # Optional. The number of devices that are\n         currently in deployment.\n\
+    \       \"error\": {\n           \"code\": \"str\",  # Server defined error code.\
+    \ Required.\n           \"message\": \"str\",  # A human-readable representation\
+    \ of the error.\n             Required.\n           \"details\": [\n         \
+    \      ...\n           ],\n           \"innererror\": {\n               \"code\"\
+    : \"str\",  # A more specific error code than what was\n                 provided\
+    \ by the containing error. Required.\n               \"errorDetail\": \"str\"\
+    ,  # Optional. The internal error or\n                 exception message.\n  \
+    \             \"innerError\": ...,\n               \"message\": \"str\"  # Optional.\
     \ A human-readable representation\n                 of the error.\n          \
-    \ },\n           \"message\": \"str\",  # A human-readable representation of the\
-    \ error.\n             Required.\n           \"occurredDateTime\": \"2020-02-20\
-    \ 00:00:00\",  # Optional. Date and time\n             in UTC when the error occurred.\n\
-    \           \"target\": \"str\"  # Optional. The target of the error.\n      \
-    \ },\n       \"groupId\": \"str\",  # The group identity. Required.\n       \"\
-    totalDevices\": 0  # Optional. The total number of devices in the deployment.\n\
-    \   }\n   ````\n"
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_device_class_subgroup_details
-  name: get_device_class_subgroup_details
-  summary: Gets device class subgroup details.
-  signature: 'async get_device_class_subgroup_details(group_id: str, device_class_id:
-    str, **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
-  parameters:
-  - name: group_id
-    description: Group identity. Required.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: device_class_id
-    description: Device class identifier. Required.
-    isRequired: true
-    types:
-    - <xref:str>
-  return:
-    description: JSON object
-    types:
-    - <xref:JSON>
-  exceptions:
-  - type: azure.core.exceptions.HttpResponseError
-  examples:
-  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
-    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
-    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"createdDateTime\"\
-    : \"str\",  # Date and time when the deviceclass subgroup was\n         created.\
-    \ Required.\n       \"deploymentId\": \"str\",  # Optional. The active deployment\
-    \ Id for the\n         deviceclass subgroup.\n       \"deviceClassId\": \"str\"\
-    ,  # Device class subgroup identity. Required.\n       \"deviceCount\": 0,  #\
-    \ Optional. The number of devices in the deviceclass\n         subgroup.\n   \
-    \    \"groupId\": \"str\"  # Group identity. Required.\n   }\n   ````\n"
+    \ },\n           \"occurredDateTime\": \"2020-02-20 00:00:00\",  # Optional. Date\
+    \ and time\n             in UTC when the error occurred.\n           \"target\"\
+    : \"str\"  # Optional. The target of the error.\n       },\n       \"totalDevices\"\
+    : 0  # Optional. The total number of devices in the deployment.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_device_class_subgroup_update_compliance
   name: get_device_class_subgroup_update_compliance
   summary: 'Get device class subgroup update compliance information such as how many
@@ -662,7 +736,7 @@ methods:
     str, **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -716,46 +790,47 @@ methods:
   - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"deploymentStatus\"\
-    : \"str\",  # Optional. State of the device in its last\n         deployment.\
-    \ Known values are: \"Succeeded\", \"InProgress\", \"Canceled\", and\n       \
-    \  \"Failed\".\n       \"deviceClassId\": \"str\",  # Device class identity. Required.\n\
-    \       \"deviceId\": \"str\",  # Device identity. Required.\n       \"groupId\"\
-    : \"str\",  # Optional. Device group identity.\n       \"installedUpdate\": {\n\
-    \           \"description\": \"str\",  # Optional. Update description.\n     \
-    \      \"friendlyName\": \"str\",  # Optional. Friendly update name.\n       \
-    \    \"updateId\": {\n               \"name\": \"str\",  # Update name. Required.\n\
-    \               \"provider\": \"str\",  # Update provider. Required.\n       \
-    \        \"version\": \"str\"  # Update version. Required.\n           }\n   \
-    \    },\n       \"lastAttemptedUpdate\": {\n           \"description\": \"str\"\
-    ,  # Optional. Update description.\n           \"friendlyName\": \"str\",  # Optional.\
-    \ Friendly update name.\n           \"updateId\": {\n               \"name\":\
-    \ \"str\",  # Update name. Required.\n               \"provider\": \"str\",  #\
-    \ Update provider. Required.\n               \"version\": \"str\"  # Update version.\
-    \ Required.\n           }\n       },\n       \"lastDeploymentId\": \"str\",  #\
-    \ Optional. The deployment identifier for the\n         last deployment to the\
-    \ device.\n       \"lastInstallResult\": {\n           \"extendedResultCode\"\
-    : 0,  # Install extended result code. Required.\n           \"resultCode\": 0,\
-    \  # Install result code. Required.\n           \"resultDetails\": \"str\",  #\
-    \ Optional. A string containing further\n             details about the install\
-    \ result.\n           \"stepResults\": [\n               {\n                 \
-    \  \"description\": \"str\",  # Optional. Step description.\n                \
-    \   \"extendedResultCode\": 0,  # Install extended result\n                  \
-    \   code. Required.\n                   \"resultCode\": 0,  # Install result code.\
-    \ Required.\n                   \"resultDetails\": \"str\",  # Optional. A string\n\
-    \                     containing further details about the install result.\n \
-    \                  \"update\": {\n                       \"description\": \"str\"\
-    ,  # Optional. Update\n                         description.\n               \
-    \        \"friendlyName\": \"str\",  # Optional. Friendly\n                  \
-    \       update name.\n                       \"updateId\": {\n               \
-    \            \"name\": \"str\",  # Update name.\n                            \
-    \ Required.\n                           \"provider\": \"str\",  # Update\n   \
-    \                          provider. Required.\n                           \"\
-    version\": \"str\"  # Update version.\n                             Required.\n\
-    \                       }\n                   }\n               }\n          \
-    \ ]\n       },\n       \"moduleId\": \"str\",  # Optional. Device module identity.\n\
-    \       \"onLatestUpdate\": bool  # Boolean flag indicating whether the latest\
-    \ update\n         is installed on the device. Required.\n   }\n   ````\n"
+    \   # response body for status code(s): 200\n   response == {\n       \"deviceClassId\"\
+    : \"str\",  # Device class identity. Required.\n       \"deviceId\": \"str\",\
+    \  # Device identity. Required.\n       \"onLatestUpdate\": bool,  # Boolean flag\
+    \ indicating whether the latest update\n         (the best compatible update for\
+    \ the device's device class and group) is installed\n         on the device. Required.\n\
+    \       \"deploymentStatus\": \"str\",  # Optional. State of the device in its\
+    \ last\n         deployment. Known values are: \"Succeeded\", \"InProgress\",\
+    \ \"Canceled\", and\n         \"Failed\".\n       \"groupId\": \"str\",  # Optional.\
+    \ Device group identity.\n       \"installedUpdate\": {\n           \"updateId\"\
+    : {\n               \"name\": \"str\",  # Update name. Required.\n           \
+    \    \"provider\": \"str\",  # Update provider. Required.\n               \"version\"\
+    : \"str\"  # Update version. Required.\n           },\n           \"description\"\
+    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
+    \  # Optional. Friendly update name.\n       },\n       \"lastAttemptedUpdate\"\
+    : {\n           \"updateId\": {\n               \"name\": \"str\",  # Update name.\
+    \ Required.\n               \"provider\": \"str\",  # Update provider. Required.\n\
+    \               \"version\": \"str\"  # Update version. Required.\n          \
+    \ },\n           \"description\": \"str\",  # Optional. Update description.\n\
+    \           \"friendlyName\": \"str\"  # Optional. Friendly update name.\n   \
+    \    },\n       \"lastDeploymentId\": \"str\",  # Optional. The deployment identifier\
+    \ for the\n         last deployment to the device.\n       \"lastInstallResult\"\
+    : {\n           \"extendedResultCode\": 0,  # Install extended result code. Required.\n\
+    \           \"resultCode\": 0,  # Install result code. Required.\n           \"\
+    resultDetails\": \"str\",  # Optional. A string containing further\n         \
+    \    details about the install result.\n           \"stepResults\": [\n      \
+    \         {\n                   \"extendedResultCode\": 0,  # Install extended\
+    \ result\n                     code. Required.\n                   \"resultCode\"\
+    : 0,  # Install result code. Required.\n                   \"description\": \"\
+    str\",  # Optional. Step description.\n                   \"resultDetails\": \"\
+    str\",  # Optional. A string\n                     containing further details\
+    \ about the install result.\n                   \"update\": {\n              \
+    \         \"updateId\": {\n                           \"name\": \"str\",  # Update\
+    \ name.\n                             Required.\n                           \"\
+    provider\": \"str\",  # Update\n                             provider. Required.\n\
+    \                           \"version\": \"str\"  # Update version.\n        \
+    \                     Required.\n                       },\n                 \
+    \      \"description\": \"str\",  # Optional. Update\n                       \
+    \  description.\n                       \"friendlyName\": \"str\"  # Optional.\
+    \ Friendly\n                         update name.\n                   }\n    \
+    \           }\n           ]\n       },\n       \"moduleId\": \"str\"  # Optional.\
+    \ Device module identity.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_group
   name: get_group
   summary: Gets the device group properties.
@@ -763,7 +838,7 @@ methods:
     Any]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -779,28 +854,26 @@ methods:
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"createdDateTime\"\
     : \"str\",  # Date and time when the update was created.\n         Required.\n\
-    \       \"deployments\": [\n           \"str\"  # Optional. The active deployment\
+    \       \"groupId\": \"str\",  # Group identity. This is created from the value\
+    \ of the\n         ADUGroup tag in the Iot Hub's device/module twin or $default\
+    \ for devices with no\n         tag. Required.\n       \"groupType\": \"str\"\
+    ,  # Group type. Required. Known values are: \"IoTHubTag\"\n         and \"DefaultNoTag\"\
+    .\n       \"deployments\": [\n           \"str\"  # Optional. The active deployment\
     \ Ids for the group.\n       ],\n       \"deviceCount\": 0,  # Optional. The number\
-    \ of devices in the group.\n       \"groupId\": \"str\",  # Group identity. Required.\n\
-    \       \"groupType\": \"str\",  # Group type. Required. Known values are: \"\
-    IoTHubTag\"\n         and \"DefaultNoTag\".\n       \"subgroupsWithNewUpdatesAvailableCount\"\
-    : 0,  # Optional. The count of\n         subgroups with new updates available.\n\
+    \ of devices in the group.\n       \"subgroupsWithNewUpdatesAvailableCount\":\
+    \ 0,  # Optional. The count of\n         subgroups with new updates available.\n\
     \       \"subgroupsWithOnLatestUpdateCount\": 0,  # Optional. The count of subgroups\n\
     \         with devices on the latest update.\n       \"subgroupsWithUpdatesInProgressCount\"\
     : 0  # Optional. The count of subgroups\n         with updates in progress.\n\
     \   }\n   ````\n"
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_group_update_compliance
-  name: get_group_update_compliance
-  summary: 'Get device group update compliance information such as how many devices
-    are on their latest
-
-    update, how many need new updates, and how many are in progress on receiving a
-    new update.'
-  signature: 'async get_group_update_compliance(group_id: str, **kwargs: Any) -> collections.abc.MutableMapping[str,
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_log_collection
+  name: get_log_collection
+  summary: Get the device diagnostics log collection.
+  signature: 'async get_log_collection(log_collection_id: str, **kwargs: Any) -> collections.abc.MutableMapping[str,
     Any]'
   parameters:
-  - name: group_id
-    description: Group identity. Required.
+  - name: log_collection_id
+    description: Log collection identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -814,52 +887,24 @@ methods:
   - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"newUpdatesAvailableDeviceCount\"\
-    : 0,  # Number of devices with a newer update\n         available. Required.\n\
-    \       \"onLatestUpdateDeviceCount\": 0,  # Number of devices on the latest update.\n\
-    \         Required.\n       \"totalDeviceCount\": 0,  # Total number of devices.\
-    \ Required.\n       \"updatesInProgressDeviceCount\": 0  # Number of devices with\
-    \ update\n         in-progress. Required.\n   }\n   ````\n"
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_log_collection_operation
-  name: get_log_collection_operation
-  summary: Get the device diagnostics log collection operation.
-  signature: 'async get_log_collection_operation(operation_id: str, **kwargs: Any)
-    -> collections.abc.MutableMapping[str, Any]'
+    \   # response body for status code(s): 200\n   response == {\n       \"deviceList\"\
+    : [\n           {\n               \"deviceId\": \"str\",  # Device Id. Required.\n\
+    \               \"moduleId\": \"str\"  # Optional. Module Id.\n           }\n\
+    \       ],\n       \"createdDateTime\": \"str\",  # Optional. The timestamp when\
+    \ the operation was\n         created.\n       \"description\": \"str\",  # Optional.\
+    \ Description of the diagnostics operation.\n       \"lastActionDateTime\": \"\
+    str\",  # Optional. A timestamp for when the current\n         state was entered.\n\
+    \       \"operationId\": \"str\",  # Optional. The log collection id.\n      \
+    \ \"status\": \"str\"  # Optional. Operation status. Known values are:\n     \
+    \    \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\".\n   }\n   ````\n"
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_log_collection_detailed_status
+  name: get_log_collection_detailed_status
+  summary: Get log collection with detailed status.
+  signature: 'async get_log_collection_detailed_status(log_collection_id: str, **kwargs:
+    Any) -> collections.abc.MutableMapping[str, Any]'
   parameters:
-  - name: operation_id
-    description: Operation identifier. Required.
-    isRequired: true
-    types:
-    - <xref:str>
-  return:
-    description: JSON object
-    types:
-    - <xref:JSON>
-  exceptions:
-  - type: azure.core.exceptions.HttpResponseError
-  examples:
-  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
-    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
-    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"createdDateTime\"\
-    : \"str\",  # Optional. The timestamp when the operation was\n         created.\n\
-    \       \"description\": \"str\",  # Optional. Description of the diagnostics\
-    \ operation.\n       \"deviceList\": [\n           {\n               \"deviceId\"\
-    : \"str\",  # Device Id. Required.\n               \"moduleId\": \"str\"  # Optional.\
-    \ Module Id.\n           }\n       ],\n       \"lastActionDateTime\": \"str\"\
-    ,  # Optional. A timestamp for when the current\n         state was entered.\n\
-    \       \"operationId\": \"str\",  # Optional. The diagnostics operation id.\n\
-    \       \"status\": \"str\"  # Optional. Operation status. Known values are:\n\
-    \         \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\".\n   }\n\
-    \   ````\n"
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_log_collection_operation_detailed_status
-  name: get_log_collection_operation_detailed_status
-  summary: Get device diagnostics log collection operation with detailed status.
-  signature: 'async get_log_collection_operation_detailed_status(operation_id: str,
-    **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
-  parameters:
-  - name: operation_id
-    description: Operation identifier. Required.
+  - name: log_collection_id
+    description: Log collection identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -877,23 +922,23 @@ methods:
     : \"str\",  # Optional. The timestamp when the operation was\n         created.\n\
     \       \"description\": \"str\",  # Optional. Device diagnostics operation description.\n\
     \       \"deviceStatus\": [\n           {\n               \"deviceId\": \"str\"\
-    ,  # Device id. Required.\n               \"extendedResultCode\": \"str\",  #\
-    \ Optional. Log upload extended\n                 result code.\n             \
-    \  \"logLocation\": \"str\",  # Optional. Log upload location.\n             \
-    \  \"moduleId\": \"str\",  # Optional. Module id.\n               \"resultCode\"\
-    : \"str\",  # Optional. Log upload result code.\n               \"status\": \"\
-    str\"  # Log upload status. Required. Known values\n                 are: \"NotStarted\"\
-    , \"Running\", \"Succeeded\", and \"Failed\".\n           }\n       ],\n     \
-    \  \"lastActionDateTime\": \"str\",  # Optional. A timestamp for when the current\n\
+    ,  # Device id. Required.\n               \"status\": \"str\",  # Log upload status.\
+    \ Required. Known values\n                 are: \"NotStarted\", \"Running\", \"\
+    Succeeded\", and \"Failed\".\n               \"extendedResultCode\": \"str\",\
+    \  # Optional. Log upload extended\n                 result code.\n          \
+    \     \"logLocation\": \"str\",  # Optional. Log upload location.\n          \
+    \     \"moduleId\": \"str\",  # Optional. Module id.\n               \"resultCode\"\
+    : \"str\"  # Optional. Log upload result code.\n           }\n       ],\n    \
+    \   \"lastActionDateTime\": \"str\",  # Optional. A timestamp for when the current\n\
     \         state was entered.\n       \"operationId\": \"str\",  # Optional. The\
     \ device diagnostics operation id.\n       \"status\": \"str\"  # Optional. Operation\
     \ status. Known values are:\n         \"NotStarted\", \"Running\", \"Succeeded\"\
     , and \"Failed\".\n   }\n   ````\n"
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_operation
-  name: get_operation
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_operation_status
+  name: get_operation_status
   summary: Retrieve operation status.
-  signature: 'async get_operation(operation_id: str, *, if_none_match: Optional[str]
-    = None, **kwargs: Any) -> Optional[collections.abc.MutableMapping[str, Any]]'
+  signature: 'async get_operation_status(operation_id: str, *, if_none_match: Optional[str]
+    = None, **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
   parameters:
   - name: operation_id
     description: Operation identifier. Required.
@@ -907,10 +952,9 @@ methods:
     types:
     - <xref:str>
   return:
-    description: JSON object or None
+    description: JSON object
     types:
     - <xref:JSON>
-    - <xref:None>
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
   examples:
@@ -919,24 +963,24 @@ methods:
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"createdDateTime\"\
     : \"2020-02-20 00:00:00\",  # Date and time in UTC when the\n         operation\
-    \ was created. Required.\n       \"error\": {\n           \"code\": \"str\", \
-    \ # Server defined error code. Required.\n           \"details\": [\n        \
-    \       ...\n           ],\n           \"innererror\": {\n               \"code\"\
-    : \"str\",  # A more specific error code than what was\n                 provided\
-    \ by the containing error. Required.\n               \"errorDetail\": \"str\"\
-    ,  # Optional. The internal error or\n                 exception message.\n  \
-    \             \"innerError\": ...,\n               \"message\": \"str\"  # Optional.\
-    \ A human-readable representation\n                 of the error.\n          \
-    \ },\n           \"message\": \"str\",  # A human-readable representation of the\
-    \ error.\n             Required.\n           \"occurredDateTime\": \"2020-02-20\
-    \ 00:00:00\",  # Optional. Date and time\n             in UTC when the error occurred.\n\
-    \           \"target\": \"str\"  # Optional. The target of the error.\n      \
-    \ },\n       \"etag\": \"str\",  # Optional. Operation ETag.\n       \"lastActionDateTime\"\
-    : \"2020-02-20 00:00:00\",  # Date and time in UTC when the\n         operation\
-    \ status was last updated. Required.\n       \"operationId\": \"str\",  # Operation\
-    \ Id. Required.\n       \"status\": \"str\",  # Operation status. Required. Known\
-    \ values are:\n         \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\"\
-    .\n       \"traceId\": \"str\"  # Optional. Operation correlation identity that\
+    \ was created. Required.\n       \"lastActionDateTime\": \"2020-02-20 00:00:00\"\
+    ,  # Date and time in UTC when the\n         operation status was last updated.\
+    \ Required.\n       \"operationId\": \"str\",  # Operation Id. Required.\n   \
+    \    \"status\": \"str\",  # Operation status. Required. Known values are:\n \
+    \        \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\".\n       \"\
+    error\": {\n           \"code\": \"str\",  # Server defined error code. Required.\n\
+    \           \"message\": \"str\",  # A human-readable representation of the error.\n\
+    \             Required.\n           \"details\": [\n               ...\n     \
+    \      ],\n           \"innererror\": {\n               \"code\": \"str\",  #\
+    \ A more specific error code than what was\n                 provided by the containing\
+    \ error. Required.\n               \"errorDetail\": \"str\",  # Optional. The\
+    \ internal error or\n                 exception message.\n               \"innerError\"\
+    : ...,\n               \"message\": \"str\"  # Optional. A human-readable representation\n\
+    \                 of the error.\n           },\n           \"occurredDateTime\"\
+    : \"2020-02-20 00:00:00\",  # Optional. Date and time\n             in UTC when\
+    \ the error occurred.\n           \"target\": \"str\"  # Optional. The target\
+    \ of the error.\n       },\n       \"etag\": \"str\",  # Optional. Operation ETag.\n\
+    \       \"traceId\": \"str\"  # Optional. Operation correlation identity that\
     \ can used by\n         Microsoft Support for troubleshooting.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_update_compliance
   name: get_update_compliance
@@ -962,22 +1006,18 @@ methods:
     \         Required.\n       \"totalDeviceCount\": 0,  # Total number of devices.\
     \ Required.\n       \"updatesInProgressDeviceCount\": 0  # Number of devices with\
     \ update\n         in-progress. Required.\n   }\n   ````\n"
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_best_updates_for_device_class_subgroup
-  name: list_best_updates_for_device_class_subgroup
-  summary: 'Get the best available update for a device class subgroup and a count
-    of how many devices need
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.get_update_compliance_for_group
+  name: get_update_compliance_for_group
+  summary: 'Get device group update compliance information such as how many devices
+    are on their latest
 
-    this update.'
-  signature: 'async list_best_updates_for_device_class_subgroup(group_id: str, device_class_id:
-    str, **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
+    update, how many need new updates, and how many are in progress on receiving a
+    new update.'
+  signature: 'async get_update_compliance_for_group(group_id: str, **kwargs: Any)
+    -> collections.abc.MutableMapping[str, Any]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: device_class_id
-    description: Device class identifier. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -991,35 +1031,24 @@ methods:
   - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"deviceClassId\"\
-    : \"str\",  # The device class subgroup's device class Id.\n         Required.\n\
-    \       \"deviceCount\": 0,  # Total number of devices for which the update is\n\
-    \         applicable. Required.\n       \"groupId\": \"str\",  # The group Id.\
-    \ Required.\n       \"update\": {\n           \"description\": \"str\",  # Optional.\
-    \ Update description.\n           \"friendlyName\": \"str\",  # Optional. Friendly\
-    \ update name.\n           \"updateId\": {\n               \"name\": \"str\",\
-    \  # Update name. Required.\n               \"provider\": \"str\",  # Update provider.\
-    \ Required.\n               \"version\": \"str\"  # Update version. Required.\n\
-    \           }\n       }\n   }\n   ````\n"
+    \   # response body for status code(s): 200\n   response == {\n       \"newUpdatesAvailableDeviceCount\"\
+    : 0,  # Number of devices with a newer update\n         available. Required.\n\
+    \       \"onLatestUpdateDeviceCount\": 0,  # Number of devices on the latest update.\n\
+    \         Required.\n       \"totalDeviceCount\": 0,  # Total number of devices.\
+    \ Required.\n       \"updatesInProgressDeviceCount\": 0  # Number of devices with\
+    \ update\n         in-progress. Required.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_best_updates_for_group
   name: list_best_updates_for_group
   summary: 'Get the best available updates for a device group and a count of how many
     devices need each
 
     update.'
-  signature: 'list_best_updates_for_group(group_id: str, *, filter: Optional[str]
-    = None, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str, Any]]'
+  signature: 'list_best_updates_for_group(group_id: str, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
+    Any]]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
-    types:
-    - <xref:str>
-  - name: filter
-    description: 'Restricts the set of bestUpdates returned. You can filter on update
-      Provider,
-
-      Name and Version property. Default value is None.'
     types:
     - <xref:str>
   return:
@@ -1036,21 +1065,21 @@ methods:
     : \"str\",  # The device class subgroup's device class Id.\n         Required.\n\
     \       \"deviceCount\": 0,  # Total number of devices for which the update is\n\
     \         applicable. Required.\n       \"groupId\": \"str\",  # The group Id.\
-    \ Required.\n       \"update\": {\n           \"description\": \"str\",  # Optional.\
-    \ Update description.\n           \"friendlyName\": \"str\",  # Optional. Friendly\
-    \ update name.\n           \"updateId\": {\n               \"name\": \"str\",\
-    \  # Update name. Required.\n               \"provider\": \"str\",  # Update provider.\
-    \ Required.\n               \"version\": \"str\"  # Update version. Required.\n\
-    \           }\n       }\n   }\n   ````\n"
+    \ Required.\n       \"update\": {\n           \"updateId\": {\n              \
+    \ \"name\": \"str\",  # Update name. Required.\n               \"provider\": \"\
+    str\",  # Update provider. Required.\n               \"version\": \"str\"  # Update\
+    \ version. Required.\n           },\n           \"description\": \"str\",  # Optional.\
+    \ Update description.\n           \"friendlyName\": \"str\"  # Optional. Friendly\
+    \ update name.\n       }\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_deployments_for_device_class_subgroup
   name: list_deployments_for_device_class_subgroup
   summary: Gets a list of deployments for a device class subgroup.
   signature: 'list_deployments_for_device_class_subgroup(group_id: str, device_class_id:
-    str, *, orderby: Optional[str] = None, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
+    str, *, order_by: Optional[str] = None, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
     Any]]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -1059,7 +1088,7 @@ methods:
     isRequired: true
     types:
     - <xref:str>
-  - name: orderby
+  - name: order_by
     description: 'Orders the set of deployments returned. You can order by start date.
       Default
 
@@ -1077,42 +1106,50 @@ methods:
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"deploymentId\"\
-    : \"str\",  # The deployment identifier. Required.\n       \"deviceClassSubgroups\"\
-    : [\n           \"str\"  # Optional. The device class subgroups for the deployment.\n\
-    \       ],\n       \"groupId\": \"str\",  # The group identity. Required.\n  \
-    \     \"isCanceled\": bool,  # Optional. Boolean flag indicating whether the\n\
-    \         deployment was canceled.\n       \"isCloudInitiatedRollback\": bool,\
-    \  # Optional. Boolean flag indicating\n         whether the deployment is a rollback\
-    \ deployment.\n       \"isRetried\": bool,  # Optional. Boolean flag indicating\
-    \ whether the\n         deployment has been retried.\n       \"rollbackPolicy\"\
-    : {\n           \"failure\": {\n               \"devicesFailedCount\": 0,  # Number\
-    \ of devices that failed.\n                 Required.\n               \"devicesFailedPercentage\"\
-    : 0  # Percentage of devices that\n                 failed. Required.\n      \
-    \     },\n           \"update\": {\n               \"description\": \"str\", \
-    \ # Optional. Update description.\n               \"friendlyName\": \"str\", \
-    \ # Optional. Friendly update name.\n               \"updateId\": {\n        \
-    \           \"name\": \"str\",  # Update name. Required.\n                   \"\
-    provider\": \"str\",  # Update provider. Required.\n                   \"version\"\
-    : \"str\"  # Update version. Required.\n               }\n           }\n     \
-    \  },\n       \"startDateTime\": \"2020-02-20 00:00:00\",  # The deployment start\
-    \ datetime.\n         Required.\n       \"update\": {\n           \"description\"\
-    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
-    ,  # Optional. Friendly update name.\n           \"updateId\": {\n           \
-    \    \"name\": \"str\",  # Update name. Required.\n               \"provider\"\
-    : \"str\",  # Update provider. Required.\n               \"version\": \"str\"\
-    \  # Update version. Required.\n           }\n       }\n   }\n   ````\n"
+    : \"str\",  # The caller-provided deployment identifier. This\n         cannot\
+    \ be longer than 73 characters, must be all lower-case, and cannot contain\n \
+    \        '&', '^', '[', ']', '{', '}', '|', '<', '>', forward slash, backslash,\
+    \ or double\n         quote. The Updates view in the Azure Portal IoT Hub resource\
+    \ generates a GUID for\n         deploymentId when you create a deployment. Required.\n\
+    \       \"groupId\": \"str\",  # The group identity for the devices the deployment\
+    \ is\n         intended to update. Required.\n       \"startDateTime\": \"2020-02-20\
+    \ 00:00:00\",  # The deployment start datetime.\n         Required.\n       \"\
+    update\": {\n           \"updateId\": {\n               \"name\": \"str\",  #\
+    \ Update name. Required.\n               \"provider\": \"str\",  # Update provider.\
+    \ Required.\n               \"version\": \"str\"  # Update version. Required.\n\
+    \           },\n           \"description\": \"str\",  # Optional. Update description.\n\
+    \           \"friendlyName\": \"str\"  # Optional. Friendly update name.\n   \
+    \    },\n       \"deviceClassSubgroups\": [\n           \"str\"  # Optional. The\
+    \ device class subgroups the deployment is\n             compatible with and subgroup\
+    \ deployments have been created for. This is not\n             provided by the\
+    \ caller during CreateOrUpdateDeployment but is automatically\n             determined\
+    \ by Device Update.\n       ],\n       \"isCanceled\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment was canceled.\n       \"isCloudInitiatedRollback\"\
+    : bool,  # Optional. Boolean flag indicating\n         whether the deployment\
+    \ is a rollback deployment.\n       \"isRetried\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment has been retried.\n       \"\
+    rollbackPolicy\": {\n           \"failure\": {\n               \"devicesFailedCount\"\
+    : 0,  # Number of devices that failed.\n                 Required.\n         \
+    \      \"devicesFailedPercentage\": 0  # Percentage of devices that\n        \
+    \         failed. Required.\n           },\n           \"update\": {\n       \
+    \        \"updateId\": {\n                   \"name\": \"str\",  # Update name.\
+    \ Required.\n                   \"provider\": \"str\",  # Update provider. Required.\n\
+    \                   \"version\": \"str\"  # Update version. Required.\n      \
+    \         },\n               \"description\": \"str\",  # Optional. Update description.\n\
+    \               \"friendlyName\": \"str\"  # Optional. Friendly update name.\n\
+    \           }\n       }\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_deployments_for_group
   name: list_deployments_for_group
   summary: Gets a list of deployments for a device group.
-  signature: 'list_deployments_for_group(group_id: str, *, orderby: Optional[str]
+  signature: 'list_deployments_for_group(group_id: str, *, order_by: Optional[str]
     = None, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str, Any]]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
-  - name: orderby
+  - name: order_by
     description: 'Orders the set of deployments returned. You can order by start date.
       Default
 
@@ -1130,38 +1167,52 @@ methods:
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"deploymentId\"\
-    : \"str\",  # The deployment identifier. Required.\n       \"deviceClassSubgroups\"\
-    : [\n           \"str\"  # Optional. The device class subgroups for the deployment.\n\
-    \       ],\n       \"groupId\": \"str\",  # The group identity. Required.\n  \
-    \     \"isCanceled\": bool,  # Optional. Boolean flag indicating whether the\n\
-    \         deployment was canceled.\n       \"isCloudInitiatedRollback\": bool,\
-    \  # Optional. Boolean flag indicating\n         whether the deployment is a rollback\
-    \ deployment.\n       \"isRetried\": bool,  # Optional. Boolean flag indicating\
-    \ whether the\n         deployment has been retried.\n       \"rollbackPolicy\"\
-    : {\n           \"failure\": {\n               \"devicesFailedCount\": 0,  # Number\
-    \ of devices that failed.\n                 Required.\n               \"devicesFailedPercentage\"\
-    : 0  # Percentage of devices that\n                 failed. Required.\n      \
-    \     },\n           \"update\": {\n               \"description\": \"str\", \
-    \ # Optional. Update description.\n               \"friendlyName\": \"str\", \
-    \ # Optional. Friendly update name.\n               \"updateId\": {\n        \
-    \           \"name\": \"str\",  # Update name. Required.\n                   \"\
-    provider\": \"str\",  # Update provider. Required.\n                   \"version\"\
-    : \"str\"  # Update version. Required.\n               }\n           }\n     \
-    \  },\n       \"startDateTime\": \"2020-02-20 00:00:00\",  # The deployment start\
-    \ datetime.\n         Required.\n       \"update\": {\n           \"description\"\
-    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
-    ,  # Optional. Friendly update name.\n           \"updateId\": {\n           \
-    \    \"name\": \"str\",  # Update name. Required.\n               \"provider\"\
-    : \"str\",  # Update provider. Required.\n               \"version\": \"str\"\
-    \  # Update version. Required.\n           }\n       }\n   }\n   ````\n"
+    : \"str\",  # The caller-provided deployment identifier. This\n         cannot\
+    \ be longer than 73 characters, must be all lower-case, and cannot contain\n \
+    \        '&', '^', '[', ']', '{', '}', '|', '<', '>', forward slash, backslash,\
+    \ or double\n         quote. The Updates view in the Azure Portal IoT Hub resource\
+    \ generates a GUID for\n         deploymentId when you create a deployment. Required.\n\
+    \       \"groupId\": \"str\",  # The group identity for the devices the deployment\
+    \ is\n         intended to update. Required.\n       \"startDateTime\": \"2020-02-20\
+    \ 00:00:00\",  # The deployment start datetime.\n         Required.\n       \"\
+    update\": {\n           \"updateId\": {\n               \"name\": \"str\",  #\
+    \ Update name. Required.\n               \"provider\": \"str\",  # Update provider.\
+    \ Required.\n               \"version\": \"str\"  # Update version. Required.\n\
+    \           },\n           \"description\": \"str\",  # Optional. Update description.\n\
+    \           \"friendlyName\": \"str\"  # Optional. Friendly update name.\n   \
+    \    },\n       \"deviceClassSubgroups\": [\n           \"str\"  # Optional. The\
+    \ device class subgroups the deployment is\n             compatible with and subgroup\
+    \ deployments have been created for. This is not\n             provided by the\
+    \ caller during CreateOrUpdateDeployment but is automatically\n             determined\
+    \ by Device Update.\n       ],\n       \"isCanceled\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment was canceled.\n       \"isCloudInitiatedRollback\"\
+    : bool,  # Optional. Boolean flag indicating\n         whether the deployment\
+    \ is a rollback deployment.\n       \"isRetried\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment has been retried.\n       \"\
+    rollbackPolicy\": {\n           \"failure\": {\n               \"devicesFailedCount\"\
+    : 0,  # Number of devices that failed.\n                 Required.\n         \
+    \      \"devicesFailedPercentage\": 0  # Percentage of devices that\n        \
+    \         failed. Required.\n           },\n           \"update\": {\n       \
+    \        \"updateId\": {\n                   \"name\": \"str\",  # Update name.\
+    \ Required.\n                   \"provider\": \"str\",  # Update provider. Required.\n\
+    \                   \"version\": \"str\"  # Update version. Required.\n      \
+    \         },\n               \"description\": \"str\",  # Optional. Update description.\n\
+    \               \"friendlyName\": \"str\"  # Optional. Friendly update name.\n\
+    \           }\n       }\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_device_class_subgroups_for_group
   name: list_device_class_subgroups_for_group
-  summary: Get the device class subgroups for the group.
-  signature: 'async list_device_class_subgroups_for_group(group_id: str, *, filter:
-    Optional[str] = None, **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
+  summary: 'Get the device class subgroups for the group. A device class subgroup
+    is the set of devices
+
+    within the group that share the same device class. All devices within the same
+    device class are
+
+    compatible with the same updates.'
+  signature: 'list_device_class_subgroups_for_group(group_id: str, *, filter: Optional[str]
+    = None, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str, Any]]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -1169,111 +1220,49 @@ methods:
     description: 'Restricts the set of device class subgroups returned. You can filter
       on compat
 
-      properties by name and value. Default value is None.'
+      properties by name and value. (i.e. filter=compatProperties/propertyName1 eq
+      ''value1'' and
+
+      compatProperties/propertyName2 eq ''value2''). Default value is None.'
     types:
     - <xref:str>
   return:
-    description: JSON object
+    description: An iterator like instance of JSON object
     types:
-    - <xref:JSON>
+    - <xref:azure.core.async_paging.AsyncItemPaged>[<xref:JSON>]
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
   examples:
   - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"nextLink\"\
-    : \"str\",  # Optional. The link to the next page of items.\n       \"value\"\
-    : [\n           {\n               \"createdDateTime\": \"str\",  # Date and time\
-    \ when the\n                 deviceclass subgroup was created. Required.\n   \
-    \            \"deploymentId\": \"str\",  # Optional. The active deployment Id\n\
-    \                 for the deviceclass subgroup.\n               \"deviceClassId\"\
-    : \"str\",  # Device class subgroup identity.\n                 Required.\n  \
-    \             \"deviceCount\": 0,  # Optional. The number of devices in the\n\
-    \                 deviceclass subgroup.\n               \"groupId\": \"str\" \
-    \ # Group identity. Required.\n           }\n       ]\n   }\n   ````\n"
+    \   # response body for status code(s): 200\n   response == {\n       \"createdDateTime\"\
+    : \"str\",  # Date and time when the device class subgroup was\n         created.\
+    \ Required.\n       \"deviceClassId\": \"str\",  # Device class subgroup identity.\
+    \ This is generated\n         from the model Id and the compat properties reported\
+    \ by the device update agent\n         in the Device Update PnP interface in IoT\
+    \ Hub. It is a hex-encoded SHA1 hash.\n         Required.\n       \"groupId\"\
+    : \"str\",  # Group identity. Required.\n       \"deploymentId\": \"str\",  #\
+    \ Optional. The active deployment Id for the device\n         class subgroup.\n\
+    \       \"deviceCount\": 0  # Optional. The number of devices in the device class\n\
+    \         subgroup.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_device_classes
   name: list_device_classes
-  summary: 'Gets a list of all device classes (unique combinations of device manufacturer
-    and model) for
+  summary: 'Gets a list of all device classes (sets of devices compatible with the
+    same updates based on
+
+    the model Id and compat properties reported in the Device Update PnP interface
+    in IoT Hub) for
 
     all devices connected to Device Update for IoT Hub.'
-  signature: 'list_device_classes(**kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
-    Any]]'
-  return:
-    description: An iterator like instance of JSON object
-    types:
-    - <xref:azure.core.async_paging.AsyncItemPaged>[<xref:JSON>]
-  exceptions:
-  - type: azure.core.exceptions.HttpResponseError
-  examples:
-  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
-    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
-    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"bestCompatibleUpdate\"\
-    : {\n           \"description\": \"str\",  # Optional. Update description.\n \
-    \          \"friendlyName\": \"str\",  # Optional. Friendly update name.\n   \
-    \        \"updateId\": {\n               \"name\": \"str\",  # Update name. Required.\n\
-    \               \"provider\": \"str\",  # Update provider. Required.\n       \
-    \        \"version\": \"str\"  # Update version. Required.\n           }\n   \
-    \    },\n       \"deviceClassId\": \"str\",  # The device class identifier. Required.\n\
-    \       \"deviceClassProperties\": {\n           \"compatProperties\": {\n   \
-    \            \"str\": \"str\"  # The compat properties of the device class.\n\
-    \                 This object can be thought of as a set of key-value pairs where\
-    \ the key\n                 is the name of the compatibility property and the\
-    \ value is the value of\n                 the compatibility property. There will\
-    \ always be at least 1 compat\n                 property. Required.\n        \
-    \   },\n           \"contractModel\": {\n               \"id\": \"str\",  # The\
-    \ Device Update agent contract model Id of\n                 the device class.\
-    \ This is also used to calculate the device class Id.\n                 Required.\n\
-    \               \"name\": \"str\"  # The Device Update agent contract model name\n\
-    \                 of the device class. Intended to be a more readable form of\
-    \ the contract\n                 model Id. Required.\n           }\n       },\n\
-    \       \"friendlyName\": \"str\"  # Optional. The device class friendly name.\
-    \ This can\n         be updated by callers after the device class has been automatically\
-    \ created.\n   }\n   ````\n"
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_device_health
-  name: list_device_health
-  summary: Get list of device health.
-  signature: 'async list_device_health(*, filter: str, **kwargs: Any) -> collections.abc.MutableMapping[str,
-    Any]'
+  signature: 'list_device_classes(*, filter: Optional[str] = None, **kwargs: Any)
+    -> AsyncIterable[collections.abc.MutableMapping[str, Any]]'
   parameters:
   - name: filter
-    description: Filter list by specified properties. Required.
-    types:
-    - <xref:str>
-  return:
-    description: JSON object
-    types:
-    - <xref:JSON>
-  exceptions:
-  - type: azure.core.exceptions.HttpResponseError
-  examples:
-  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
-    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
-    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"nextLink\"\
-    : \"str\",  # Optional. The link to the next page of items.\n       \"value\"\
-    : [\n           {\n               \"deviceId\": \"str\",  # Device id. Required.\n\
-    \               \"digitalTwinModelId\": \"str\",  # Optional. Digital twin model\n\
-    \                 Id.\n               \"healthChecks\": [\n                  \
-    \ {\n                       \"name\": \"str\",  # Optional. Health check\n   \
-    \                      name.\n                       \"result\": \"str\"  # Optional.\
-    \ Health check\n                         result. Known values are: \"success\"\
-    \ and \"userError\".\n                   }\n               ],\n              \
-    \ \"moduleId\": \"str\",  # Optional. Module id.\n               \"state\": \"\
-    str\"  # Aggregate device health state. Required.\n                 Known values\
-    \ are: \"healthy\" and \"unhealthy\".\n           }\n       ]\n   }\n   ````\n"
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_devices
-  name: list_devices
-  summary: Gets a list of devices connected to Device Update for IoT Hub.
-  signature: 'list_devices(*, filter: Optional[str] = None, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
-    Any]]'
-  parameters:
-  - name: filter
-    description: 'Restricts the set of devices returned. You can filter on GroupId,
+    description: 'Restricts the set of device classes returned. You can filter on
+      friendly name.
 
-      DeviceClassId, or GroupId and DeploymentStatus. Default value is None.'
+      Default value is None.'
     types:
     - <xref:str>
   return:
@@ -1286,58 +1275,42 @@ methods:
   - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"deploymentStatus\"\
-    : \"str\",  # Optional. State of the device in its last\n         deployment.\
-    \ Known values are: \"Succeeded\", \"InProgress\", \"Canceled\", and\n       \
-    \  \"Failed\".\n       \"deviceClassId\": \"str\",  # Device class identity. Required.\n\
-    \       \"deviceId\": \"str\",  # Device identity. Required.\n       \"groupId\"\
-    : \"str\",  # Optional. Device group identity.\n       \"installedUpdate\": {\n\
-    \           \"description\": \"str\",  # Optional. Update description.\n     \
-    \      \"friendlyName\": \"str\",  # Optional. Friendly update name.\n       \
-    \    \"updateId\": {\n               \"name\": \"str\",  # Update name. Required.\n\
-    \               \"provider\": \"str\",  # Update provider. Required.\n       \
-    \        \"version\": \"str\"  # Update version. Required.\n           }\n   \
-    \    },\n       \"lastAttemptedUpdate\": {\n           \"description\": \"str\"\
-    ,  # Optional. Update description.\n           \"friendlyName\": \"str\",  # Optional.\
-    \ Friendly update name.\n           \"updateId\": {\n               \"name\":\
-    \ \"str\",  # Update name. Required.\n               \"provider\": \"str\",  #\
-    \ Update provider. Required.\n               \"version\": \"str\"  # Update version.\
-    \ Required.\n           }\n       },\n       \"lastDeploymentId\": \"str\",  #\
-    \ Optional. The deployment identifier for the\n         last deployment to the\
-    \ device.\n       \"lastInstallResult\": {\n           \"extendedResultCode\"\
-    : 0,  # Install extended result code. Required.\n           \"resultCode\": 0,\
-    \  # Install result code. Required.\n           \"resultDetails\": \"str\",  #\
-    \ Optional. A string containing further\n             details about the install\
-    \ result.\n           \"stepResults\": [\n               {\n                 \
-    \  \"description\": \"str\",  # Optional. Step description.\n                \
-    \   \"extendedResultCode\": 0,  # Install extended result\n                  \
-    \   code. Required.\n                   \"resultCode\": 0,  # Install result code.\
-    \ Required.\n                   \"resultDetails\": \"str\",  # Optional. A string\n\
-    \                     containing further details about the install result.\n \
-    \                  \"update\": {\n                       \"description\": \"str\"\
-    ,  # Optional. Update\n                         description.\n               \
-    \        \"friendlyName\": \"str\",  # Optional. Friendly\n                  \
-    \       update name.\n                       \"updateId\": {\n               \
-    \            \"name\": \"str\",  # Update name.\n                            \
-    \ Required.\n                           \"provider\": \"str\",  # Update\n   \
-    \                          provider. Required.\n                           \"\
-    version\": \"str\"  # Update version.\n                             Required.\n\
-    \                       }\n                   }\n               }\n          \
-    \ ]\n       },\n       \"moduleId\": \"str\",  # Optional. Device module identity.\n\
-    \       \"onLatestUpdate\": bool  # Boolean flag indicating whether the latest\
-    \ update\n         is installed on the device. Required.\n   }\n   ````\n"
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_devices_for_device_class_subgroup_deployment
-  name: list_devices_for_device_class_subgroup_deployment
+    \   # response body for status code(s): 200\n   response == {\n       \"deviceClassId\"\
+    : \"str\",  # The device class identifier. This is generated\n         from the\
+    \ model Id and the compat properties reported by the device update agent\n   \
+    \      in the Device Update PnP interface in IoT Hub. It is a hex-encoded SHA1\
+    \ hash.\n         Required.\n       \"deviceClassProperties\": {\n           \"\
+    compatProperties\": {\n               \"str\": \"str\"  # The compat properties\
+    \ of the device class.\n                 This object can be thought of as a set\
+    \ of key-value pairs where the key\n                 is the name of the compatibility\
+    \ property and the value is the value of\n                 the compatibility property.\
+    \ There will always be at least 1 compat\n                 property. Required.\n\
+    \           },\n           \"contractModel\": {\n               \"id\": \"str\"\
+    ,  # The Device Update agent contract model Id of\n                 the device\
+    \ class. This is also used to calculate the device class Id.\n               \
+    \  Required.\n               \"name\": \"str\"  # The Device Update agent contract\
+    \ model name\n                 of the device class. Intended to be a more readable\
+    \ form of the contract\n                 model Id. Required.\n           }\n \
+    \      },\n       \"bestCompatibleUpdate\": {\n           \"updateId\": {\n  \
+    \             \"name\": \"str\",  # Update name. Required.\n               \"\
+    provider\": \"str\",  # Update provider. Required.\n               \"version\"\
+    : \"str\"  # Update version. Required.\n           },\n           \"description\"\
+    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
+    \  # Optional. Friendly update name.\n       },\n       \"friendlyName\": \"str\"\
+    \  # Optional. The device class friendly name. This can\n         be updated by\
+    \ callers after the device class has been automatically created.\n   }\n   ````\n"
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_device_states_for_device_class_subgroup_deployment
+  name: list_device_states_for_device_class_subgroup_deployment
   summary: 'Gets a list of devices in a deployment along with their state. Useful
     for getting a list of
 
     failed devices.'
-  signature: 'list_devices_for_device_class_subgroup_deployment(group_id: str, device_class_id:
-    str, deployment_id: str, *, filter: Optional[str] = None, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
-    Any]]'
+  signature: 'list_device_states_for_device_class_subgroup_deployment(group_id: str,
+    device_class_id: str, deployment_id: str, *, filter: Optional[str] = None, **kwargs:
+    Any) -> AsyncIterable[collections.abc.MutableMapping[str, Any]]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -1371,27 +1344,93 @@ methods:
     \   # response body for status code(s): 200\n   response == {\n       \"deviceId\"\
     : \"str\",  # Device identity. Required.\n       \"deviceState\": \"str\",  #\
     \ Deployment device state. Required. Known values are:\n         \"Succeeded\"\
-    , \"InProgress\", \"Canceled\", and \"Failed\".\n       \"moduleId\": \"str\"\
-    ,  # Optional. Device module identity.\n       \"movedOnToNewDeployment\": bool,\
-    \  # Boolean flag indicating whether this\n         device is in a newer deployment\
-    \ and can no longer retry this deployment.\n         Required.\n       \"retryCount\"\
-    : 0  # The number of times this deployment has been retried on\n         this\
-    \ device. Required.\n   }\n   ````\n"
+    , \"InProgress\", \"Canceled\", and \"Failed\".\n       \"movedOnToNewDeployment\"\
+    : bool,  # Boolean flag indicating whether this\n         device is in a newer\
+    \ deployment and can no longer retry this deployment.\n         Required.\n  \
+    \     \"retryCount\": 0,  # The number of times this deployment has been retried\
+    \ on\n         this device. Required.\n       \"moduleId\": \"str\"  # Optional.\
+    \ Device module identity.\n   }\n   ````\n"
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_devices
+  name: list_devices
+  summary: Gets a list of devices connected to Device Update for IoT Hub.
+  signature: 'list_devices(*, filter: Optional[str] = None, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
+    Any]]'
+  parameters:
+  - name: filter
+    description: 'Restricts the set of devices returned. You can filter on GroupId,
+
+      DeviceClassId, or GroupId and DeploymentStatus. Use DeploymentStatus eq null
+      to query for
+
+      devices with no deployment status (that have never been deployed to). Default
+      value is None.'
+    types:
+    - <xref:str>
+  return:
+    description: An iterator like instance of JSON object
+    types:
+    - <xref:azure.core.async_paging.AsyncItemPaged>[<xref:JSON>]
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+  examples:
+  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
+    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
+    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
+    \   # response body for status code(s): 200\n   response == {\n       \"deviceClassId\"\
+    : \"str\",  # Device class identity. Required.\n       \"deviceId\": \"str\",\
+    \  # Device identity. Required.\n       \"onLatestUpdate\": bool,  # Boolean flag\
+    \ indicating whether the latest update\n         (the best compatible update for\
+    \ the device's device class and group) is installed\n         on the device. Required.\n\
+    \       \"deploymentStatus\": \"str\",  # Optional. State of the device in its\
+    \ last\n         deployment. Known values are: \"Succeeded\", \"InProgress\",\
+    \ \"Canceled\", and\n         \"Failed\".\n       \"groupId\": \"str\",  # Optional.\
+    \ Device group identity.\n       \"installedUpdate\": {\n           \"updateId\"\
+    : {\n               \"name\": \"str\",  # Update name. Required.\n           \
+    \    \"provider\": \"str\",  # Update provider. Required.\n               \"version\"\
+    : \"str\"  # Update version. Required.\n           },\n           \"description\"\
+    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
+    \  # Optional. Friendly update name.\n       },\n       \"lastAttemptedUpdate\"\
+    : {\n           \"updateId\": {\n               \"name\": \"str\",  # Update name.\
+    \ Required.\n               \"provider\": \"str\",  # Update provider. Required.\n\
+    \               \"version\": \"str\"  # Update version. Required.\n          \
+    \ },\n           \"description\": \"str\",  # Optional. Update description.\n\
+    \           \"friendlyName\": \"str\"  # Optional. Friendly update name.\n   \
+    \    },\n       \"lastDeploymentId\": \"str\",  # Optional. The deployment identifier\
+    \ for the\n         last deployment to the device.\n       \"lastInstallResult\"\
+    : {\n           \"extendedResultCode\": 0,  # Install extended result code. Required.\n\
+    \           \"resultCode\": 0,  # Install result code. Required.\n           \"\
+    resultDetails\": \"str\",  # Optional. A string containing further\n         \
+    \    details about the install result.\n           \"stepResults\": [\n      \
+    \         {\n                   \"extendedResultCode\": 0,  # Install extended\
+    \ result\n                     code. Required.\n                   \"resultCode\"\
+    : 0,  # Install result code. Required.\n                   \"description\": \"\
+    str\",  # Optional. Step description.\n                   \"resultDetails\": \"\
+    str\",  # Optional. A string\n                     containing further details\
+    \ about the install result.\n                   \"update\": {\n              \
+    \         \"updateId\": {\n                           \"name\": \"str\",  # Update\
+    \ name.\n                             Required.\n                           \"\
+    provider\": \"str\",  # Update\n                             provider. Required.\n\
+    \                           \"version\": \"str\"  # Update version.\n        \
+    \                     Required.\n                       },\n                 \
+    \      \"description\": \"str\",  # Optional. Update\n                       \
+    \  description.\n                       \"friendlyName\": \"str\"  # Optional.\
+    \ Friendly\n                         update name.\n                   }\n    \
+    \           }\n           ]\n       },\n       \"moduleId\": \"str\"  # Optional.\
+    \ Device module identity.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_groups
   name: list_groups
   summary: Gets a list of all device groups.  The $default group will always be returned
     first.
-  signature: 'list_groups(*, orderby: Optional[str] = None, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
+  signature: 'list_groups(*, order_by: Optional[str] = None, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
     Any]]'
   parameters:
-  - name: orderby
-    description: 'Orders the set of groups returned. You can order by any combination
-      of
+  - name: order_by
+    description: 'Orders the set of groups returned. You can order by groupId, deviceCount,
 
-      groupId, device count, created date, subgroupsWithNewUpdatesAvailableCount,
+      createdDate, subgroupsWithNewUpdatesAvailableCount, subgroupsWithUpdatesInProgressCount,
+      or
 
-      subgroupsWithUpdatesInProgressCount, or subgroupsOnLatestUpdateCount. Default
-      value is None.'
+      subgroupsOnLatestUpdateCount. Default value is None.'
     types:
     - <xref:str>
   return:
@@ -1406,16 +1445,50 @@ methods:
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"createdDateTime\"\
     : \"str\",  # Date and time when the update was created.\n         Required.\n\
-    \       \"deployments\": [\n           \"str\"  # Optional. The active deployment\
+    \       \"groupId\": \"str\",  # Group identity. This is created from the value\
+    \ of the\n         ADUGroup tag in the Iot Hub's device/module twin or $default\
+    \ for devices with no\n         tag. Required.\n       \"groupType\": \"str\"\
+    ,  # Group type. Required. Known values are: \"IoTHubTag\"\n         and \"DefaultNoTag\"\
+    .\n       \"deployments\": [\n           \"str\"  # Optional. The active deployment\
     \ Ids for the group.\n       ],\n       \"deviceCount\": 0,  # Optional. The number\
-    \ of devices in the group.\n       \"groupId\": \"str\",  # Group identity. Required.\n\
-    \       \"groupType\": \"str\",  # Group type. Required. Known values are: \"\
-    IoTHubTag\"\n         and \"DefaultNoTag\".\n       \"subgroupsWithNewUpdatesAvailableCount\"\
-    : 0,  # Optional. The count of\n         subgroups with new updates available.\n\
+    \ of devices in the group.\n       \"subgroupsWithNewUpdatesAvailableCount\":\
+    \ 0,  # Optional. The count of\n         subgroups with new updates available.\n\
     \       \"subgroupsWithOnLatestUpdateCount\": 0,  # Optional. The count of subgroups\n\
     \         with devices on the latest update.\n       \"subgroupsWithUpdatesInProgressCount\"\
     : 0  # Optional. The count of subgroups\n         with updates in progress.\n\
     \   }\n   ````\n"
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_health_of_devices
+  name: list_health_of_devices
+  summary: Get list of device health.
+  signature: 'list_health_of_devices(*, filter: str, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
+    Any]]'
+  parameters:
+  - name: filter
+    description: 'Restricts the set of devices for which device health is returned.
+      You can
+
+      filter on status, device id and module id. Required.'
+    types:
+    - <xref:str>
+  return:
+    description: An iterator like instance of JSON object
+    types:
+    - <xref:azure.core.async_paging.AsyncItemPaged>[<xref:JSON>]
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+  examples:
+  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
+    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
+    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
+    \   # response body for status code(s): 200\n   response == {\n       \"deviceId\"\
+    : \"str\",  # Device id. Required.\n       \"healthChecks\": [\n           {\n\
+    \               \"name\": \"str\",  # Optional. Health check name.\n         \
+    \      \"result\": \"str\"  # Optional. Health check result. Known\n         \
+    \        values are: \"success\" and \"userError\".\n           }\n       ],\n\
+    \       \"state\": \"str\",  # Aggregate device health state. Required. Known\
+    \ values are:\n         \"healthy\" and \"unhealthy\".\n       \"digitalTwinModelId\"\
+    : \"str\",  # Optional. Digital twin model Id.\n       \"moduleId\": \"str\" \
+    \ # Optional. Module id.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_installable_updates_for_device_class
   name: list_installable_updates_for_device_class
   summary: Gets a list of installable updates for a device class.
@@ -1437,16 +1510,16 @@ methods:
   - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"description\"\
-    : \"str\",  # Optional. Update description.\n       \"friendlyName\": \"str\"\
-    ,  # Optional. Friendly update name.\n       \"updateId\": {\n           \"name\"\
-    : \"str\",  # Update name. Required.\n           \"provider\": \"str\",  # Update\
-    \ provider. Required.\n           \"version\": \"str\"  # Update version. Required.\n\
-    \       }\n   }\n   ````\n"
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_log_collection_operations
-  name: list_log_collection_operations
-  summary: Get all device diagnostics log collection operations.
-  signature: 'list_log_collection_operations(**kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
+    \   # response body for status code(s): 200\n   response == {\n       \"updateId\"\
+    : {\n           \"name\": \"str\",  # Update name. Required.\n           \"provider\"\
+    : \"str\",  # Update provider. Required.\n           \"version\": \"str\"  # Update\
+    \ version. Required.\n       },\n       \"description\": \"str\",  # Optional.\
+    \ Update description.\n       \"friendlyName\": \"str\"  # Optional. Friendly\
+    \ update name.\n   }\n   ````\n"
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_log_collections
+  name: list_log_collections
+  summary: Get all device diagnostics log collections.
+  signature: 'list_log_collections(**kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str,
     Any]]'
   return:
     description: An iterator like instance of JSON object
@@ -1458,24 +1531,23 @@ methods:
   - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"createdDateTime\"\
-    : \"str\",  # Optional. The timestamp when the operation was\n         created.\n\
-    \       \"description\": \"str\",  # Optional. Description of the diagnostics\
-    \ operation.\n       \"deviceList\": [\n           {\n               \"deviceId\"\
-    : \"str\",  # Device Id. Required.\n               \"moduleId\": \"str\"  # Optional.\
-    \ Module Id.\n           }\n       ],\n       \"lastActionDateTime\": \"str\"\
-    ,  # Optional. A timestamp for when the current\n         state was entered.\n\
-    \       \"operationId\": \"str\",  # Optional. The diagnostics operation id.\n\
-    \       \"status\": \"str\"  # Optional. Operation status. Known values are:\n\
-    \         \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\".\n   }\n\
-    \   ````\n"
-- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_operations
-  name: list_operations
+    \   # response body for status code(s): 200\n   response == {\n       \"deviceList\"\
+    : [\n           {\n               \"deviceId\": \"str\",  # Device Id. Required.\n\
+    \               \"moduleId\": \"str\"  # Optional. Module Id.\n           }\n\
+    \       ],\n       \"createdDateTime\": \"str\",  # Optional. The timestamp when\
+    \ the operation was\n         created.\n       \"description\": \"str\",  # Optional.\
+    \ Description of the diagnostics operation.\n       \"lastActionDateTime\": \"\
+    str\",  # Optional. A timestamp for when the current\n         state was entered.\n\
+    \       \"operationId\": \"str\",  # Optional. The log collection id.\n      \
+    \ \"status\": \"str\"  # Optional. Operation status. Known values are:\n     \
+    \    \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\".\n   }\n   ````\n"
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.list_operation_statuses
+  name: list_operation_statuses
   summary: 'Get a list of all device import operations. Completed operations are kept
     for 7 days before
 
     auto-deleted.'
-  signature: 'list_operations(*, filter: Optional[str] = None, top: Optional[int]
+  signature: 'list_operation_statuses(*, filter: Optional[str] = None, top: Optional[int]
     = None, **kwargs: Any) -> AsyncIterable[collections.abc.MutableMapping[str, Any]]'
   parameters:
   - name: filter
@@ -1508,24 +1580,24 @@ methods:
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"createdDateTime\"\
     : \"2020-02-20 00:00:00\",  # Date and time in UTC when the\n         operation\
-    \ was created. Required.\n       \"error\": {\n           \"code\": \"str\", \
-    \ # Server defined error code. Required.\n           \"details\": [\n        \
-    \       ...\n           ],\n           \"innererror\": {\n               \"code\"\
-    : \"str\",  # A more specific error code than what was\n                 provided\
-    \ by the containing error. Required.\n               \"errorDetail\": \"str\"\
-    ,  # Optional. The internal error or\n                 exception message.\n  \
-    \             \"innerError\": ...,\n               \"message\": \"str\"  # Optional.\
-    \ A human-readable representation\n                 of the error.\n          \
-    \ },\n           \"message\": \"str\",  # A human-readable representation of the\
-    \ error.\n             Required.\n           \"occurredDateTime\": \"2020-02-20\
-    \ 00:00:00\",  # Optional. Date and time\n             in UTC when the error occurred.\n\
-    \           \"target\": \"str\"  # Optional. The target of the error.\n      \
-    \ },\n       \"etag\": \"str\",  # Optional. Operation ETag.\n       \"lastActionDateTime\"\
-    : \"2020-02-20 00:00:00\",  # Date and time in UTC when the\n         operation\
-    \ status was last updated. Required.\n       \"operationId\": \"str\",  # Operation\
-    \ Id. Required.\n       \"status\": \"str\",  # Operation status. Required. Known\
-    \ values are:\n         \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\"\
-    .\n       \"traceId\": \"str\"  # Optional. Operation correlation identity that\
+    \ was created. Required.\n       \"lastActionDateTime\": \"2020-02-20 00:00:00\"\
+    ,  # Date and time in UTC when the\n         operation status was last updated.\
+    \ Required.\n       \"operationId\": \"str\",  # Operation Id. Required.\n   \
+    \    \"status\": \"str\",  # Operation status. Required. Known values are:\n \
+    \        \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\".\n       \"\
+    error\": {\n           \"code\": \"str\",  # Server defined error code. Required.\n\
+    \           \"message\": \"str\",  # A human-readable representation of the error.\n\
+    \             Required.\n           \"details\": [\n               ...\n     \
+    \      ],\n           \"innererror\": {\n               \"code\": \"str\",  #\
+    \ A more specific error code than what was\n                 provided by the containing\
+    \ error. Required.\n               \"errorDetail\": \"str\",  # Optional. The\
+    \ internal error or\n                 exception message.\n               \"innerError\"\
+    : ...,\n               \"message\": \"str\"  # Optional. A human-readable representation\n\
+    \                 of the error.\n           },\n           \"occurredDateTime\"\
+    : \"2020-02-20 00:00:00\",  # Optional. Date and time\n             in UTC when\
+    \ the error occurred.\n           \"target\": \"str\"  # Optional. The target\
+    \ of the error.\n       },\n       \"etag\": \"str\",  # Optional. Operation ETag.\n\
+    \       \"traceId\": \"str\"  # Optional. Operation correlation identity that\
     \ can used by\n         Microsoft Support for troubleshooting.\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.retry_deployment
   name: retry_deployment
@@ -1534,7 +1606,7 @@ methods:
     str, **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -1559,30 +1631,83 @@ methods:
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"deploymentId\"\
-    : \"str\",  # The deployment identifier. Required.\n       \"deviceClassSubgroups\"\
-    : [\n           \"str\"  # Optional. The device class subgroups for the deployment.\n\
-    \       ],\n       \"groupId\": \"str\",  # The group identity. Required.\n  \
-    \     \"isCanceled\": bool,  # Optional. Boolean flag indicating whether the\n\
-    \         deployment was canceled.\n       \"isCloudInitiatedRollback\": bool,\
-    \  # Optional. Boolean flag indicating\n         whether the deployment is a rollback\
-    \ deployment.\n       \"isRetried\": bool,  # Optional. Boolean flag indicating\
-    \ whether the\n         deployment has been retried.\n       \"rollbackPolicy\"\
-    : {\n           \"failure\": {\n               \"devicesFailedCount\": 0,  # Number\
-    \ of devices that failed.\n                 Required.\n               \"devicesFailedPercentage\"\
-    : 0  # Percentage of devices that\n                 failed. Required.\n      \
-    \     },\n           \"update\": {\n               \"description\": \"str\", \
-    \ # Optional. Update description.\n               \"friendlyName\": \"str\", \
-    \ # Optional. Friendly update name.\n               \"updateId\": {\n        \
-    \           \"name\": \"str\",  # Update name. Required.\n                   \"\
-    provider\": \"str\",  # Update provider. Required.\n                   \"version\"\
-    : \"str\"  # Update version. Required.\n               }\n           }\n     \
-    \  },\n       \"startDateTime\": \"2020-02-20 00:00:00\",  # The deployment start\
-    \ datetime.\n         Required.\n       \"update\": {\n           \"description\"\
-    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
-    ,  # Optional. Friendly update name.\n           \"updateId\": {\n           \
-    \    \"name\": \"str\",  # Update name. Required.\n               \"provider\"\
-    : \"str\",  # Update provider. Required.\n               \"version\": \"str\"\
-    \  # Update version. Required.\n           }\n       }\n   }\n   ````\n"
+    : \"str\",  # The caller-provided deployment identifier. This\n         cannot\
+    \ be longer than 73 characters, must be all lower-case, and cannot contain\n \
+    \        '&', '^', '[', ']', '{', '}', '|', '<', '>', forward slash, backslash,\
+    \ or double\n         quote. The Updates view in the Azure Portal IoT Hub resource\
+    \ generates a GUID for\n         deploymentId when you create a deployment. Required.\n\
+    \       \"groupId\": \"str\",  # The group identity for the devices the deployment\
+    \ is\n         intended to update. Required.\n       \"startDateTime\": \"2020-02-20\
+    \ 00:00:00\",  # The deployment start datetime.\n         Required.\n       \"\
+    update\": {\n           \"updateId\": {\n               \"name\": \"str\",  #\
+    \ Update name. Required.\n               \"provider\": \"str\",  # Update provider.\
+    \ Required.\n               \"version\": \"str\"  # Update version. Required.\n\
+    \           },\n           \"description\": \"str\",  # Optional. Update description.\n\
+    \           \"friendlyName\": \"str\"  # Optional. Friendly update name.\n   \
+    \    },\n       \"deviceClassSubgroups\": [\n           \"str\"  # Optional. The\
+    \ device class subgroups the deployment is\n             compatible with and subgroup\
+    \ deployments have been created for. This is not\n             provided by the\
+    \ caller during CreateOrUpdateDeployment but is automatically\n             determined\
+    \ by Device Update.\n       ],\n       \"isCanceled\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment was canceled.\n       \"isCloudInitiatedRollback\"\
+    : bool,  # Optional. Boolean flag indicating\n         whether the deployment\
+    \ is a rollback deployment.\n       \"isRetried\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment has been retried.\n       \"\
+    rollbackPolicy\": {\n           \"failure\": {\n               \"devicesFailedCount\"\
+    : 0,  # Number of devices that failed.\n                 Required.\n         \
+    \      \"devicesFailedPercentage\": 0  # Percentage of devices that\n        \
+    \         failed. Required.\n           },\n           \"update\": {\n       \
+    \        \"updateId\": {\n                   \"name\": \"str\",  # Update name.\
+    \ Required.\n                   \"provider\": \"str\",  # Update provider. Required.\n\
+    \                   \"version\": \"str\"  # Update version. Required.\n      \
+    \         },\n               \"description\": \"str\",  # Optional. Update description.\n\
+    \               \"friendlyName\": \"str\"  # Optional. Friendly update name.\n\
+    \           }\n       }\n   }\n   ````\n"
+- uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.start_log_collection
+  name: start_log_collection
+  summary: Start the device diagnostics log collection on specified devices.
+  signature: 'async start_log_collection(log_collection_id: str, log_collection: JSON,
+    *, content_type: str = "''application/json''", **kwargs: Any) -> JSON'
+  parameters:
+  - name: log_collection_id
+    description: Log collection identifier. Required.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: log_collection
+    description: 'The log collection properties. Is either a model type or a IO type.
+
+      Required.'
+    isRequired: true
+    types:
+    - <xref:JSON>
+    - <xref:IO>
+  - name: content_type
+    description: 'Body Parameter content-type. Known values are: ''application/json''.
+
+      Default value is None.'
+    types:
+    - <xref:str>
+  return:
+    description: JSON object
+    types:
+    - <xref:JSON>
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+  examples:
+  - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
+    : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
+    : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
+    \   # response body for status code(s): 201\n   response == {\n       \"deviceList\"\
+    : [\n           {\n               \"deviceId\": \"str\",  # Device Id. Required.\n\
+    \               \"moduleId\": \"str\"  # Optional. Module Id.\n           }\n\
+    \       ],\n       \"createdDateTime\": \"str\",  # Optional. The timestamp when\
+    \ the operation was\n         created.\n       \"description\": \"str\",  # Optional.\
+    \ Description of the diagnostics operation.\n       \"lastActionDateTime\": \"\
+    str\",  # Optional. A timestamp for when the current\n         state was entered.\n\
+    \       \"operationId\": \"str\",  # Optional. The log collection id.\n      \
+    \ \"status\": \"str\"  # Optional. Operation status. Known values are:\n     \
+    \    \"NotStarted\", \"Running\", \"Succeeded\", and \"Failed\".\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.stop_deployment
   name: stop_deployment
   summary: Stops a deployment.
@@ -1590,7 +1715,7 @@ methods:
     str, **kwargs: Any) -> collections.abc.MutableMapping[str, Any]'
   parameters:
   - name: group_id
-    description: Group identity. Required.
+    description: Group identifier. Required.
     isRequired: true
     types:
     - <xref:str>
@@ -1615,30 +1740,38 @@ methods:
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
     \   # response body for status code(s): 200\n   response == {\n       \"deploymentId\"\
-    : \"str\",  # The deployment identifier. Required.\n       \"deviceClassSubgroups\"\
-    : [\n           \"str\"  # Optional. The device class subgroups for the deployment.\n\
-    \       ],\n       \"groupId\": \"str\",  # The group identity. Required.\n  \
-    \     \"isCanceled\": bool,  # Optional. Boolean flag indicating whether the\n\
-    \         deployment was canceled.\n       \"isCloudInitiatedRollback\": bool,\
-    \  # Optional. Boolean flag indicating\n         whether the deployment is a rollback\
-    \ deployment.\n       \"isRetried\": bool,  # Optional. Boolean flag indicating\
-    \ whether the\n         deployment has been retried.\n       \"rollbackPolicy\"\
-    : {\n           \"failure\": {\n               \"devicesFailedCount\": 0,  # Number\
-    \ of devices that failed.\n                 Required.\n               \"devicesFailedPercentage\"\
-    : 0  # Percentage of devices that\n                 failed. Required.\n      \
-    \     },\n           \"update\": {\n               \"description\": \"str\", \
-    \ # Optional. Update description.\n               \"friendlyName\": \"str\", \
-    \ # Optional. Friendly update name.\n               \"updateId\": {\n        \
-    \           \"name\": \"str\",  # Update name. Required.\n                   \"\
-    provider\": \"str\",  # Update provider. Required.\n                   \"version\"\
-    : \"str\"  # Update version. Required.\n               }\n           }\n     \
-    \  },\n       \"startDateTime\": \"2020-02-20 00:00:00\",  # The deployment start\
-    \ datetime.\n         Required.\n       \"update\": {\n           \"description\"\
-    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
-    ,  # Optional. Friendly update name.\n           \"updateId\": {\n           \
-    \    \"name\": \"str\",  # Update name. Required.\n               \"provider\"\
-    : \"str\",  # Update provider. Required.\n               \"version\": \"str\"\
-    \  # Update version. Required.\n           }\n       }\n   }\n   ````\n"
+    : \"str\",  # The caller-provided deployment identifier. This\n         cannot\
+    \ be longer than 73 characters, must be all lower-case, and cannot contain\n \
+    \        '&', '^', '[', ']', '{', '}', '|', '<', '>', forward slash, backslash,\
+    \ or double\n         quote. The Updates view in the Azure Portal IoT Hub resource\
+    \ generates a GUID for\n         deploymentId when you create a deployment. Required.\n\
+    \       \"groupId\": \"str\",  # The group identity for the devices the deployment\
+    \ is\n         intended to update. Required.\n       \"startDateTime\": \"2020-02-20\
+    \ 00:00:00\",  # The deployment start datetime.\n         Required.\n       \"\
+    update\": {\n           \"updateId\": {\n               \"name\": \"str\",  #\
+    \ Update name. Required.\n               \"provider\": \"str\",  # Update provider.\
+    \ Required.\n               \"version\": \"str\"  # Update version. Required.\n\
+    \           },\n           \"description\": \"str\",  # Optional. Update description.\n\
+    \           \"friendlyName\": \"str\"  # Optional. Friendly update name.\n   \
+    \    },\n       \"deviceClassSubgroups\": [\n           \"str\"  # Optional. The\
+    \ device class subgroups the deployment is\n             compatible with and subgroup\
+    \ deployments have been created for. This is not\n             provided by the\
+    \ caller during CreateOrUpdateDeployment but is automatically\n             determined\
+    \ by Device Update.\n       ],\n       \"isCanceled\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment was canceled.\n       \"isCloudInitiatedRollback\"\
+    : bool,  # Optional. Boolean flag indicating\n         whether the deployment\
+    \ is a rollback deployment.\n       \"isRetried\": bool,  # Optional. Boolean\
+    \ flag indicating whether the\n         deployment has been retried.\n       \"\
+    rollbackPolicy\": {\n           \"failure\": {\n               \"devicesFailedCount\"\
+    : 0,  # Number of devices that failed.\n                 Required.\n         \
+    \      \"devicesFailedPercentage\": 0  # Percentage of devices that\n        \
+    \         failed. Required.\n           },\n           \"update\": {\n       \
+    \        \"updateId\": {\n                   \"name\": \"str\",  # Update name.\
+    \ Required.\n                   \"provider\": \"str\",  # Update provider. Required.\n\
+    \                   \"version\": \"str\"  # Update version. Required.\n      \
+    \         },\n               \"description\": \"str\",  # Optional. Update description.\n\
+    \               \"friendlyName\": \"str\"  # Optional. Friendly update name.\n\
+    \           }\n       }\n   }\n   ````\n"
 - uid: azure.iot.deviceupdate.aio.operations.DeviceManagementOperations.update_device_class
   name: update_device_class
   summary: Update device class details.
@@ -1675,25 +1808,27 @@ methods:
   - "<!-- literal_block {\"ids\": [], \"classes\": [], \"names\": [], \"dupnames\"\
     : [], \"backrefs\": [], \"xml:space\": \"preserve\", \"force\": false, \"language\"\
     : \"python\", \"highlight_args\": {}, \"linenos\": false} -->\n\n````python\n\n\
-    \   # response body for status code(s): 200\n   response == {\n       \"bestCompatibleUpdate\"\
-    : {\n           \"description\": \"str\",  # Optional. Update description.\n \
-    \          \"friendlyName\": \"str\",  # Optional. Friendly update name.\n   \
-    \        \"updateId\": {\n               \"name\": \"str\",  # Update name. Required.\n\
-    \               \"provider\": \"str\",  # Update provider. Required.\n       \
-    \        \"version\": \"str\"  # Update version. Required.\n           }\n   \
-    \    },\n       \"deviceClassId\": \"str\",  # The device class identifier. Required.\n\
-    \       \"deviceClassProperties\": {\n           \"compatProperties\": {\n   \
-    \            \"str\": \"str\"  # The compat properties of the device class.\n\
-    \                 This object can be thought of as a set of key-value pairs where\
-    \ the key\n                 is the name of the compatibility property and the\
-    \ value is the value of\n                 the compatibility property. There will\
-    \ always be at least 1 compat\n                 property. Required.\n        \
-    \   },\n           \"contractModel\": {\n               \"id\": \"str\",  # The\
-    \ Device Update agent contract model Id of\n                 the device class.\
-    \ This is also used to calculate the device class Id.\n                 Required.\n\
-    \               \"name\": \"str\"  # The Device Update agent contract model name\n\
-    \                 of the device class. Intended to be a more readable form of\
-    \ the contract\n                 model Id. Required.\n           }\n       },\n\
-    \       \"friendlyName\": \"str\"  # Optional. The device class friendly name.\
-    \ This can\n         be updated by callers after the device class has been automatically\
-    \ created.\n   }\n   ````\n"
+    \   # response body for status code(s): 200\n   response == {\n       \"deviceClassId\"\
+    : \"str\",  # The device class identifier. This is generated\n         from the\
+    \ model Id and the compat properties reported by the device update agent\n   \
+    \      in the Device Update PnP interface in IoT Hub. It is a hex-encoded SHA1\
+    \ hash.\n         Required.\n       \"deviceClassProperties\": {\n           \"\
+    compatProperties\": {\n               \"str\": \"str\"  # The compat properties\
+    \ of the device class.\n                 This object can be thought of as a set\
+    \ of key-value pairs where the key\n                 is the name of the compatibility\
+    \ property and the value is the value of\n                 the compatibility property.\
+    \ There will always be at least 1 compat\n                 property. Required.\n\
+    \           },\n           \"contractModel\": {\n               \"id\": \"str\"\
+    ,  # The Device Update agent contract model Id of\n                 the device\
+    \ class. This is also used to calculate the device class Id.\n               \
+    \  Required.\n               \"name\": \"str\"  # The Device Update agent contract\
+    \ model name\n                 of the device class. Intended to be a more readable\
+    \ form of the contract\n                 model Id. Required.\n           }\n \
+    \      },\n       \"bestCompatibleUpdate\": {\n           \"updateId\": {\n  \
+    \             \"name\": \"str\",  # Update name. Required.\n               \"\
+    provider\": \"str\",  # Update provider. Required.\n               \"version\"\
+    : \"str\"  # Update version. Required.\n           },\n           \"description\"\
+    : \"str\",  # Optional. Update description.\n           \"friendlyName\": \"str\"\
+    \  # Optional. Friendly update name.\n       },\n       \"friendlyName\": \"str\"\
+    \  # Optional. The device class friendly name. This can\n         be updated by\
+    \ callers after the device class has been automatically created.\n   }\n   ````\n"

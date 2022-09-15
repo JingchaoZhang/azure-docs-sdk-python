@@ -1,0 +1,41 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.machinelearningcompute.models.SslConfiguration
+name: SslConfiguration
+fullName: azure.mgmt.machinelearningcompute.models.SslConfiguration
+module: azure.mgmt.machinelearningcompute.models
+inheritances:
+- msrest.serialization.Model
+summary: SSL configuration. If configured data-plane calls to user services will be
+  exposed over SSL only.
+constructor:
+  syntax: 'SslConfiguration(*, status: Optional[Union[str, azure.mgmt.machinelearningcompute.models._machine_learning_compute_management_client_enums.Status]]
+    = None, cert: Optional[str] = None, key: Optional[str] = None, cname: Optional[str]
+    = None, **kwargs)'
+  parameters:
+  - name: status
+    description: 'SSL status. Allowed values are Enabled and Disabled. Possible values
+      include:
+
+      "Enabled", "Disabled".'
+    isRequired: true
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.machinelearningcompute.models.Status>
+  - name: cert
+    description: The SSL cert data in PEM format.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: key
+    description: 'The SSL key data in PEM format. This is not returned in response
+      of GET/PUT on the
+
+      resource. To see this please call listKeys API.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: cname
+    description: The CName of the certificate.
+    isRequired: true
+    types:
+    - <xref:str>

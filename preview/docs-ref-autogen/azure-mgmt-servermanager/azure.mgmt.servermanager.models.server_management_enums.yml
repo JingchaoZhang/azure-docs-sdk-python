@@ -1,0 +1,11 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.server_management_enums
+name: server_management_enums
+fullName: azure.mgmt.servermanager.models.server_management_enums
+enums:
+- azure.mgmt.servermanager.models.server_management_enums.CredentialDataFormat
+- azure.mgmt.servermanager.models.server_management_enums.GatewayExpandOption
+- azure.mgmt.servermanager.models.server_management_enums.PowerShellExpandOption
+- azure.mgmt.servermanager.models.server_management_enums.PromptFieldType
+- azure.mgmt.servermanager.models.server_management_enums.RetentionPeriod
+- azure.mgmt.servermanager.models.server_management_enums.UpgradeMode

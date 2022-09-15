@@ -1,0 +1,107 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.machinelearningcompute.models.OperationalizationCluster
+name: OperationalizationCluster
+fullName: azure.mgmt.machinelearningcompute.models.OperationalizationCluster
+module: azure.mgmt.machinelearningcompute.models
+inheritances:
+- azure.mgmt.machinelearningcompute.models._models_py3.Resource
+summary: 'Instance of an Azure ML Operationalization Cluster resource.
+
+
+  Variables are only populated by the server, and will be ignored when sending a request.
+
+
+  All required parameters must be populated in order to send to Azure.'
+constructor:
+  syntax: 'OperationalizationCluster(*, location: str, tags: Optional[Dict[str, str]]
+    = None, description: Optional[str] = None, cluster_type: Optional[Union[str, azure.mgmt.machinelearningcompute.models._machine_learning_compute_management_client_enums.ClusterType]]
+    = None, storage_account: Optional[azure.mgmt.machinelearningcompute.models._models_py3.StorageAccountProperties]
+    = None, container_registry: Optional[azure.mgmt.machinelearningcompute.models._models_py3.ContainerRegistryProperties]
+    = None, container_service: Optional[azure.mgmt.machinelearningcompute.models._models_py3.AcsClusterProperties]
+    = None, app_insights: Optional[azure.mgmt.machinelearningcompute.models._models_py3.AppInsightsProperties]
+    = None, global_service_configuration: Optional[azure.mgmt.machinelearningcompute.models._models_py3.GlobalServiceConfiguration]
+    = None, **kwargs)'
+  parameters:
+  - name: location
+    description: Required. Specifies the location of the resource.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: tags
+    description: A set of tags. Contains resource tags defined as key/value pairs.
+    isRequired: true
+    types:
+    - <xref:dict>[<xref:str>, <xref:str>]
+  - name: description
+    description: The description of the cluster.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: cluster_type
+    description: 'The cluster type. Possible values include: "ACS", "Local".'
+    isRequired: true
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.machinelearningcompute.models.ClusterType>
+  - name: storage_account
+    description: Storage Account properties.
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.machinelearningcompute.models.StorageAccountProperties>
+  - name: container_registry
+    description: Container Registry properties.
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.machinelearningcompute.models.ContainerRegistryProperties>
+  - name: container_service
+    description: Parameters for the Azure Container Service cluster.
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.machinelearningcompute.models.AcsClusterProperties>
+  - name: app_insights
+    description: AppInsights configuration.
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.machinelearningcompute.models.AppInsightsProperties>
+  - name: global_service_configuration
+    description: 'Contains global configuration for the web services in the
+
+      cluster.'
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.machinelearningcompute.models.GlobalServiceConfiguration>
+variables:
+- description: Specifies the resource ID.
+  name: id
+  types:
+  - <xref:str>
+- description: Specifies the name of the resource.
+  name: name
+  types:
+  - <xref:str>
+- description: Specifies the type of the resource.
+  name: type
+  types:
+  - <xref:str>
+- description: The date and time when the cluster was created.
+  name: created_on
+  types:
+  - <xref:datetime.datetime>
+- description: The date and time when the cluster was last modified.
+  name: modified_on
+  types:
+  - <xref:datetime.datetime>
+- description: 'The provision state of the cluster. Valid values are Unknown,
+
+    Updating, Provisioning, Succeeded, and Failed. Possible values include: "Unknown",
+    "Updating",
+
+    "Creating", "Deleting", "Succeeded", "Failed", "Canceled".'
+  name: provisioning_state
+  types:
+  - <xref:str>
+  - <xref:azure.mgmt.machinelearningcompute.models.OperationStatus>
+- description: List of provisioning errors reported by the resource provider.
+  name: provisioning_errors
+  types:
+  - <xref:list>[<xref:azure.mgmt.machinelearningcompute.models.ErrorResponseWrapper>]
