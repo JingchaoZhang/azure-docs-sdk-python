@@ -1,12 +1,12 @@
 ---
-title: Azure Web PubSub SDK for Python
-description: Reference for Azure Web PubSub SDK for Python
+ms.service: webpubsub
+author: msyyc
+ms.devlang: python
 ms.topic: reference
 ms.author: yuchaoyan
-author: msyyc
-ms.data: 09/14/2022
-ms.devlang: python
-ms.service: webpubsub
+ms.data: 09/15/2022
+description: Reference for Azure Web PubSub SDK for Python
+title: Azure Web PubSub SDK for Python
 ---
 # Azure Web PubSub SDK for Python - preview
 

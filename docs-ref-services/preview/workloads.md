@@ -1,12 +1,12 @@
 ---
-title: Azure Workloads SDK for Python
-description: Reference for Azure Workloads SDK for Python
+ms.service: workloads
+author: lmazuel
+ms.devlang: python
 ms.topic: reference
 ms.author: lmazuel
-author: lmazuel
-ms.data: 09/14/2022
-ms.devlang: python
-ms.service: workloads
+ms.data: 09/15/2022
+description: Reference for Azure Workloads SDK for Python
+title: Azure Workloads SDK for Python
 ---
 # Azure Workloads SDK for Python - preview
 

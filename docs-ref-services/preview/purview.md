@@ -1,12 +1,12 @@
 ---
-title: Azure Purview SDK for Python
-description: Reference for Azure Purview SDK for Python
+ms.service: purview
+author: lmazuel
+ms.devlang: python
 ms.topic: reference
 ms.author: lmazuel
-author: lmazuel
-ms.data: 09/14/2022
-ms.devlang: python
-ms.service: purview
+ms.data: 09/15/2022
+description: Reference for Azure Purview SDK for Python
+title: Azure Purview SDK for Python
 ---
 # Azure Purview SDK for Python - preview
 
