@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-healthbot",
+  "Version": "1.0.0a20220914001",
+  "DevVersion": "1.0.0a20220914001",
+  "DirectoryPath": "sdk/healthbot/azure-mgmt-healthbot",
+  "ServiceDirectory": "healthbot",
+  "ReadMePath": "sdk/healthbot/azure-mgmt-healthbot/README.md",
+  "ChangeLogPath": "sdk/healthbot/azure-mgmt-healthbot/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-healthbot",
+  "ReleaseStatus": "2021-01-06"
+}
