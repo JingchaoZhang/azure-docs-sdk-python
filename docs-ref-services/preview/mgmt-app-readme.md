@@ -3,7 +3,7 @@ title:
 keywords: Azure, python, SDK, API, azure-mgmt-app, app
 author: lmazuel
 ms.author: lmazuel
-ms.date: 05/11/2022
+ms.date: 09/15/2022
 ms.topic: reference
 ms.devlang: python
 ms.service: app
