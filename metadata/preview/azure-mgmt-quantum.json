@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-quantum",
+  "Version": "1.0.0a20220915001",
+  "DevVersion": "1.0.0a20220915001",
+  "DirectoryPath": "sdk/quantum/azure-mgmt-quantum",
+  "ServiceDirectory": "quantum",
+  "ReadMePath": "sdk/quantum/azure-mgmt-quantum/README.md",
+  "ChangeLogPath": "sdk/quantum/azure-mgmt-quantum/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-quantum",
+  "ReleaseStatus": "2021-08-04"
+}
