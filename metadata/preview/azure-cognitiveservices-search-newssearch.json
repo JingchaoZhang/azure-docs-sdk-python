@@ -1,7 +1,7 @@
 {
   "Name": "azure-cognitiveservices-search-newssearch",
-  "Version": "2.0.0a20220330001",
-  "DevVersion": "2.0.0a20220330001",
+  "Version": "2.0.0a20220915001",
+  "DevVersion": "2.0.0a20220915001",
   "DirectoryPath": "sdk/cognitiveservices/azure-cognitiveservices-search-newssearch",
   "ServiceDirectory": "cognitiveservices",
   "ReadMePath": "sdk/cognitiveservices/azure-cognitiveservices-search-newssearch/README.md",
