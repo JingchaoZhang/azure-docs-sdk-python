@@ -1,11 +1,11 @@
 ---
-ms.data: 09/15/2022
-title: Azure Redis Enterprise SDK for Python
+ms.devlang: python
+ms.data: 09/16/2022
 description: Reference for Azure Redis Enterprise SDK for Python
 author: lmazuel
-ms.topic: reference
-ms.devlang: python
+title: Azure Redis Enterprise SDK for Python
 ms.author: lmazuel
+ms.topic: reference
 ms.service: cache
 ---
 # Azure Redis Enterprise SDK for Python - latest
