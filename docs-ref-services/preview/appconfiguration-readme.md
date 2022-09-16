@@ -3,14 +3,12 @@ title: Azure App Configuration client library for Python
 keywords: Azure, python, SDK, API, azure-appconfiguration, appconfiguration
 author: xiangyan99
 ms.author: xiangyan
-ms.date: 03/31/2022
+ms.date: 09/16/2022
 ms.topic: reference
-ms.prod: azure
-ms.technology: azure
 ms.devlang: python
 ms.service: appconfiguration
 ---
-# Azure App Configuration client library for Python - version 1.4.0a20220330002 
+# Azure App Configuration client library for Python - version 1.4.0a20220915001 
 
 
 Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely.
@@ -115,7 +113,7 @@ export AZURE_CLIENT_SECRET="random password"
 export AZURE_TENANT_ID="tenant id"
 ```
 
-Assign one of the applicable [App Configuration roles](https://docs.microsoft.com/azure/azure-app-configuration/rest-api-authorization-azure-ad) to the service principal.
+Assign one of the applicable [App Configuration roles](/azure/azure-app-configuration/rest-api-authorization-azure-ad) to the service principal.
 
 ##### Create a client
 Once the **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET** and
@@ -311,9 +309,9 @@ see the Code of Conduct FAQ or contact opencode@microsoft.com with any
 additional questions or comments.
 
 <!-- LINKS -->
-[appconfig_docs]: https://docs.microsoft.com/azure/azure-app-configuration/
+[appconfig_docs]: /azure/azure-app-configuration/
 [appconfig_rest]: https://github.com/Azure/AppConfiguration#rest-api-reference
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
 [configuration_client_class]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/appconfiguration/azure-appconfiguration/azure/appconfiguration/_azure_appconfiguration_client.py
 [package]: https://pypi.org/project/azure-appconfiguration/
