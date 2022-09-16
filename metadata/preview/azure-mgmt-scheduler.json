@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-scheduler",
+  "Version": "7.0.0a20220916001",
+  "DevVersion": "7.0.0a20220916001",
+  "DirectoryPath": "sdk/scheduler/azure-mgmt-scheduler",
+  "ServiceDirectory": "scheduler",
+  "ReadMePath": "sdk/scheduler/azure-mgmt-scheduler/README.md",
+  "ChangeLogPath": "sdk/scheduler/azure-mgmt-scheduler/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-scheduler",
+  "ReleaseStatus": "2020-10-22"
+}
