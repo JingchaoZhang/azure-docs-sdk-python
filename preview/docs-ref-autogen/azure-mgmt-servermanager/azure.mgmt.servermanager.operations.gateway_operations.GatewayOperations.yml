@@ -1,0 +1,455 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations
+name: GatewayOperations
+fullName: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations
+module: azure.mgmt.servermanager.operations.gateway_operations
+inheritances:
+- builtins.object
+summary: GatewayOperations operations.
+constructor:
+  syntax: GatewayOperations(client, config, serializer, deserializer)
+  parameters:
+  - name: client
+    description: Client for service requests.
+    isRequired: true
+  - name: config
+    description: Configuration of service client.
+    isRequired: true
+  - name: serializer
+    description: An object model serializer.
+    isRequired: true
+  - name: deserializer
+    description: An object model deserializer.
+    isRequired: true
+variables:
+- description: 'Client API Version. Constant value: "2016-07-01-preview".'
+  name: api_version
+methods:
+- uid: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations.create
+  name: create
+  summary: Creates or updates a ManagementService gateway.
+  signature: create(resource_group_name, gateway_name, location=None, tags=None, upgrade_mode=None,
+    custom_headers=None, raw=False, polling=True, **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: gateway_name
+    description: The gateway name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: location
+    description: Location of the resource.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: tags
+    description: Resource tags.
+    defaultValue: None
+    types:
+    - <xref:object>
+  - name: upgrade_mode
+    description: 'The upgradeMode property gives the flexibility to
+
+      gateway to auto upgrade itself. If properties value not specified,
+
+      then we assume upgradeMode = Automatic. Possible values include:
+
+      ''Manual'', ''Automatic'''
+    defaultValue: None
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.servermanager.models.UpgradeMode>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'The poller return type is ClientRawResponse, the
+
+      direct response alongside the deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: polling
+    description: 'True for ARMPolling, False for no polling, or a
+
+      polling object for personal polling strategy'
+    defaultValue: 'True'
+  return:
+    description: 'An instance of LROPoller that returns GatewayResource or
+
+      ClientRawResponse<GatewayResource> if raw==True'
+    types:
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:azure.mgmt.servermanager.models.GatewayResource>]
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:msrest.pipeline.ClientRawResponse>[<xref:azure.mgmt.servermanager.models.GatewayResource>]]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations.delete
+  name: delete
+  summary: Deletes a gateway from a resource group.
+  signature: delete(resource_group_name, gateway_name, custom_headers=None, raw=False,
+    **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: gateway_name
+    description: The gateway name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'returns the direct response alongside the
+
+      deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: operation_config
+    description: '*Operation configuration
+
+      overrides*.'
+    isRequired: true
+  return:
+    description: None or ClientRawResponse if raw=true
+    types:
+    - <xref:None>
+    - <xref:msrest.pipeline.ClientRawResponse>
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations.get
+  name: get
+  summary: Gets a gateway.
+  signature: get(resource_group_name, gateway_name, expand=None, custom_headers=None,
+    raw=False, **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: gateway_name
+    description: The gateway name (256 characters maximum)
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: expand
+    description: 'Gets subscription credentials which uniquely identify
+
+      Microsoft Azure subscription. The subscription ID forms part of the
+
+      URI for every service call. Possible values include: ''status'',
+
+      ''download'''
+    defaultValue: None
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.servermanager.models.GatewayExpandOption>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'returns the direct response alongside the
+
+      deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: operation_config
+    description: '*Operation configuration
+
+      overrides*.'
+    isRequired: true
+  return:
+    description: GatewayResource or ClientRawResponse if raw=true
+    types:
+    - <xref:azure.mgmt.servermanager.models.GatewayResource>
+    - <xref:msrest.pipeline.ClientRawResponse>
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations.get_profile
+  name: get_profile
+  summary: Gets a gateway profile.
+  signature: get_profile(resource_group_name, gateway_name, custom_headers=None, raw=False,
+    polling=True, **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: gateway_name
+    description: The gateway name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'The poller return type is ClientRawResponse, the
+
+      direct response alongside the deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: polling
+    description: 'True for ARMPolling, False for no polling, or a
+
+      polling object for personal polling strategy'
+    defaultValue: 'True'
+  return:
+    description: 'An instance of LROPoller that returns GatewayProfile or
+
+      ClientRawResponse<GatewayProfile> if raw==True'
+    types:
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:azure.mgmt.servermanager.models.GatewayProfile>]
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:msrest.pipeline.ClientRawResponse>[<xref:azure.mgmt.servermanager.models.GatewayProfile>]]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations.list
+  name: list
+  summary: Returns gateways in a subscription.
+  signature: list(custom_headers=None, raw=False, **operation_config)
+  parameters:
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'returns the direct response alongside the
+
+      deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: operation_config
+    description: '*Operation configuration
+
+      overrides*.'
+    isRequired: true
+  return:
+    description: An iterator like instance of GatewayResource
+    types:
+    - <xref:azure.mgmt.servermanager.models.GatewayResourcePaged>[<xref:azure.mgmt.servermanager.models.GatewayResource>]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations.list_for_resource_group
+  name: list_for_resource_group
+  summary: Returns gateways in a resource group.
+  signature: list_for_resource_group(resource_group_name, custom_headers=None, raw=False,
+    **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'returns the direct response alongside the
+
+      deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: operation_config
+    description: '*Operation configuration
+
+      overrides*.'
+    isRequired: true
+  return:
+    description: An iterator like instance of GatewayResource
+    types:
+    - <xref:azure.mgmt.servermanager.models.GatewayResourcePaged>[<xref:azure.mgmt.servermanager.models.GatewayResource>]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations.regenerate_profile
+  name: regenerate_profile
+  summary: Regenerate a gateway's profile.
+  signature: regenerate_profile(resource_group_name, gateway_name, custom_headers=None,
+    raw=False, polling=True, **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: gateway_name
+    description: The gateway name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'The poller return type is ClientRawResponse, the
+
+      direct response alongside the deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: polling
+    description: 'True for ARMPolling, False for no polling, or a
+
+      polling object for personal polling strategy'
+    defaultValue: 'True'
+  return:
+    description: 'An instance of LROPoller that returns None or
+
+      ClientRawResponse<None> if raw==True'
+    types:
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:None>]
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:msrest.pipeline.ClientRawResponse>[<xref:None>]]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations.update
+  name: update
+  summary: Updates a gateway belonging to a resource group.
+  signature: update(resource_group_name, gateway_name, location=None, tags=None, upgrade_mode=None,
+    custom_headers=None, raw=False, polling=True, **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: gateway_name
+    description: The gateway name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: location
+    description: Location of the resource.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: tags
+    description: Resource tags.
+    defaultValue: None
+    types:
+    - <xref:object>
+  - name: upgrade_mode
+    description: 'The upgradeMode property gives the flexibility to
+
+      gateway to auto upgrade itself. If properties value not specified,
+
+      then we assume upgradeMode = Automatic. Possible values include:
+
+      ''Manual'', ''Automatic'''
+    defaultValue: None
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.servermanager.models.UpgradeMode>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'The poller return type is ClientRawResponse, the
+
+      direct response alongside the deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: polling
+    description: 'True for ARMPolling, False for no polling, or a
+
+      polling object for personal polling strategy'
+    defaultValue: 'True'
+  return:
+    description: 'An instance of LROPoller that returns GatewayResource or
+
+      ClientRawResponse<GatewayResource> if raw==True'
+    types:
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:azure.mgmt.servermanager.models.GatewayResource>]
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:msrest.pipeline.ClientRawResponse>[<xref:azure.mgmt.servermanager.models.GatewayResource>]]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations.upgrade
+  name: upgrade
+  summary: Upgrades a gateway.
+  signature: upgrade(resource_group_name, gateway_name, custom_headers=None, raw=False,
+    polling=True, **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: gateway_name
+    description: The gateway name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'The poller return type is ClientRawResponse, the
+
+      direct response alongside the deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: polling
+    description: 'True for ARMPolling, False for no polling, or a
+
+      polling object for personal polling strategy'
+    defaultValue: 'True'
+  return:
+    description: 'An instance of LROPoller that returns None or
+
+      ClientRawResponse<None> if raw==True'
+    types:
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:None>]
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:msrest.pipeline.ClientRawResponse>[<xref:None>]]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+attributes:
+- uid: azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations.models
+  name: models
+  signature: models = <module 'azure.mgmt.servermanager.models' from 'C:\\hostedtoolcache\\windows\\Python\\3.9.13\\x64\\lib\\site-packages\\azure\\mgmt\\servermanager\\models\\__init__.py'>

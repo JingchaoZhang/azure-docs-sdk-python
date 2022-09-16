@@ -1,0 +1,7 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.server_management
+name: server_management
+fullName: azure.mgmt.servermanager.server_management
+classes:
+- azure.mgmt.servermanager.server_management.ServerManagement
+- azure.mgmt.servermanager.server_management.ServerManagementConfiguration

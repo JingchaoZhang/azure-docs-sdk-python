@@ -1,0 +1,102 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.GatewayResource
+name: GatewayResource
+fullName: azure.mgmt.servermanager.models.GatewayResource
+module: azure.mgmt.servermanager.models
+inheritances:
+- azure.mgmt.servermanager.models.resource_py3.Resource
+summary: 'Data model for an arm gateway resource.
+
+
+  Variables are only populated by the server, and will be ignored when
+
+  sending a request.'
+constructor:
+  syntax: 'GatewayResource(*, tags=None, etag: Optional[str] = None, created=None,
+    updated=None, upgrade_mode=None, desired_version: Optional[str] = None, instances=None,
+    active_message_count: Optional[int] = None, latest_published_msi_version: Optional[str]
+    = None, published_time_utc=None, **kwargs)'
+  parameters:
+  - name: tags
+    description: Resource Manager Resource Tags.
+    isRequired: true
+    types:
+    - <xref:dict>[<xref:str>, <xref:str>]
+  - name: etag
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: created
+    description: 'UTC date and time when gateway was first added to
+
+      management service.'
+    isRequired: true
+    types:
+    - <xref:datetime>
+  - name: updated
+    description: UTC date and time when node was last updated.
+    isRequired: true
+    types:
+    - <xref:datetime>
+  - name: upgrade_mode
+    description: 'The upgradeMode property gives the flexibility to
+
+      gateway to auto upgrade itself. If properties value not specified, then we
+
+      assume upgradeMode = Automatic. Possible values include: ''Manual'',
+
+      ''Automatic'''
+    isRequired: true
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.servermanager.models.UpgradeMode>
+  - name: desired_version
+    description: Latest available MSI version.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: instances
+    description: Names of the nodes in the gateway.
+    isRequired: true
+    types:
+    - <xref:list>[<xref:azure.mgmt.servermanager.models.GatewayStatus>]
+  - name: active_message_count
+    description: Number of active messages.
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: latest_published_msi_version
+    description: Last published MSI version.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: published_time_utc
+    description: The date/time of the last published gateway.
+    isRequired: true
+    types:
+    - <xref:datetime>
+variables:
+- description: Resource Manager Resource ID.
+  name: id
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Type.
+  name: type
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Name.
+  name: name
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Location.
+  name: location
+  types:
+  - <xref:str>
+- description: Installer download uri.
+  name: installer_download
+  types:
+  - <xref:str>
+- description: Minimum gateway version.
+  name: minimum_version
+  types:
+  - <xref:str>

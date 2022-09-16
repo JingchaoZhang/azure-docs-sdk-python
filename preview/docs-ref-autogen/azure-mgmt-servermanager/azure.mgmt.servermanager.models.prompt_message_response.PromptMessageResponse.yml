@@ -1,0 +1,16 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.prompt_message_response.PromptMessageResponse
+name: PromptMessageResponse
+fullName: azure.mgmt.servermanager.models.prompt_message_response.PromptMessageResponse
+module: azure.mgmt.servermanager.models.prompt_message_response
+inheritances:
+- msrest.serialization.Model
+summary: The response to a prompt message.
+constructor:
+  syntax: PromptMessageResponse(**kwargs)
+  parameters:
+  - name: response
+    description: The list of responses a cmdlet expects.
+    isRequired: true
+    types:
+    - <xref:list>[<xref:str>]

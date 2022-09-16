@@ -1,0 +1,42 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.machinelearningcompute.models.AutoScaleConfiguration
+name: AutoScaleConfiguration
+fullName: azure.mgmt.machinelearningcompute.models.AutoScaleConfiguration
+module: azure.mgmt.machinelearningcompute.models
+inheritances:
+- msrest.serialization.Model
+summary: AutoScale configuration properties.
+constructor:
+  syntax: 'AutoScaleConfiguration(*, status: Optional[Union[str, azure.mgmt.machinelearningcompute.models._machine_learning_compute_management_client_enums.Status]]
+    = None, min_replicas: Optional[int] = 1, max_replicas: Optional[int] = 100, target_utilization:
+    Optional[float] = None, refresh_period_in_seconds: Optional[int] = None, **kwargs)'
+  parameters:
+  - name: status
+    description: 'If auto-scale is enabled for all services. Each service can turn
+      it off
+
+      individually. Possible values include: "Enabled", "Disabled".'
+    isRequired: true
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.machinelearningcompute.models.Status>
+  - name: min_replicas
+    description: The minimum number of replicas for each service.
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: max_replicas
+    description: The maximum number of replicas for each service.
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: target_utilization
+    description: The target utilization.
+    isRequired: true
+    types:
+    - <xref:float>
+  - name: refresh_period_in_seconds
+    description: Refresh period in seconds.
+    isRequired: true
+    types:
+    - <xref:int>

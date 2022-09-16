@@ -1,0 +1,328 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.operations.node_operations.NodeOperations
+name: NodeOperations
+fullName: azure.mgmt.servermanager.operations.node_operations.NodeOperations
+module: azure.mgmt.servermanager.operations.node_operations
+inheritances:
+- builtins.object
+summary: NodeOperations operations.
+constructor:
+  syntax: NodeOperations(client, config, serializer, deserializer)
+  parameters:
+  - name: client
+    description: Client for service requests.
+    isRequired: true
+  - name: config
+    description: Configuration of service client.
+    isRequired: true
+  - name: serializer
+    description: An object model serializer.
+    isRequired: true
+  - name: deserializer
+    description: An object model deserializer.
+    isRequired: true
+variables:
+- description: 'Client API Version. Constant value: "2016-07-01-preview".'
+  name: api_version
+methods:
+- uid: azure.mgmt.servermanager.operations.node_operations.NodeOperations.create
+  name: create
+  summary: Creates or updates a management node.
+  signature: create(resource_group_name, node_name, location=None, tags=None, gateway_id=None,
+    connection_name=None, user_name=None, password=None, custom_headers=None, raw=False,
+    polling=True, **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: node_name
+    description: The node name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: location
+    description: Location of the resource.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: tags
+    description: Resource tags.
+    defaultValue: None
+    types:
+    - <xref:object>
+  - name: gateway_id
+    description: Gateway ID which will manage this node.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: connection_name
+    description: myhost.domain.com
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: user_name
+    description: User name to be used to connect to node.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: password
+    description: Password associated with user name.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'The poller return type is ClientRawResponse, the
+
+      direct response alongside the deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: polling
+    description: 'True for ARMPolling, False for no polling, or a
+
+      polling object for personal polling strategy'
+    defaultValue: 'True'
+  return:
+    description: 'An instance of LROPoller that returns NodeResource or
+
+      ClientRawResponse<NodeResource> if raw==True'
+    types:
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:azure.mgmt.servermanager.models.NodeResource>]
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:msrest.pipeline.ClientRawResponse>[<xref:azure.mgmt.servermanager.models.NodeResource>]]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.node_operations.NodeOperations.delete
+  name: delete
+  summary: deletes a management node.
+  signature: delete(resource_group_name, node_name, custom_headers=None, raw=False,
+    **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: node_name
+    description: The node name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'returns the direct response alongside the
+
+      deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: operation_config
+    description: '*Operation configuration
+
+      overrides*.'
+    isRequired: true
+  return:
+    description: None or ClientRawResponse if raw=true
+    types:
+    - <xref:None>
+    - <xref:msrest.pipeline.ClientRawResponse>
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.node_operations.NodeOperations.get
+  name: get
+  summary: Gets a management node.
+  signature: get(resource_group_name, node_name, custom_headers=None, raw=False, **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: node_name
+    description: The node name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'returns the direct response alongside the
+
+      deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: operation_config
+    description: '*Operation configuration
+
+      overrides*.'
+    isRequired: true
+  return:
+    description: NodeResource or ClientRawResponse if raw=true
+    types:
+    - <xref:azure.mgmt.servermanager.models.NodeResource>
+    - <xref:msrest.pipeline.ClientRawResponse>
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.node_operations.NodeOperations.list
+  name: list
+  summary: Lists nodes in a subscription.
+  signature: list(custom_headers=None, raw=False, **operation_config)
+  parameters:
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'returns the direct response alongside the
+
+      deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: operation_config
+    description: '*Operation configuration
+
+      overrides*.'
+    isRequired: true
+  return:
+    description: An iterator like instance of NodeResource
+    types:
+    - <xref:azure.mgmt.servermanager.models.NodeResourcePaged>[<xref:azure.mgmt.servermanager.models.NodeResource>]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.node_operations.NodeOperations.list_for_resource_group
+  name: list_for_resource_group
+  summary: Lists nodes in a resource group.
+  signature: list_for_resource_group(resource_group_name, custom_headers=None, raw=False,
+    **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'returns the direct response alongside the
+
+      deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: operation_config
+    description: '*Operation configuration
+
+      overrides*.'
+    isRequired: true
+  return:
+    description: An iterator like instance of NodeResource
+    types:
+    - <xref:azure.mgmt.servermanager.models.NodeResourcePaged>[<xref:azure.mgmt.servermanager.models.NodeResource>]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.node_operations.NodeOperations.update
+  name: update
+  summary: Updates a management node.
+  signature: update(resource_group_name, node_name, location=None, tags=None, gateway_id=None,
+    connection_name=None, user_name=None, password=None, custom_headers=None, raw=False,
+    polling=True, **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: node_name
+    description: The node name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: location
+    description: Location of the resource.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: tags
+    description: Resource tags.
+    defaultValue: None
+    types:
+    - <xref:object>
+  - name: gateway_id
+    description: Gateway ID which will manage this node.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: connection_name
+    description: myhost.domain.com
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: user_name
+    description: User name to be used to connect to node.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: password
+    description: Password associated with user name.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'The poller return type is ClientRawResponse, the
+
+      direct response alongside the deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: polling
+    description: 'True for ARMPolling, False for no polling, or a
+
+      polling object for personal polling strategy'
+    defaultValue: 'True'
+  return:
+    description: 'An instance of LROPoller that returns NodeResource or
+
+      ClientRawResponse<NodeResource> if raw==True'
+    types:
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:azure.mgmt.servermanager.models.NodeResource>]
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:msrest.pipeline.ClientRawResponse>[<xref:azure.mgmt.servermanager.models.NodeResource>]]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+attributes:
+- uid: azure.mgmt.servermanager.operations.node_operations.NodeOperations.models
+  name: models
+  signature: models = <module 'azure.mgmt.servermanager.models' from 'C:\\hostedtoolcache\\windows\\Python\\3.9.13\\x64\\lib\\site-packages\\azure\\mgmt\\servermanager\\models\\__init__.py'>

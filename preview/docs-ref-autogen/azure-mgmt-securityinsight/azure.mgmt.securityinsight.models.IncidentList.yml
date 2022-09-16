@@ -13,8 +13,7 @@ summary: 'List all the incidents.
 
   All required parameters must be populated in order to send to Azure.'
 constructor:
-  syntax: 'IncidentList(*, value: List[azure.mgmt.securityinsight.models._models_py3.Incident],
-    **kwargs)'
+  syntax: 'IncidentList(*, value: List[_models.Incident], **kwargs)'
 variables:
 - description: URL to fetch the next set of incidents.
   name: next_link

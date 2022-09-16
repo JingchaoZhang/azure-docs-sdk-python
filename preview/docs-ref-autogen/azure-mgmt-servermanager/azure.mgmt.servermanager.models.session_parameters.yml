@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.session_parameters
+name: session_parameters
+fullName: azure.mgmt.servermanager.models.session_parameters
+classes:
+- azure.mgmt.servermanager.models.session_parameters.SessionParameters

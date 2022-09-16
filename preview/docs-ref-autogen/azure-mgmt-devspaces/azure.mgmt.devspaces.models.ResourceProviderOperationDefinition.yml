@@ -1,0 +1,22 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.devspaces.models.ResourceProviderOperationDefinition
+name: ResourceProviderOperationDefinition
+fullName: azure.mgmt.devspaces.models.ResourceProviderOperationDefinition
+module: azure.mgmt.devspaces.models
+inheritances:
+- msrest.serialization.Model
+summary: ResourceProviderOperationDefinition.
+constructor:
+  syntax: 'ResourceProviderOperationDefinition(*, name: Optional[str] = None, display:
+    Optional[azure.mgmt.devspaces.models._models_py3.ResourceProviderOperationDisplay]
+    = None, **kwargs)'
+  parameters:
+  - name: name
+    description: Resource provider operation name.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: display
+    isRequired: true
+    types:
+    - <xref:dev_spaces_management_client.models.ResourceProviderOperationDisplay>

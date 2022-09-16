@@ -1,0 +1,17 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.power_shell_tab_completion_results_py3.PowerShellTabCompletionResults
+name: PowerShellTabCompletionResults
+fullName: azure.mgmt.servermanager.models.power_shell_tab_completion_results_py3.PowerShellTabCompletionResults
+module: azure.mgmt.servermanager.models.power_shell_tab_completion_results_py3
+inheritances:
+- msrest.serialization.Model
+summary: 'An array of strings representing the different values that can be selected
+
+  through.'
+constructor:
+  syntax: PowerShellTabCompletionResults(*, results=None, **kwargs)
+  parameters:
+  - name: results
+    isRequired: true
+    types:
+    - <xref:list>[<xref:str>]

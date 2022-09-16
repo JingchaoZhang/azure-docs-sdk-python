@@ -59,12 +59,18 @@ methods:
     - <xref:str>
     - <xref:azure.mgmt.applicationinsights.v2015_05_01.models.ItemScopePath>
   - name: id
-    description: The Id of a specific item defined in the Application Insights component.
+    description: 'The Id of a specific item defined in the Application Insights component.
+      Default
+
+      value is None.'
     isRequired: true
     types:
     - <xref:str>
   - name: name
-    description: The name of a specific item defined in the Application Insights component.
+    description: 'The name of a specific item defined in the Application Insights
+      component. Default
+
+      value is None.'
     isRequired: true
     types:
     - <xref:str>
@@ -106,12 +112,18 @@ methods:
     - <xref:str>
     - <xref:azure.mgmt.applicationinsights.v2015_05_01.models.ItemScopePath>
   - name: id
-    description: The Id of a specific item defined in the Application Insights component.
+    description: 'The Id of a specific item defined in the Application Insights component.
+      Default
+
+      value is None.'
     isRequired: true
     types:
     - <xref:str>
   - name: name
-    description: The name of a specific item defined in the Application Insights component.
+    description: 'The name of a specific item defined in the Application Insights
+      component. Default
+
+      value is None.'
     isRequired: true
     types:
     - <xref:str>
@@ -157,13 +169,15 @@ methods:
     description: 'Enum indicating if this item definition is owned by a specific user
       or is shared
 
-      between all users with access to the Application Insights component.'
+      between all users with access to the Application Insights component. Default
+      value is None.'
     isRequired: true
     types:
     - <xref:str>
     - <xref:azure.mgmt.applicationinsights.v2015_05_01.models.ItemScope>
   - name: type
-    description: Enum indicating the type of the Analytics item.
+    description: Enum indicating the type of the Analytics item. Default value is
+      "none".
     isRequired: true
     types:
     - <xref:str>
@@ -171,7 +185,7 @@ methods:
   - name: include_content
     description: 'Flag indicating whether or not to return the content of each applicable
 
-      item. If false, only return the item information.'
+      item. If false, only return the item information. Default value is None.'
     isRequired: true
     types:
     - <xref:bool>
@@ -225,7 +239,7 @@ methods:
   - name: override_item
     description: 'Flag indicating whether or not to force save an item. This allows
 
-      overriding an item if it already exists.'
+      overriding an item if it already exists. Default value is None.'
     isRequired: true
     types:
     - <xref:bool>

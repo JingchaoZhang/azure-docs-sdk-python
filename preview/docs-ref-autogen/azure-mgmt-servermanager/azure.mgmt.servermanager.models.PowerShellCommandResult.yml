@@ -1,0 +1,73 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.PowerShellCommandResult
+name: PowerShellCommandResult
+fullName: azure.mgmt.servermanager.models.PowerShellCommandResult
+module: azure.mgmt.servermanager.models
+inheritances:
+- msrest.serialization.Model
+summary: Results from invoking a PowerShell command.
+constructor:
+  syntax: 'PowerShellCommandResult(*, message_type: Optional[int] = None, foreground_color:
+    Optional[str] = None, background_color: Optional[str] = None, value: Optional[str]
+    = None, prompt: Optional[str] = None, exit_code: Optional[int] = None, id: Optional[int]
+    = None, caption: Optional[str] = None, message: Optional[str] = None, descriptions=None,
+    **kwargs)'
+  parameters:
+  - name: message_type
+    description: The type of message.
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: foreground_color
+    description: 'The HTML color string representing the foreground
+
+      color.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: background_color
+    description: 'The HTML color string representing the background
+
+      color.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: value
+    description: Actual result text from the PowerShell Command.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: prompt
+    description: The interactive prompt message.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: exit_code
+    description: 'The exit code from a executable that was called from
+
+      PowerShell.'
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: id
+    description: ID of the prompt message.
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: caption
+    description: Text that precedes the prompt.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: message
+    description: Text of the prompt.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: descriptions
+    description: 'Collection of PromptFieldDescription objects that
+
+      contains the user input.'
+    isRequired: true
+    types:
+    - <xref:list>[<xref:azure.mgmt.servermanager.models.PromptFieldDescription>]

@@ -10,7 +10,7 @@ summary: 'List of the Sentinel onboarding states.
 
   All required parameters must be populated in order to send to Azure.'
 constructor:
-  syntax: 'SentinelOnboardingStatesList(*, value: List[azure.mgmt.securityinsight.models._models_py3.SentinelOnboardingState],
+  syntax: 'SentinelOnboardingStatesList(*, value: List[_models.SentinelOnboardingState],
     **kwargs)'
 variables:
 - description: Required. Array of Sentinel onboarding states.

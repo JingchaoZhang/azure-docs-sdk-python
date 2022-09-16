@@ -13,10 +13,9 @@ constructor:
   syntax: 'MailMessageEntityProperties(*, body_fingerprint_bin1: Optional[int] = None,
     body_fingerprint_bin2: Optional[int] = None, body_fingerprint_bin3: Optional[int]
     = None, body_fingerprint_bin4: Optional[int] = None, body_fingerprint_bin5: Optional[int]
-    = None, antispam_direction: Optional[Union[str, azure.mgmt.securityinsight.models._security_insights_enums.AntispamMailDirection]]
-    = None, delivery_action: Optional[Union[str, azure.mgmt.securityinsight.models._security_insights_enums.DeliveryAction]]
-    = None, delivery_location: Optional[Union[str, azure.mgmt.securityinsight.models._security_insights_enums.DeliveryLocation]]
-    = None, **kwargs)'
+    = None, antispam_direction: Optional[Union[str, _models.AntispamMailDirection]]
+    = None, delivery_action: Optional[Union[str, _models.DeliveryAction]] = None,
+    delivery_location: Optional[Union[str, _models.DeliveryLocation]] = None, **kwargs)'
 variables:
 - description: 'A bag of custom fields that should be part of the entity and will
     be
@@ -122,17 +121,16 @@ variables:
   name: body_fingerprint_bin5
   types:
   - <xref:int>
-- description: 'The directionality of this mail message. Possible values include:
+- description: 'The directionality of this mail message. Known values are: "Unknown",
 
-    "Unknown", "Inbound", "Outbound", "Intraorg".'
+    "Inbound", "Outbound", "Intraorg".'
   name: antispam_direction
   types:
   - <xref:str>
   - <xref:azure.mgmt.securityinsight.models.AntispamMailDirection>
 - description: 'The delivery action of this mail message like Delivered, Blocked,
 
-    Replaced etc. Possible values include: "Unknown", "DeliveredAsSpam", "Delivered",
-    "Blocked",
+    Replaced etc. Known values are: "Unknown", "DeliveredAsSpam", "Delivered", "Blocked",
 
     "Replaced".'
   name: delivery_action
@@ -142,9 +140,10 @@ variables:
 - description: 'The delivery location of this mail message like Inbox, JunkFolder
     etc.
 
-    Possible values include: "Unknown", "Inbox", "JunkFolder", "DeletedFolder", "Quarantine",
+    Known values are: "Unknown", "Inbox", "JunkFolder", "DeletedFolder", "Quarantine",
+    "External",
 
-    "External", "Failed", "Dropped", "Forwarded".'
+    "Failed", "Dropped", "Forwarded".'
   name: delivery_location
   types:
   - <xref:str>

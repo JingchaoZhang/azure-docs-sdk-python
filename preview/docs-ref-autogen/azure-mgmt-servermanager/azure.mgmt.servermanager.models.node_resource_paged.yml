@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.node_resource_paged
+name: node_resource_paged
+fullName: azure.mgmt.servermanager.models.node_resource_paged
+classes:
+- azure.mgmt.servermanager.models.node_resource_paged.NodeResourcePaged

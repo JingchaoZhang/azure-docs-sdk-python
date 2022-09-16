@@ -1,0 +1,24 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.devspaces.models.ControllerUpdateParameters
+name: ControllerUpdateParameters
+fullName: azure.mgmt.devspaces.models.ControllerUpdateParameters
+module: azure.mgmt.devspaces.models
+inheritances:
+- msrest.serialization.Model
+summary: Parameters for updating an Azure Dev Spaces Controller.
+constructor:
+  syntax: 'ControllerUpdateParameters(*, tags: Optional[Dict[str, str]] = None, target_container_host_credentials_base64:
+    Optional[str] = None, **kwargs)'
+  parameters:
+  - name: tags
+    description: A set of tags. Tags for the Azure Dev Spaces Controller.
+    isRequired: true
+    types:
+    - <xref:dict>[<xref:str>, <xref:str>]
+  - name: target_container_host_credentials_base64
+    description: 'Credentials of the target container host
+
+      (base64).'
+    isRequired: true
+    types:
+    - <xref:str>

@@ -12,13 +12,11 @@ summary: 'Response for the AvailableGroundStations API service call.
 constructor:
   syntax: 'AvailableGroundStationListResult(*, value: Optional[List[azure.mgmt.orbital.models._models_py3.AvailableGroundStation]]
     = None, **kwargs)'
-  parameters:
-  - name: value
-    description: A list of ground station resources.
-    isRequired: true
-    types:
-    - <xref:list>[<xref:azure_orbital.models.AvailableGroundStation>]
 variables:
+- description: A list of ground station resources.
+  name: value
+  types:
+  - <xref:list>[<xref:azure.mgmt.orbital.models.AvailableGroundStation>]
 - description: The URL to get the next set of results.
   name: next_link
   types:

@@ -1,0 +1,46 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.session_parameters_py3.SessionParameters
+name: SessionParameters
+fullName: azure.mgmt.servermanager.models.session_parameters_py3.SessionParameters
+module: azure.mgmt.servermanager.models.session_parameters_py3
+inheritances:
+- msrest.serialization.Model
+summary: Parameter collection for creation and other operations on sessions.
+constructor:
+  syntax: 'SessionParameters(*, user_name: Optional[str] = None, password: Optional[str]
+    = None, retention_period=None, credential_data_format=None, encryption_certificate_thumbprint:
+    Optional[str] = None, **kwargs)'
+  parameters:
+  - name: user_name
+    description: Encrypted User name to be used to connect to node.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: password
+    description: Encrypted Password associated with user name.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: retention_period
+    description: 'Session retention period. Possible values
+
+      include: ''Session'', ''Persistent'''
+    isRequired: true
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.servermanager.models.RetentionPeriod>
+  - name: credential_data_format
+    description: 'Credential data format. Possible values
+
+      include: ''RsaEncrypted'''
+    isRequired: true
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.servermanager.models.CredentialDataFormat>
+  - name: encryption_certificate_thumbprint
+    description: 'Encryption certificate
+
+      thumbprint.'
+    isRequired: true
+    types:
+    - <xref:str>

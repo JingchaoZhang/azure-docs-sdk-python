@@ -1,0 +1,41 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.node_parameters.NodeParameters
+name: NodeParameters
+fullName: azure.mgmt.servermanager.models.node_parameters.NodeParameters
+module: azure.mgmt.servermanager.models.node_parameters
+inheritances:
+- msrest.serialization.Model
+summary: Parameter collection for operations on arm node resource.
+constructor:
+  syntax: NodeParameters(**kwargs)
+  parameters:
+  - name: location
+    description: Location of the resource.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: tags
+    description: Resource tags.
+    isRequired: true
+    types:
+    - <xref:object>
+  - name: gateway_id
+    description: Gateway ID which will manage this node.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: connection_name
+    description: myhost.domain.com
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: user_name
+    description: User name to be used to connect to node.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: password
+    description: Password associated with user name.
+    isRequired: true
+    types:
+    - <xref:str>
