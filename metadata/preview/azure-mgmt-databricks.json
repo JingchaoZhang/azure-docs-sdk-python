@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-databricks",
+  "Version": "1.1.0a20220917001",
+  "DevVersion": "1.1.0a20220917001",
+  "DirectoryPath": "sdk/databricks/azure-mgmt-databricks",
+  "ServiceDirectory": "databricks",
+  "ReadMePath": "sdk/databricks/azure-mgmt-databricks/README.md",
+  "ChangeLogPath": "sdk/databricks/azure-mgmt-databricks/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-databricks",
+  "ReleaseStatus": "2021-08-02"
+}
