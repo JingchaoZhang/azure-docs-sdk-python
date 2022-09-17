@@ -1,0 +1,75 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.devspaces.aio.operations.ContainerHostMappingsOperations
+name: ContainerHostMappingsOperations
+fullName: azure.mgmt.devspaces.aio.operations.ContainerHostMappingsOperations
+module: azure.mgmt.devspaces.aio.operations
+inheritances:
+- builtins.object
+summary: 'ContainerHostMappingsOperations async operations.
+
+
+  You should not instantiate this class directly. Instead, you should create a Client
+  instance that
+
+  instantiates it for you and attaches it as an attribute.'
+constructor:
+  syntax: ContainerHostMappingsOperations(client, config, serializer, deserializer)
+  parameters:
+  - name: client
+    description: Client for service requests.
+    isRequired: true
+  - name: config
+    description: Configuration of service client.
+    isRequired: true
+  - name: serializer
+    description: An object model serializer.
+    isRequired: true
+  - name: deserializer
+    description: An object model deserializer.
+    isRequired: true
+variables:
+- description: Alias to model classes used in this operation group.
+  name: models
+methods:
+- uid: azure.mgmt.devspaces.aio.operations.ContainerHostMappingsOperations.get_container_host_mapping
+  name: get_container_host_mapping
+  summary: 'Returns container host mapping object for a container host resource ID
+    if an associated controller exists.
+
+
+    Returns container host mapping object for a container host resource ID if an associated
+
+    controller exists.'
+  signature: 'async get_container_host_mapping(resource_group_name: str, location:
+    str, container_host_mapping: azure.mgmt.devspaces.models._models_py3.ContainerHostMapping,
+    **kwargs: Any) -> Optional[azure.mgmt.devspaces.models._models_py3.ContainerHostMapping]'
+  parameters:
+  - name: resource_group_name
+    description: Resource group to which the resource belongs.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: location
+    description: Location of the container host.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: container_host_mapping
+    isRequired: true
+    types:
+    - <xref:dev_spaces_management_client.models.ContainerHostMapping>
+  - name: cls
+    description: A custom type or function that will be passed the direct response
+    types:
+    - <xref:callable>
+  return:
+    description: ContainerHostMapping, or the result of cls(response)
+    types:
+    - <xref:dev_spaces_management_client.models.ContainerHostMapping>
+    - <xref:None>
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+attributes:
+- uid: azure.mgmt.devspaces.aio.operations.ContainerHostMappingsOperations.models
+  name: models
+  signature: models = <module 'azure.mgmt.devspaces.models' from 'C:\\hostedtoolcache\\windows\\Python\\3.9.13\\x64\\lib\\site-packages\\azure\\mgmt\\devspaces\\models\\__init__.py'>

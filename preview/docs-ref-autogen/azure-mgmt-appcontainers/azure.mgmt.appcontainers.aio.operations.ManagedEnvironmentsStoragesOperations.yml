@@ -37,8 +37,8 @@ methods:
 
 
     Create or update storage for a managedEnvironment.'
-  signature: 'async create_or_update(resource_group_name: str, env_name: str, name:
-    str, storage_envelope: azure.mgmt.appcontainers.models._models_py3.ManagedEnvironmentStorage,
+  signature: 'async create_or_update(resource_group_name: str, environment_name: str,
+    storage_name: str, storage_envelope: azure.mgmt.appcontainers.models._models_py3.ManagedEnvironmentStorage,
     **kwargs: Any) -> azure.mgmt.appcontainers.models._models_py3.ManagedEnvironmentStorage'
   parameters:
   - name: resource_group_name
@@ -46,12 +46,12 @@ methods:
     isRequired: true
     types:
     - <xref:str>
-  - name: env_name
+  - name: environment_name
     description: Name of the Environment.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: storage_name
     description: Name of the storage.
     isRequired: true
     types:
@@ -77,20 +77,20 @@ methods:
 
 
     Delete storage for a managedEnvironment.'
-  signature: 'async delete(resource_group_name: str, env_name: str, name: str, **kwargs:
-    Any) -> None'
+  signature: 'async delete(resource_group_name: str, environment_name: str, storage_name:
+    str, **kwargs: Any) -> None'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: env_name
+  - name: environment_name
     description: Name of the Environment.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: storage_name
     description: Name of the storage.
     isRequired: true
     types:
@@ -111,20 +111,20 @@ methods:
 
 
     Get storage for a managedEnvironment.'
-  signature: 'async get(resource_group_name: str, env_name: str, name: str, **kwargs:
-    Any) -> azure.mgmt.appcontainers.models._models_py3.ManagedEnvironmentStorage'
+  signature: 'async get(resource_group_name: str, environment_name: str, storage_name:
+    str, **kwargs: Any) -> azure.mgmt.appcontainers.models._models_py3.ManagedEnvironmentStorage'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: env_name
+  - name: environment_name
     description: Name of the Environment.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: storage_name
     description: Name of the storage.
     isRequired: true
     types:
@@ -145,15 +145,15 @@ methods:
 
 
     Get all storages for a managedEnvironment.'
-  signature: 'async list(resource_group_name: str, env_name: str, **kwargs: Any) ->
-    azure.mgmt.appcontainers.models._models_py3.ManagedEnvironmentStoragesCollection'
+  signature: 'async list(resource_group_name: str, environment_name: str, **kwargs:
+    Any) -> azure.mgmt.appcontainers.models._models_py3.ManagedEnvironmentStoragesCollection'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: env_name
+  - name: environment_name
     description: Name of the Environment.
     isRequired: true
     types:

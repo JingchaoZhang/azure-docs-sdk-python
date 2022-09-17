@@ -1,0 +1,28 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.EncryptionJwkResource
+name: EncryptionJwkResource
+fullName: azure.mgmt.servermanager.models.EncryptionJwkResource
+module: azure.mgmt.servermanager.models
+inheritances:
+- msrest.serialization.Model
+summary: The public key of the gateway.
+constructor:
+  syntax: 'EncryptionJwkResource(*, kty: Optional[str] = None, alg: Optional[str]
+    = None, e: Optional[str] = None, n: Optional[str] = None, **kwargs)'
+  parameters:
+  - name: kty
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: alg
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: e
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: n
+    isRequired: true
+    types:
+    - <xref:str>

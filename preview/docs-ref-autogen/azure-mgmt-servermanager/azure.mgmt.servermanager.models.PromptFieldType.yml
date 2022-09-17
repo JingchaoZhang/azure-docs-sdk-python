@@ -1,0 +1,18 @@
+### YamlMime:PythonEnum
+uid: azure.mgmt.servermanager.models.PromptFieldType
+name: PromptFieldType
+fullName: azure.mgmt.servermanager.models.PromptFieldType
+summary: An enumeration.
+module: azure.mgmt.servermanager.models
+constructor:
+  syntax: PromptFieldType(value)
+inheritances:
+- builtins.str
+- enum.Enum
+fields:
+- name: credential
+  uid: azure.mgmt.servermanager.models.PromptFieldType.credential
+- name: secure_string
+  uid: azure.mgmt.servermanager.models.PromptFieldType.secure_string
+- name: string
+  uid: azure.mgmt.servermanager.models.PromptFieldType.string

@@ -5,35 +5,15 @@ fullName: azure.mgmt.securityinsight.aio.operations.WatchlistItemsOperations
 module: azure.mgmt.securityinsight.aio.operations
 inheritances:
 - builtins.object
-summary: 'WatchlistItemsOperations async operations.
-
-
-  You should not instantiate this class directly. Instead, you should create a Client
-  instance that
-
-  instantiates it for you and attaches it as an attribute.'
+summary: "> [!WARNING]\n> DO NOT instantiate this class directly.\n>\n> \n>\n> Instead,\
+  \ you should access the following operations through\n>\n> <xref:azure.mgmt.securityinsight.aio.SecurityInsights>'s\n\
+  >\n> <xref:watchlist_items> attribute.\n>"
 constructor:
-  syntax: WatchlistItemsOperations(client, config, serializer, deserializer)
-  parameters:
-  - name: client
-    description: Client for service requests.
-    isRequired: true
-  - name: config
-    description: Configuration of service client.
-    isRequired: true
-  - name: serializer
-    description: An object model serializer.
-    isRequired: true
-  - name: deserializer
-    description: An object model deserializer.
-    isRequired: true
-variables:
-- description: Alias to model classes used in this operation group.
-  name: models
+  syntax: WatchlistItemsOperations(*args, **kwargs)
 methods:
 - uid: azure.mgmt.securityinsight.aio.operations.WatchlistItemsOperations.create_or_update
   name: create_or_update
-  summary: Creates or updates a watchlist item.
+  summary: Create or update a watchlist item.
   signature: 'async create_or_update(resource_group_name: str, workspace_name: str,
     watchlist_alias: str, watchlist_item_id: str, watchlist_item: azure.mgmt.securityinsight.models._models_py3.WatchlistItem,
     **kwargs: Any) -> azure.mgmt.securityinsight.models._models_py3.WatchlistItem'
@@ -49,12 +29,12 @@ methods:
     types:
     - <xref:str>
   - name: watchlist_alias
-    description: Watchlist Alias.
+    description: The watchlist alias.
     isRequired: true
     types:
     - <xref:str>
   - name: watchlist_item_id
-    description: Watchlist Item Id (GUID).
+    description: The watchlist item id (GUID).
     isRequired: true
     types:
     - <xref:str>
@@ -90,12 +70,12 @@ methods:
     types:
     - <xref:str>
   - name: watchlist_alias
-    description: Watchlist Alias.
+    description: The watchlist alias.
     isRequired: true
     types:
     - <xref:str>
   - name: watchlist_item_id
-    description: Watchlist Item Id (GUID).
+    description: The watchlist item id (GUID).
     isRequired: true
     types:
     - <xref:str>
@@ -111,7 +91,7 @@ methods:
   - type: azure.core.exceptions.HttpResponseError
 - uid: azure.mgmt.securityinsight.aio.operations.WatchlistItemsOperations.get
   name: get
-  summary: Gets a watchlist, without its watchlist items.
+  summary: Get a watchlist item.
   signature: 'async get(resource_group_name: str, workspace_name: str, watchlist_alias:
     str, watchlist_item_id: str, **kwargs: Any) -> azure.mgmt.securityinsight.models._models_py3.WatchlistItem'
   parameters:
@@ -126,12 +106,12 @@ methods:
     types:
     - <xref:str>
   - name: watchlist_alias
-    description: Watchlist Alias.
+    description: The watchlist alias.
     isRequired: true
     types:
     - <xref:str>
   - name: watchlist_item_id
-    description: Watchlist Item Id (GUID).
+    description: The watchlist item id (GUID).
     isRequired: true
     types:
     - <xref:str>
@@ -147,7 +127,7 @@ methods:
   - type: azure.core.exceptions.HttpResponseError
 - uid: azure.mgmt.securityinsight.aio.operations.WatchlistItemsOperations.list
   name: list
-  summary: Gets all watchlist Items.
+  summary: Get all watchlist Items.
   signature: 'list(resource_group_name: str, workspace_name: str, watchlist_alias:
     str, skip_token: Optional[str] = None, **kwargs: Any) -> AsyncIterable[azure.mgmt.securityinsight.models._models_py3.WatchlistItemList]'
   parameters:
@@ -162,7 +142,7 @@ methods:
     types:
     - <xref:str>
   - name: watchlist_alias
-    description: Watchlist Alias.
+    description: The watchlist alias.
     isRequired: true
     types:
     - <xref:str>
@@ -174,7 +154,9 @@ methods:
       will include
 
       a skiptoken parameter that specifies a starting point to use for subsequent
-      calls. Optional.'
+      calls. Optional.
+
+      Default value is None.'
     isRequired: true
     types:
     - <xref:str>

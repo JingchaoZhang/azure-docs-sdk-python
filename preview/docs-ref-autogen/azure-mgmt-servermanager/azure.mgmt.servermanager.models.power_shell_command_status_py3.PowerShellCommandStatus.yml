@@ -1,0 +1,60 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.power_shell_command_status_py3.PowerShellCommandStatus
+name: PowerShellCommandStatus
+fullName: azure.mgmt.servermanager.models.power_shell_command_status_py3.PowerShellCommandStatus
+module: azure.mgmt.servermanager.models.power_shell_command_status_py3
+inheritances:
+- azure.mgmt.servermanager.models.resource_py3.Resource
+summary: 'Result status from invoking a PowerShell command.
+
+
+  Variables are only populated by the server, and will be ignored when
+
+  sending a request.'
+constructor:
+  syntax: 'PowerShellCommandStatus(*, tags=None, etag: Optional[str] = None, results=None,
+    pssession: Optional[str] = None, command: Optional[str] = None, completed: Optional[bool]
+    = None, **kwargs)'
+  parameters:
+  - name: tags
+    description: Resource Manager Resource Tags.
+    isRequired: true
+    types:
+    - <xref:dict>[<xref:str>, <xref:str>]
+  - name: etag
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: results
+    isRequired: true
+    types:
+    - <xref:list>[<xref:azure.mgmt.servermanager.models.PowerShellCommandResult>]
+  - name: pssession
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: command
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: completed
+    isRequired: true
+    types:
+    - <xref:bool>
+variables:
+- description: Resource Manager Resource ID.
+  name: id
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Type.
+  name: type
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Name.
+  name: name
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Location.
+  name: location
+  types:
+  - <xref:str>

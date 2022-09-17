@@ -17,7 +17,7 @@ summary: 'Describes an automation rule condition.
 constructor:
   syntax: AutomationRuleCondition(**kwargs)
 variables:
-- description: 'Required. Constant filled by server. Possible values include: "Property".'
+- description: 'Required. Constant filled by server. Known values are: "Property".'
   name: condition_type
   types:
   - <xref:str>

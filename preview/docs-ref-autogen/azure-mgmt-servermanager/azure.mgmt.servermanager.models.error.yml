@@ -1,0 +1,7 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.error
+name: error
+fullName: azure.mgmt.servermanager.models.error
+classes:
+- azure.mgmt.servermanager.models.error.Error
+- azure.mgmt.servermanager.models.error.ErrorException

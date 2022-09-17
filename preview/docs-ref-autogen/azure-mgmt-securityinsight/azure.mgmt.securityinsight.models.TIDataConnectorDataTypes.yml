@@ -5,15 +5,12 @@ fullName: azure.mgmt.securityinsight.models.TIDataConnectorDataTypes
 module: azure.mgmt.securityinsight.models
 inheritances:
 - msrest.serialization.Model
-summary: 'The available data types for TI (Threat Intelligence) data connector.
-
-
-  All required parameters must be populated in order to send to Azure.'
+summary: The available data types for TI (Threat Intelligence) data connector.
 constructor:
-  syntax: 'TIDataConnectorDataTypes(*, indicators: azure.mgmt.securityinsight.models._models_py3.TIDataConnectorDataTypesIndicators,
-    **kwargs)'
+  syntax: 'TIDataConnectorDataTypes(*, indicators: Optional[_models.TIDataConnectorDataTypesIndicators]
+    = None, **kwargs)'
 variables:
-- description: Required. Data type for indicators connection.
+- description: Data type for indicators connection.
   name: indicators
   types:
   - <xref:azure.mgmt.securityinsight.models.TIDataConnectorDataTypesIndicators>

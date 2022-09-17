@@ -1,0 +1,23 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.error.Error
+name: Error
+fullName: azure.mgmt.servermanager.models.error.Error
+module: azure.mgmt.servermanager.models.error
+inheritances:
+- msrest.serialization.Model
+summary: Error message.
+constructor:
+  syntax: Error(**kwargs)
+  parameters:
+  - name: code
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: message
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: fields
+    isRequired: true
+    types:
+    - <xref:str>

@@ -13,8 +13,7 @@ summary: 'List all the watchlists.
 
   All required parameters must be populated in order to send to Azure.'
 constructor:
-  syntax: 'WatchlistList(*, value: List[azure.mgmt.securityinsight.models._models_py3.Watchlist],
-    **kwargs)'
+  syntax: 'WatchlistList(*, value: List[_models.Watchlist], **kwargs)'
 variables:
 - description: URL to fetch the next set of watchlists.
   name: next_link

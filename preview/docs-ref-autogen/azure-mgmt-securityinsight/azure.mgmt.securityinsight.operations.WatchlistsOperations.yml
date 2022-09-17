@@ -5,31 +5,11 @@ fullName: azure.mgmt.securityinsight.operations.WatchlistsOperations
 module: azure.mgmt.securityinsight.operations
 inheritances:
 - builtins.object
-summary: 'WatchlistsOperations operations.
-
-
-  You should not instantiate this class directly. Instead, you should create a Client
-  instance that
-
-  instantiates it for you and attaches it as an attribute.'
+summary: "> [!WARNING]\n> DO NOT instantiate this class directly.\n>\n> \n>\n> Instead,\
+  \ you should access the following operations through\n>\n> <xref:azure.mgmt.securityinsight.SecurityInsights>'s\n\
+  >\n> <xref:watchlists> attribute.\n>"
 constructor:
-  syntax: WatchlistsOperations(client, config, serializer, deserializer)
-  parameters:
-  - name: client
-    description: Client for service requests.
-    isRequired: true
-  - name: config
-    description: Configuration of service client.
-    isRequired: true
-  - name: serializer
-    description: An object model serializer.
-    isRequired: true
-  - name: deserializer
-    description: An object model deserializer.
-    isRequired: true
-variables:
-- description: Alias to model classes used in this operation group.
-  name: models
+  syntax: WatchlistsOperations(*args, **kwargs)
 methods:
 - uid: azure.mgmt.securityinsight.operations.WatchlistsOperations.create_or_update
   name: create_or_update
@@ -37,18 +17,9 @@ methods:
     through text/csv
 
     content type). To create a Watchlist and its Items, we should call this endpoint
-    with either
+    with
 
-    rawContent or a valid SAR URI and contentType properties. The rawContent is mainly
-    used for
-
-    small watchlist (content size below 3.8 MB). The SAS URI enables the creation
-    of large
-
-    watchlist, where the content size can go up to 500 MB. The status of processing
-    such large file
-
-    can be polled through the URL returned in Azure-AsyncOperation header.'
+    rawContent and contentType properties.'
   signature: 'create_or_update(resource_group_name: str, workspace_name: str, watchlist_alias:
     str, watchlist: azure.mgmt.securityinsight.models._models_py3.Watchlist, **kwargs:
     Any) -> azure.mgmt.securityinsight.models._models_py3.Watchlist'
@@ -64,7 +35,7 @@ methods:
     types:
     - <xref:str>
   - name: watchlist_alias
-    description: Watchlist Alias.
+    description: The watchlist alias.
     isRequired: true
     types:
     - <xref:str>
@@ -100,7 +71,7 @@ methods:
     types:
     - <xref:str>
   - name: watchlist_alias
-    description: Watchlist Alias.
+    description: The watchlist alias.
     isRequired: true
     types:
     - <xref:str>
@@ -116,7 +87,7 @@ methods:
   - type: azure.core.exceptions.HttpResponseError
 - uid: azure.mgmt.securityinsight.operations.WatchlistsOperations.get
   name: get
-  summary: Gets a watchlist, without its watchlist items.
+  summary: Get a watchlist, without its watchlist items.
   signature: 'get(resource_group_name: str, workspace_name: str, watchlist_alias:
     str, **kwargs: Any) -> azure.mgmt.securityinsight.models._models_py3.Watchlist'
   parameters:
@@ -131,7 +102,7 @@ methods:
     types:
     - <xref:str>
   - name: watchlist_alias
-    description: Watchlist Alias.
+    description: The watchlist alias.
     isRequired: true
     types:
     - <xref:str>
@@ -147,7 +118,7 @@ methods:
   - type: azure.core.exceptions.HttpResponseError
 - uid: azure.mgmt.securityinsight.operations.WatchlistsOperations.list
   name: list
-  summary: Gets all watchlists, without watchlist items.
+  summary: Get all watchlists, without watchlist items.
   signature: 'list(resource_group_name: str, workspace_name: str, skip_token: Optional[str]
     = None, **kwargs: Any) -> Iterable[azure.mgmt.securityinsight.models._models_py3.WatchlistList]'
   parameters:
@@ -169,7 +140,9 @@ methods:
       will include
 
       a skiptoken parameter that specifies a starting point to use for subsequent
-      calls. Optional.'
+      calls. Optional.
+
+      Default value is None.'
     isRequired: true
     types:
     - <xref:str>

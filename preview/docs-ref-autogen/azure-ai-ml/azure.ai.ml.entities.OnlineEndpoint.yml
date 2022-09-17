@@ -51,7 +51,7 @@ constructor:
     types:
     - <xref:Dict>[<xref:str>, <xref:int>], <xref:optional>
   - name: mirror_traffic
-    description: Duplicated life traffic used to train a single deployment, defaults
+    description: Duplicated live traffic used to inference a single deployment, defaults
       to {}
     defaultValue: None
     types:

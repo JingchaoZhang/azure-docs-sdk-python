@@ -1,0 +1,43 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.version_py3.Version
+name: Version
+fullName: azure.mgmt.servermanager.models.version_py3.Version
+module: azure.mgmt.servermanager.models.version_py3
+inheritances:
+- msrest.serialization.Model
+summary: A multipart-numeric version number.
+constructor:
+  syntax: 'Version(*, major: Optional[int] = None, minor: Optional[int] = None, build:
+    Optional[int] = None, revision: Optional[int] = None, major_revision: Optional[int]
+    = None, minor_revision: Optional[int] = None, **kwargs)'
+  parameters:
+  - name: major
+    description: The leftmost number of the version.
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: minor
+    description: The second leftmost number of the version.
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: build
+    description: The third number of the version.
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: revision
+    description: The fourth number of the version.
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: major_revision
+    description: The MSW of the fourth part.
+    isRequired: true
+    types:
+    - <xref:int>
+  - name: minor_revision
+    description: The LSW of the fourth part.
+    isRequired: true
+    types:
+    - <xref:int>

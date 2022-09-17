@@ -1,0 +1,16 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.power_shell_command_parameters.PowerShellCommandParameters
+name: PowerShellCommandParameters
+fullName: azure.mgmt.servermanager.models.power_shell_command_parameters.PowerShellCommandParameters
+module: azure.mgmt.servermanager.models.power_shell_command_parameters
+inheritances:
+- msrest.serialization.Model
+summary: The parameters to a PowerShell script execution command.
+constructor:
+  syntax: PowerShellCommandParameters(**kwargs)
+  parameters:
+  - name: command
+    description: Script to execute.
+    isRequired: true
+    types:
+    - <xref:str>

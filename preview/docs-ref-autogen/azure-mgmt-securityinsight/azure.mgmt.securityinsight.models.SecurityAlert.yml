@@ -13,7 +13,7 @@ summary: 'Represents a security alert entity.
 
   All required parameters must be populated in order to send to Azure.'
 constructor:
-  syntax: 'SecurityAlert(*, severity: Optional[Union[str, azure.mgmt.securityinsight.models._security_insights_enums.AlertSeverity]]
+  syntax: 'SecurityAlert(*, severity: Optional[Union[str, _models.AlertSeverity]]
     = None, **kwargs)'
 variables:
 - description: 'Fully qualified resource ID for the resource. Ex -
@@ -39,13 +39,13 @@ variables:
   name: system_data
   types:
   - <xref:azure.mgmt.securityinsight.models.SystemData>
-- description: 'Required. The kind of the entity.Constant filled by server. Possible
-    values
+- description: 'Required. The kind of the entity.Constant filled by server. Known
+    values are:
 
-    include: "Account", "Host", "File", "AzureResource", "CloudApplication", "DnsResolution",
+    "Account", "Host", "File", "AzureResource", "CloudApplication", "DnsResolution",
+    "FileHash",
 
-    "FileHash", "Ip", "Malware", "Process", "RegistryKey", "RegistryValue", "SecurityGroup",
-    "Url",
+    "Ip", "Malware", "Process", "RegistryKey", "RegistryValue", "SecurityGroup", "Url",
 
     "IoTDevice", "SecurityAlert", "Bookmark", "MailCluster", "MailMessage", "Mailbox",
 
@@ -53,7 +53,7 @@ variables:
   name: kind
   types:
   - <xref:str>
-  - <xref:azure.mgmt.securityinsight.models.EntityKind>
+  - <xref:azure.mgmt.securityinsight.models.EntityKindEnum>
 - description: 'A bag of custom fields that should be part of the entity and will
     be
 
@@ -79,9 +79,9 @@ variables:
   name: compromised_entity
   types:
   - <xref:str>
-- description: 'The confidence level of this alert. Possible values include: "Unknown",
+- description: 'The confidence level of this alert. Known values are: "Unknown", "Low",
 
-    "Low", "High".'
+    "High".'
   name: confidence_level
   types:
   - <xref:str>
@@ -96,8 +96,8 @@ variables:
   - <xref:float>
 - description: 'The confidence score calculation status, i.e. indicating if
 
-    score calculation is pending for this alert, not applicable or final. Possible
-    values include:
+    score calculation is pending for this alert, not applicable or final. Known values
+    are:
 
     "NotApplicable", "InProcess", "NotFinal", "Final".'
   name: confidence_score_status
@@ -114,8 +114,8 @@ variables:
   name: end_time_utc
   types:
   - <xref:datetime.datetime>
-- description: 'Holds the alert intent stage(s) mapping for this alert. Possible values
-    include:
+- description: 'Holds the alert intent stage(s) mapping for this alert. Known values
+    are:
 
     "Unknown", "Probing", "Exploitation", "Persistence", "PrivilegeEscalation", "DefenseEvasion",
 
@@ -155,8 +155,7 @@ variables:
   name: remediation_steps
   types:
   - <xref:list>[<xref:str>]
-- description: 'The severity of the alert. Possible values include: "High", "Medium",
-    "Low",
+- description: 'The severity of the alert. Known values are: "High", "Medium", "Low",
 
     "Informational".'
   name: severity
@@ -169,8 +168,7 @@ variables:
   name: start_time_utc
   types:
   - <xref:datetime.datetime>
-- description: 'The lifecycle status of the alert. Possible values include: "Unknown",
-    "New",
+- description: 'The lifecycle status of the alert. Known values are: "Unknown", "New",
 
     "Resolved", "Dismissed", "InProgress".'
   name: status

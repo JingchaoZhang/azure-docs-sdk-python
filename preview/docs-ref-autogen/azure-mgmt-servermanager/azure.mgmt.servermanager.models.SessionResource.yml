@@ -1,0 +1,60 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.SessionResource
+name: SessionResource
+fullName: azure.mgmt.servermanager.models.SessionResource
+module: azure.mgmt.servermanager.models
+inheritances:
+- azure.mgmt.servermanager.models.resource_py3.Resource
+summary: 'The session object.
+
+
+  Variables are only populated by the server, and will be ignored when
+
+  sending a request.'
+constructor:
+  syntax: 'SessionResource(*, tags=None, etag: Optional[str] = None, user_name: Optional[str]
+    = None, created=None, updated=None, **kwargs)'
+  parameters:
+  - name: tags
+    description: Resource Manager Resource Tags.
+    isRequired: true
+    types:
+    - <xref:dict>[<xref:str>, <xref:str>]
+  - name: etag
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: user_name
+    description: The username connecting to the session.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: created
+    description: 'UTC date and time when node was first added to management
+
+      service.'
+    isRequired: true
+    types:
+    - <xref:datetime>
+  - name: updated
+    description: UTC date and time when node was last updated.
+    isRequired: true
+    types:
+    - <xref:datetime>
+variables:
+- description: Resource Manager Resource ID.
+  name: id
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Type.
+  name: type
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Name.
+  name: name
+  types:
+  - <xref:str>
+- description: Resource Manager Resource Location.
+  name: location
+  types:
+  - <xref:str>

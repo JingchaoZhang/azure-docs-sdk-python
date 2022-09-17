@@ -1,0 +1,43 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.prompt_field_description_py3.PromptFieldDescription
+name: PromptFieldDescription
+fullName: azure.mgmt.servermanager.models.prompt_field_description_py3.PromptFieldDescription
+module: azure.mgmt.servermanager.models.prompt_field_description_py3
+inheritances:
+- msrest.serialization.Model
+summary: Field description for the implementation of PSHostUserInterface.Prompt.
+constructor:
+  syntax: 'PromptFieldDescription(*, name: Optional[str] = None, label: Optional[str]
+    = None, help_message: Optional[str] = None, prompt_field_type_is_list: Optional[bool]
+    = None, prompt_field_type=None, **kwargs)'
+  parameters:
+  - name: name
+    description: The name of the prompt.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: label
+    description: The label text of the prompt.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: help_message
+    description: The help message of the prompt.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: prompt_field_type_is_list
+    description: 'When set to ''true'' the prompt field type
+
+      is a list of values.'
+    isRequired: true
+    types:
+    - <xref:bool>
+  - name: prompt_field_type
+    description: 'Possible values include: ''String'',
+
+      ''SecureString'', ''Credential'''
+    isRequired: true
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.servermanager.models.PromptFieldType>

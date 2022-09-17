@@ -15,5 +15,6 @@ classes:
 - azure.ai.ml.operations.ModelOperations
 - azure.ai.ml.operations.OnlineDeploymentOperations
 - azure.ai.ml.operations.OnlineEndpointOperations
+- azure.ai.ml.operations.RegistryOperations
 - azure.ai.ml.operations.WorkspaceConnectionsOperations
 - azure.ai.ml.operations.WorkspaceOperations

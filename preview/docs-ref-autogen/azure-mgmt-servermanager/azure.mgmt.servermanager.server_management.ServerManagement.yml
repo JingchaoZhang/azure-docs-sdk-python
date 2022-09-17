@@ -1,0 +1,51 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.server_management.ServerManagement
+name: ServerManagement
+fullName: azure.mgmt.servermanager.server_management.ServerManagement
+module: azure.mgmt.servermanager.server_management
+inheritances:
+- msrest.service_client.SDKClient
+summary: REST API for Azure Server Management Service.
+constructor:
+  syntax: ServerManagement(credentials, subscription_id, base_url=None)
+  parameters:
+  - name: credentials
+    description: Credentials needed for the client to connect to Azure.
+    isRequired: true
+    types:
+    - <xref:msrestazure.azure_active_directory>
+  - name: subscription_id
+    description: 'Gets subscription credentials which uniquely
+
+      identify Microsoft Azure subscription. The subscription ID forms part of
+
+      the URI for every service call.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: base_url
+    description: Service URL
+    defaultValue: None
+    types:
+    - <xref:str>
+variables:
+- description: Configuration for client.
+  name: config
+  types:
+  - <xref:azure.mgmt.servermanager.server_management.ServerManagementConfiguration>
+- description: Gateway operations
+  name: gateway
+  types:
+  - <xref:azure.mgmt.servermanager.operations.GatewayOperations>
+- description: Node operations
+  name: node
+  types:
+  - <xref:azure.mgmt.servermanager.operations.NodeOperations>
+- description: Session operations
+  name: session
+  types:
+  - <xref:azure.mgmt.servermanager.operations.SessionOperations>
+- description: PowerShell operations
+  name: power_shell
+  types:
+  - <xref:azure.mgmt.servermanager.operations.PowerShellOperations>

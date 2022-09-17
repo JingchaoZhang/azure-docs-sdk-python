@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.operations.gateway_operations
+name: gateway_operations
+fullName: azure.mgmt.servermanager.operations.gateway_operations
+classes:
+- azure.mgmt.servermanager.operations.gateway_operations.GatewayOperations

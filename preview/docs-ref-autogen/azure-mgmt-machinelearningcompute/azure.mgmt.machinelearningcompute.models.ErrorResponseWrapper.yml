@@ -1,0 +1,17 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.machinelearningcompute.models.ErrorResponseWrapper
+name: ErrorResponseWrapper
+fullName: azure.mgmt.machinelearningcompute.models.ErrorResponseWrapper
+module: azure.mgmt.machinelearningcompute.models
+inheritances:
+- msrest.serialization.Model
+summary: Wrapper for error response to follow ARM guidelines.
+constructor:
+  syntax: 'ErrorResponseWrapper(*, error: Optional[azure.mgmt.machinelearningcompute.models._models_py3.ErrorResponse]
+    = None, **kwargs)'
+  parameters:
+  - name: error
+    description: The error response.
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.machinelearningcompute.models.ErrorResponse>

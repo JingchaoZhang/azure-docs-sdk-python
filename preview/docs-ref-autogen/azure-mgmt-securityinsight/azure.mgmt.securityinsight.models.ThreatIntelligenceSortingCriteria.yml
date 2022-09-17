@@ -8,17 +8,16 @@ inheritances:
 summary: List of available columns for sorting.
 constructor:
   syntax: 'ThreatIntelligenceSortingCriteria(*, item_key: Optional[str] = None, sort_order:
-    Optional[Union[str, azure.mgmt.securityinsight.models._security_insights_enums.ThreatIntelligenceSortingCriteriaEnum]]
-    = None, **kwargs)'
+    Optional[Union[str, _models.ThreatIntelligenceSortingOrder]] = None, **kwargs)'
 variables:
 - description: Column name.
   name: item_key
   types:
   - <xref:str>
-- description: 'Sorting order (ascending/descending/unsorted). Possible values include:
+- description: 'Sorting order (ascending/descending/unsorted). Known values are: "unsorted",
 
-    "unsorted", "ascending", "descending".'
+    "ascending", "descending".'
   name: sort_order
   types:
   - <xref:str>
-  - <xref:azure.mgmt.securityinsight.models.ThreatIntelligenceSortingCriteriaEnum>
+  - <xref:azure.mgmt.securityinsight.models.ThreatIntelligenceSortingOrder>

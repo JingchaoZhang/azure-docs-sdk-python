@@ -37,15 +37,16 @@ methods:
 
 
     Description for Create or update a Container App.'
-  signature: 'async begin_create_or_update(resource_group_name: str, name: str, container_app_envelope:
-    azure.mgmt.appcontainers.models._models_py3.ContainerApp, **kwargs: Any) -> azure.core.polling._async_poller.AsyncLROPoller[azure.mgmt.appcontainers.models._models_py3.ContainerApp]'
+  signature: 'async begin_create_or_update(resource_group_name: str, container_app_name:
+    str, container_app_envelope: azure.mgmt.appcontainers.models._models_py3.ContainerApp,
+    **kwargs: Any) -> azure.core.polling._async_poller.AsyncLROPoller[azure.mgmt.appcontainers.models._models_py3.ContainerApp]'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: container_app_name
     description: Name of the Container App.
     isRequired: true
     types:
@@ -95,15 +96,15 @@ methods:
 
 
     Description for Delete a Container App.'
-  signature: 'async begin_delete(resource_group_name: str, name: str, **kwargs: Any)
-    -> azure.core.polling._async_poller.AsyncLROPoller[None]'
+  signature: 'async begin_delete(resource_group_name: str, container_app_name: str,
+    **kwargs: Any) -> azure.core.polling._async_poller.AsyncLROPoller[None]'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: container_app_name
     description: Name of the Container App.
     isRequired: true
     types:
@@ -146,15 +147,16 @@ methods:
 
 
     Patches a Container App using JSON Merge Patch.'
-  signature: 'async begin_update(resource_group_name: str, name: str, container_app_envelope:
-    azure.mgmt.appcontainers.models._models_py3.ContainerApp, **kwargs: Any) -> azure.core.polling._async_poller.AsyncLROPoller[None]'
+  signature: 'async begin_update(resource_group_name: str, container_app_name: str,
+    container_app_envelope: azure.mgmt.appcontainers.models._models_py3.ContainerApp,
+    **kwargs: Any) -> azure.core.polling._async_poller.AsyncLROPoller[None]'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: container_app_name
     description: Name of the Container App.
     isRequired: true
     types:
@@ -202,14 +204,15 @@ methods:
 
 
     Get the properties of a Container App.'
-  signature: 'async get(resource_group_name: str, name: str, **kwargs: Any) -> azure.mgmt.appcontainers.models._models_py3.ContainerApp'
+  signature: 'async get(resource_group_name: str, container_app_name: str, **kwargs:
+    Any) -> azure.mgmt.appcontainers.models._models_py3.ContainerApp'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: container_app_name
     description: Name of the Container App.
     isRequired: true
     types:
@@ -311,15 +314,15 @@ methods:
 
 
     List secrets for a container app.'
-  signature: 'async list_secrets(resource_group_name: str, name: str, **kwargs: Any)
-    -> azure.mgmt.appcontainers.models._models_py3.SecretsCollection'
+  signature: 'async list_secrets(resource_group_name: str, container_app_name: str,
+    **kwargs: Any) -> azure.mgmt.appcontainers.models._models_py3.SecretsCollection'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: container_app_name
     description: Name of the Container App.
     isRequired: true
     types:

@@ -160,7 +160,7 @@ methods:
   - name: workbook_template_update_parameters
     description: 'Properties that need to be specified to patch a
 
-      workbook template.'
+      workbook template. Default value is None.'
     isRequired: true
     types:
     - <xref:azure.mgmt.applicationinsights.v2020_11_20.models.WorkbookTemplateUpdateParameters>
