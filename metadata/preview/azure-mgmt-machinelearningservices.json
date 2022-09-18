@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-machinelearningservices",
+  "Version": "1.0.0a20220918001",
+  "DevVersion": "1.0.0a20220918001",
+  "DirectoryPath": "sdk/machinelearning/azure-mgmt-machinelearningservices",
+  "ServiceDirectory": "machinelearning",
+  "ReadMePath": "sdk/machinelearning/azure-mgmt-machinelearningservices/README.md",
+  "ChangeLogPath": "sdk/machinelearning/azure-mgmt-machinelearningservices/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-machinelearningservices",
+  "ReleaseStatus": "2020-12-21"
+}
