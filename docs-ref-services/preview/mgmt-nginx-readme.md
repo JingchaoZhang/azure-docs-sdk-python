@@ -3,7 +3,7 @@ title:
 keywords: Azure, python, SDK, API, azure-mgmt-nginx, nginx
 author: lmazuel
 ms.author: lmazuel
-ms.date: 06/14/2022
+ms.date: 09/19/2022
 ms.topic: reference
 ms.devlang: python
 ms.service: nginx
@@ -11,7 +11,7 @@ ms.service: nginx
 # Microsoft Azure SDK for Python
 
 This is the Microsoft Azure Nginx Management Client Library.
-This package has been tested with Python 3.6+.
+This package has been tested with Python 3.7+.
 For a more complete view of Azure libraries, see the [azure sdk python release](https://aka.ms/azsdk/python/all).
 
 ## _Disclaimer_
