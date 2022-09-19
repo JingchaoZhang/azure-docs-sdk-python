@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-relay",
+  "Version": "1.1.0a20220919001",
+  "DevVersion": "1.1.0a20220919001",
+  "DirectoryPath": "sdk/relay/azure-mgmt-relay",
+  "ServiceDirectory": "relay",
+  "ReadMePath": "sdk/relay/azure-mgmt-relay/README.md",
+  "ChangeLogPath": "sdk/relay/azure-mgmt-relay/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-relay",
+  "ReleaseStatus": "2021-09-06"
+}
