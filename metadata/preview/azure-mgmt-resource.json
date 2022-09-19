@@ -1,7 +1,7 @@
 {
   "Name": "azure-mgmt-resource",
-  "Version": "21.1.0b1",
-  "DevVersion": null,
+  "Version": "21.1.0a20220919001",
+  "DevVersion": "21.1.0a20220919001",
   "DirectoryPath": "sdk/resources/azure-mgmt-resource",
   "ServiceDirectory": "resources",
   "ReadMePath": "sdk/resources/azure-mgmt-resource/README.md",
@@ -10,5 +10,5 @@
   "SdkType": "mgmt",
   "IsNewSdk": true,
   "ArtifactName": "azure-mgmt-resource",
-  "ReleaseStatus": "2022-04-19"
+  "ReleaseStatus": "2022-05-05"
 }
