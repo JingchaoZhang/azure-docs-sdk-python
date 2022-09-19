@@ -1,7 +1,7 @@
 {
   "Name": "azure-servicefabric",
-  "Version": "8.2.0.0",
-  "DevVersion": null,
+  "Version": "8.2.0.0a20220919001",
+  "DevVersion": "8.2.0.0a20220919001",
   "DirectoryPath": "sdk/servicefabric/azure-servicefabric",
   "ServiceDirectory": "servicefabric",
   "ReadMePath": "sdk/servicefabric/azure-servicefabric/README.md",
