@@ -1,7 +1,7 @@
 {
   "Name": "azure-mgmt-recoveryservicesbackup",
-  "Version": "5.1.0b1",
-  "DevVersion": null,
+  "Version": "5.1.0a20220920001",
+  "DevVersion": "5.1.0a20220920001",
   "DirectoryPath": "sdk/recoveryservices/azure-mgmt-recoveryservicesbackup",
   "ServiceDirectory": "recoveryservices",
   "ReadMePath": "sdk/recoveryservices/azure-mgmt-recoveryservicesbackup/README.md",
