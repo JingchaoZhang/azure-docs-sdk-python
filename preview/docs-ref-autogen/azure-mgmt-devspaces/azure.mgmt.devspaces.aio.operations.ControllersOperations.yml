@@ -1,0 +1,288 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.devspaces.aio.operations.ControllersOperations
+name: ControllersOperations
+fullName: azure.mgmt.devspaces.aio.operations.ControllersOperations
+module: azure.mgmt.devspaces.aio.operations
+inheritances:
+- builtins.object
+summary: 'ControllersOperations async operations.
+
+
+  You should not instantiate this class directly. Instead, you should create a Client
+  instance that
+
+  instantiates it for you and attaches it as an attribute.'
+constructor:
+  syntax: ControllersOperations(client, config, serializer, deserializer)
+  parameters:
+  - name: client
+    description: Client for service requests.
+    isRequired: true
+  - name: config
+    description: Configuration of service client.
+    isRequired: true
+  - name: serializer
+    description: An object model serializer.
+    isRequired: true
+  - name: deserializer
+    description: An object model deserializer.
+    isRequired: true
+variables:
+- description: Alias to model classes used in this operation group.
+  name: models
+methods:
+- uid: azure.mgmt.devspaces.aio.operations.ControllersOperations.begin_create
+  name: begin_create
+  summary: 'Creates an Azure Dev Spaces Controller.
+
+
+    Creates an Azure Dev Spaces Controller with the specified create parameters.'
+  signature: 'async begin_create(resource_group_name: str, name: str, controller:
+    azure.mgmt.devspaces.models._models_py3.Controller, **kwargs: Any) -> azure.core.polling._async_poller.AsyncLROPoller[azure.mgmt.devspaces.models._models_py3.Controller]'
+  parameters:
+  - name: resource_group_name
+    description: Resource group to which the resource belongs.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: name
+    description: Name of the resource.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: controller
+    description: Controller create parameters.
+    isRequired: true
+    types:
+    - <xref:dev_spaces_management_client.models.Controller>
+  - name: cls
+    description: A custom type or function that will be passed the direct response
+    types:
+    - <xref:callable>
+  - name: continuation_token
+    description: A continuation token to restart a poller from a saved state.
+    types:
+    - <xref:str>
+  - name: polling
+    description: 'By default, your polling method will be AsyncARMPolling.
+
+      Pass in False for this operation to not poll, or pass in your own initialized
+      polling object for a personal polling strategy.'
+    types:
+    - <xref:bool>
+    - <xref:azure.core.polling.AsyncPollingMethod>
+  - name: polling_interval
+    description: Default waiting time between two polls for LRO operations if no Retry-After
+      header is present.
+    types:
+    - <xref:int>
+  return:
+    description: An instance of AsyncLROPoller that returns either Controller or the
+      result of cls(response)
+    types:
+    - <xref:azure.core.polling.AsyncLROPoller>[<xref:dev_spaces_management_client.models.Controller>]
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+- uid: azure.mgmt.devspaces.aio.operations.ControllersOperations.begin_delete
+  name: begin_delete
+  summary: 'Deletes an Azure Dev Spaces Controller.
+
+
+    Deletes an existing Azure Dev Spaces Controller.'
+  signature: 'async begin_delete(resource_group_name: str, name: str, **kwargs: Any)
+    -> azure.core.polling._async_poller.AsyncLROPoller[None]'
+  parameters:
+  - name: resource_group_name
+    description: Resource group to which the resource belongs.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: name
+    description: Name of the resource.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: cls
+    description: A custom type or function that will be passed the direct response
+    types:
+    - <xref:callable>
+  - name: continuation_token
+    description: A continuation token to restart a poller from a saved state.
+    types:
+    - <xref:str>
+  - name: polling
+    description: 'By default, your polling method will be AsyncARMPolling.
+
+      Pass in False for this operation to not poll, or pass in your own initialized
+      polling object for a personal polling strategy.'
+    types:
+    - <xref:bool>
+    - <xref:azure.core.polling.AsyncPollingMethod>
+  - name: polling_interval
+    description: Default waiting time between two polls for LRO operations if no Retry-After
+      header is present.
+    types:
+    - <xref:int>
+  return:
+    description: An instance of AsyncLROPoller that returns either None or the result
+      of cls(response)
+    types:
+    - <xref:azure.core.polling.AsyncLROPoller>[<xref:None>]
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+- uid: azure.mgmt.devspaces.aio.operations.ControllersOperations.get
+  name: get
+  summary: 'Gets an Azure Dev Spaces Controller.
+
+
+    Gets the properties for an Azure Dev Spaces Controller.'
+  signature: 'async get(resource_group_name: str, name: str, **kwargs: Any) -> azure.mgmt.devspaces.models._models_py3.Controller'
+  parameters:
+  - name: resource_group_name
+    description: Resource group to which the resource belongs.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: name
+    description: Name of the resource.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: cls
+    description: A custom type or function that will be passed the direct response
+    types:
+    - <xref:callable>
+  return:
+    description: Controller, or the result of cls(response)
+    types:
+    - <xref:dev_spaces_management_client.models.Controller>
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+- uid: azure.mgmt.devspaces.aio.operations.ControllersOperations.list
+  name: list
+  summary: 'Lists the Azure Dev Spaces Controllers in a subscription.
+
+
+    Lists all the Azure Dev Spaces Controllers with their properties in the subscription.'
+  signature: 'list(**kwargs: Any) -> AsyncIterable[azure.mgmt.devspaces.models._models_py3.ControllerList]'
+  parameters:
+  - name: cls
+    description: A custom type or function that will be passed the direct response
+    types:
+    - <xref:callable>
+  return:
+    description: An iterator like instance of either ControllerList or the result
+      of cls(response)
+    types:
+    - <xref:azure.core.async_paging.AsyncItemPaged>[<xref:dev_spaces_management_client.models.ControllerList>]
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+- uid: azure.mgmt.devspaces.aio.operations.ControllersOperations.list_by_resource_group
+  name: list_by_resource_group
+  summary: 'Lists the Azure Dev Spaces Controllers in a resource group.
+
+
+    Lists all the Azure Dev Spaces Controllers with their properties in the specified
+    resource
+
+    group and subscription.'
+  signature: 'list_by_resource_group(resource_group_name: str, **kwargs: Any) -> AsyncIterable[azure.mgmt.devspaces.models._models_py3.ControllerList]'
+  parameters:
+  - name: resource_group_name
+    description: Resource group to which the resource belongs.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: cls
+    description: A custom type or function that will be passed the direct response
+    types:
+    - <xref:callable>
+  return:
+    description: An iterator like instance of either ControllerList or the result
+      of cls(response)
+    types:
+    - <xref:azure.core.async_paging.AsyncItemPaged>[<xref:dev_spaces_management_client.models.ControllerList>]
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+- uid: azure.mgmt.devspaces.aio.operations.ControllersOperations.list_connection_details
+  name: list_connection_details
+  summary: 'Lists connection details for an Azure Dev Spaces Controller.
+
+
+    Lists connection details for the underlying container resources of an Azure Dev
+    Spaces
+
+    Controller.'
+  signature: 'async list_connection_details(resource_group_name: str, name: str, list_connection_details_parameters:
+    azure.mgmt.devspaces.models._models_py3.ListConnectionDetailsParameters, **kwargs:
+    Any) -> azure.mgmt.devspaces.models._models_py3.ControllerConnectionDetailsList'
+  parameters:
+  - name: resource_group_name
+    description: Resource group to which the resource belongs.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: name
+    description: Name of the resource.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: list_connection_details_parameters
+    description: 'Parameters for listing connection details of Azure
+
+      Dev Spaces Controller.'
+    isRequired: true
+    types:
+    - <xref:dev_spaces_management_client.models.ListConnectionDetailsParameters>
+  - name: cls
+    description: A custom type or function that will be passed the direct response
+    types:
+    - <xref:callable>
+  return:
+    description: ControllerConnectionDetailsList, or the result of cls(response)
+    types:
+    - <xref:dev_spaces_management_client.models.ControllerConnectionDetailsList>
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+- uid: azure.mgmt.devspaces.aio.operations.ControllersOperations.update
+  name: update
+  summary: 'Updates an Azure Dev Spaces Controller.
+
+
+    Updates the properties of an existing Azure Dev Spaces Controller with the specified
+    update
+
+    parameters.'
+  signature: 'async update(resource_group_name: str, name: str, controller_update_parameters:
+    azure.mgmt.devspaces.models._models_py3.ControllerUpdateParameters, **kwargs:
+    Any) -> azure.mgmt.devspaces.models._models_py3.Controller'
+  parameters:
+  - name: resource_group_name
+    description: Resource group to which the resource belongs.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: name
+    description: Name of the resource.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: controller_update_parameters
+    description: Parameters for updating the Azure Dev Spaces Controller.
+    isRequired: true
+    types:
+    - <xref:dev_spaces_management_client.models.ControllerUpdateParameters>
+  - name: cls
+    description: A custom type or function that will be passed the direct response
+    types:
+    - <xref:callable>
+  return:
+    description: Controller, or the result of cls(response)
+    types:
+    - <xref:dev_spaces_management_client.models.Controller>
+  exceptions:
+  - type: azure.core.exceptions.HttpResponseError
+attributes:
+- uid: azure.mgmt.devspaces.aio.operations.ControllersOperations.models
+  name: models
+  signature: models = <module 'azure.mgmt.devspaces.models' from 'C:\\hostedtoolcache\\windows\\Python\\3.9.13\\x64\\lib\\site-packages\\azure\\mgmt\\devspaces\\models\\__init__.py'>

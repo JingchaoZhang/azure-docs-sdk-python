@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.operations.power_shell_operations
+name: power_shell_operations
+fullName: azure.mgmt.servermanager.operations.power_shell_operations
+classes:
+- azure.mgmt.servermanager.operations.power_shell_operations.PowerShellOperations

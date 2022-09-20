@@ -5,7 +5,7 @@ fullName: azure.mgmt.securityinsight.models.WatchlistItem
 module: azure.mgmt.securityinsight.models
 inheritances:
 - azure.mgmt.securityinsight.models._models_py3.ResourceWithEtag
-summary: 'Represents a Watchlist item in Azure Security Insights.
+summary: 'Represents a Watchlist Item in Azure Security Insights.
 
 
   Variables are only populated by the server, and will be ignored when sending a request.'
@@ -13,10 +13,9 @@ constructor:
   syntax: 'WatchlistItem(*, etag: Optional[str] = None, watchlist_item_type: Optional[str]
     = None, watchlist_item_id: Optional[str] = None, tenant_id: Optional[str] = None,
     is_deleted: Optional[bool] = None, created: Optional[datetime.datetime] = None,
-    updated: Optional[datetime.datetime] = None, created_by: Optional[azure.mgmt.securityinsight.models._models_py3.UserInfo]
-    = None, updated_by: Optional[azure.mgmt.securityinsight.models._models_py3.UserInfo]
-    = None, items_key_value: Optional[Any] = None, entity_mapping: Optional[Any] =
-    None, **kwargs)'
+    updated: Optional[datetime.datetime] = None, created_by: Optional[_models.UserInfo]
+    = None, updated_by: Optional[_models.UserInfo] = None, items_key_value: Optional[Any]
+    = None, entity_mapping: Optional[Any] = None, **kwargs)'
 variables:
 - description: 'Fully qualified resource ID for the resource. Ex -
 

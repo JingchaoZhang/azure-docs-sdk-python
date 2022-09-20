@@ -1,0 +1,16 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.power_shell_tab_completion_parameters.PowerShellTabCompletionParameters
+name: PowerShellTabCompletionParameters
+fullName: azure.mgmt.servermanager.models.power_shell_tab_completion_parameters.PowerShellTabCompletionParameters
+module: azure.mgmt.servermanager.models.power_shell_tab_completion_parameters
+inheritances:
+- msrest.serialization.Model
+summary: Collection of parameters for PowerShell tab completion.
+constructor:
+  syntax: PowerShellTabCompletionParameters(**kwargs)
+  parameters:
+  - name: command
+    description: Command to get tab completion for.
+    isRequired: true
+    types:
+    - <xref:str>

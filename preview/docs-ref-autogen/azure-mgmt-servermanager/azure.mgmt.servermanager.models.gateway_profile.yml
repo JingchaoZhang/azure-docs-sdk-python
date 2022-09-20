@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.gateway_profile
+name: gateway_profile
+fullName: azure.mgmt.servermanager.models.gateway_profile
+classes:
+- azure.mgmt.servermanager.models.gateway_profile.GatewayProfile

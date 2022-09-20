@@ -10,12 +10,8 @@ summary: 'Data connector.
 
   You probably want to use the sub-classes and not this class directly. Known
 
-  sub-classes are: CodelessApiPollingDataConnector, AwsCloudTrailDataConnector, AwsS3DataConnector,
-  AADDataConnector, AATPDataConnector, ASCDataConnector, Dynamics365DataConnector,
-  CodelessUiDataConnector, IoTDataConnector, MCASDataConnector, MDATPDataConnector,
-  MSTIDataConnector, MTPDataConnector, OfficeDataConnector, Office365ProjectDataConnector,
-  OfficeATPDataConnector, OfficeIRMDataConnector, OfficePowerBIDataConnector, TIDataConnector,
-  TiTaxiiDataConnector.
+  sub-classes are: AwsCloudTrailDataConnector, AADDataConnector, AATPDataConnector,
+  ASCDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.
 
 
   Variables are only populated by the server, and will be ignored when sending a request.
@@ -52,20 +48,14 @@ variables:
   name: etag
   types:
   - <xref:str>
-- description: 'Required. The data connector kind.Constant filled by server. Possible
-    values
+- description: 'Required. The data connector kind.Constant filled by server. Known
+    values are:
 
-    include: "AzureActiveDirectory", "AzureSecurityCenter", "MicrosoftCloudAppSecurity",
+    "AzureActiveDirectory", "AzureSecurityCenter", "MicrosoftCloudAppSecurity",
 
-    "ThreatIntelligence", "ThreatIntelligenceTaxii", "Office365", "OfficeATP", "OfficeIRM",
+    "ThreatIntelligence", "Office365", "AmazonWebServicesCloudTrail",
 
-    "Office365Project", "OfficePowerBI", "AmazonWebServicesCloudTrail", "AmazonWebServicesS3",
-
-    "AzureAdvancedThreatProtection", "MicrosoftDefenderAdvancedThreatProtection",
-    "Dynamics365",
-
-    "MicrosoftThreatProtection", "MicrosoftThreatIntelligence", "GenericUI", "APIPolling",
-    "IOT".'
+    "AzureAdvancedThreatProtection", "MicrosoftDefenderAdvancedThreatProtection".'
   name: kind
   types:
   - <xref:str>

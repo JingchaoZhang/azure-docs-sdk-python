@@ -54,6 +54,16 @@
       href: ~/docs-ref-services/preview/ai-anomalydetector-readme.md
       children:
       - azure-ai-anomalydetector
+  - name: API for FHIR
+    href: ~/docs-ref-services/preview/api-for-fhir.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Healthcare APIs
+        href: ~/docs-ref-services/preview/mgmt-healthcareapis-readme.md
+        children:
+        - azure-mgmt-healthcareapis
   - name: App Configuration
     href: ~/docs-ref-services/preview/app-configuration.md
     landingPageType: Service
@@ -78,6 +88,20 @@
         href: ~/docs-ref-services/preview/mgmt-appcontainers-readme.md
         children:
         - azure-mgmt-appcontainers
+  - name: Attestation
+    href: ~/docs-ref-services/preview/attestation.md
+    landingPageType: Service
+    items:
+    - name: Attestation
+      href: ~/docs-ref-services/preview/security-attestation-readme.md
+      children:
+      - azure-security-attestation
+    - name: Management
+      items:
+      - name: Resource Management - Attestation
+        href: ~/docs-ref-services/preview/mgmt-attestation-readme.md
+        children:
+        - azure-mgmt-attestation
   - name: Automanage
     href: ~/docs-ref-services/preview/automanage.md
     landingPageType: Service
@@ -98,6 +122,14 @@
         href: ~/docs-ref-services/preview/mgmt-automation-readme.md
         children:
         - azure-mgmt-automation
+  - name: Autosuggest
+    href: ~/docs-ref-services/preview/autosuggest.md
+    landingPageType: Service
+    items:
+    - name: Autosuggest
+      href: ~/docs-ref-services/preview/cognitiveservices-search-autosuggest-readme.md
+      children:
+      - azure-cognitiveservices-search-autosuggest
   - name: Azure AD B2C
     href: ~/docs-ref-services/preview/azure-ad-b2c.md
     landingPageType: Service
@@ -126,6 +158,16 @@
       href: ~/docs-ref-services/preview/mixedreality-remoterendering-readme.md
       children:
       - azure-mixedreality-remoterendering
+  - name: Bare Metal
+    href: ~/docs-ref-services/preview/bare-metal.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Bare Metal Infrastructure
+        href: ~/docs-ref-services/preview/mgmt-baremetalinfrastructure-readme.md
+        children:
+        - azure-mgmt-baremetalinfrastructure
   - name: Batch
     href: ~/docs-ref-services/preview/batch.md
     landingPageType: Service
@@ -160,6 +202,16 @@
         href: ~/docs-ref-services/preview/mgmt-botservice-readme.md
         children:
         - azure-mgmt-botservice
+  - name: Change Analysis
+    href: ~/docs-ref-services/preview/change-analysis.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Change Analysis
+        href: ~/docs-ref-services/preview/mgmt-changeanalysis-readme.md
+        children:
+        - azure-mgmt-changeanalysis
   - name: Chaos
     href: ~/docs-ref-services/preview/chaos.md
     landingPageType: Service
@@ -190,14 +242,84 @@
     href: ~/docs-ref-services/preview/cognitive-services.md
     landingPageType: Service
     items:
+    - name: Anomaly Detector
+      href: ~/docs-ref-services/preview/cognitiveservices-anomalydetector-readme.md
+      children:
+      - azure-cognitiveservices-anomalydetector
+    - name: QnA Maker
+      href: ~/docs-ref-services/preview/cognitiveservices-knowledge-qnamaker-readme.md
+      children:
+      - azure-cognitiveservices-knowledge-qnamaker
+    - name: Language Understanding (LUIS)
+      href: ~/docs-ref-services/preview/cognitiveservices-language-luis-readme.md
+      children:
+      - azure-cognitiveservices-language-luis
+    - name: Spell Check
+      href: ~/docs-ref-services/preview/cognitiveservices-language-spellcheck-readme.md
+      children:
+      - azure-cognitiveservices-language-spellcheck
     - name: Text Analytics
       href: ~/docs-ref-services/preview/cognitiveservices-language-textanalytics-readme.md
       children:
       - azure-cognitiveservices-language-textanalytics
+    - name: Personalizer
+      href: ~/docs-ref-services/preview/cognitiveservices-personalizer-readme.md
+      children:
+      - azure-cognitiveservices-personalizer
+    - name: Custom Image Search
+      href: ~/docs-ref-services/preview/cognitiveservices-search-customimagesearch-readme.md
+      children:
+      - azure-cognitiveservices-search-customimagesearch
+    - name: Custom Search
+      href: ~/docs-ref-services/preview/cognitiveservices-search-customsearch-readme.md
+      children:
+      - azure-cognitiveservices-search-customsearch
+    - name: Entity Search
+      href: ~/docs-ref-services/preview/cognitiveservices-search-entitysearch-readme.md
+      children:
+      - azure-cognitiveservices-search-entitysearch
+    - name: Image Search
+      href: ~/docs-ref-services/preview/cognitiveservices-search-imagesearch-readme.md
+      children:
+      - azure-cognitiveservices-search-imagesearch
+    - name: News Search
+      href: ~/docs-ref-services/preview/cognitiveservices-search-newssearch-readme.md
+      children:
+      - azure-cognitiveservices-search-newssearch
+    - name: Video Search
+      href: ~/docs-ref-services/preview/cognitiveservices-search-videosearch-readme.md
+      children:
+      - azure-cognitiveservices-search-videosearch
+    - name: Visual Search
+      href: ~/docs-ref-services/preview/cognitiveservices-search-visualsearch-readme.md
+      children:
+      - azure-cognitiveservices-search-visualsearch
+    - name: Web Search
+      href: ~/docs-ref-services/preview/cognitiveservices-search-websearch-readme.md
+      children:
+      - azure-cognitiveservices-search-websearch
+    - name: Computer Vision
+      href: ~/docs-ref-services/preview/cognitiveservices-vision-computervision-readme.md
+      children:
+      - azure-cognitiveservices-vision-computervision
+    - name: Content Moderator
+      href: ~/docs-ref-services/preview/cognitiveservices-vision-contentmoderator-readme.md
+      children:
+      - azure-cognitiveservices-vision-contentmoderator
+    - name: Custom Vision
+      href: ~/docs-ref-services/preview/cognitiveservices-vision-customvision-readme.md
+      children:
+      - azure-cognitiveservices-vision-customvision
     - name: Face
       href: ~/docs-ref-services/preview/cognitiveservices-vision-face-readme.md
       children:
       - azure-cognitiveservices-vision-face
+    - name: Management
+      items:
+      - name: Resource Management - Cognitive Services
+        href: ~/docs-ref-services/preview/mgmt-cognitiveservices-readme.md
+        children:
+        - azure-mgmt-cognitiveservices
   - name: Communication
     href: ~/docs-ref-services/preview/communication.md
     landingPageType: Service
@@ -286,6 +408,20 @@
       href: ~/docs-ref-services/preview/containerregistry-readme.md
       children:
       - azure-containerregistry
+    - name: Management
+      landingPageType: Service
+      children:
+      - azure-mgmt-containerregistry
+  - name: Container Service
+    href: ~/docs-ref-services/preview/container-service.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Container Service
+        href: ~/docs-ref-services/preview/mgmt-containerservice-readme.md
+        children:
+        - azure-mgmt-containerservice
   - name: Content Delivery Network
     href: ~/docs-ref-services/preview/content-delivery-network.md
     landingPageType: Service
@@ -310,6 +446,16 @@
         href: ~/docs-ref-services/preview/mgmt-cosmosdb-readme.md
         children:
         - azure-mgmt-cosmosdb
+  - name: Cost Management + Billing
+    href: ~/docs-ref-services/preview/cost-management-+-billing.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Billing
+        href: ~/docs-ref-services/preview/mgmt-billing-readme.md
+        children:
+        - azure-mgmt-billing
   - name: Custom Providers
     href: ~/docs-ref-services/preview/custom-providers.md
     landingPageType: Service
@@ -368,6 +514,16 @@
         href: ~/docs-ref-services/preview/mgmt-dataprotection-readme.md
         children:
         - azure-mgmt-dataprotection
+  - name: Data Share
+    href: ~/docs-ref-services/preview/data-share.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Data Share
+        href: ~/docs-ref-services/preview/mgmt-datashare-readme.md
+        children:
+        - azure-mgmt-datashare
   - name: Database for MySQL/PostgreSQL
     href: ~/docs-ref-services/preview/database-for-mysql-postgresql.md
     landingPageType: Service
@@ -378,6 +534,16 @@
         href: ~/docs-ref-services/preview/mgmt-rdbms-readme.md
         children:
         - azure-mgmt-rdbms
+  - name: Database Migration Service
+    href: ~/docs-ref-services/preview/database-migration-service.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Data Migration
+        href: ~/docs-ref-services/preview/mgmt-datamigration-readme.md
+        children:
+        - azure-mgmt-datamigration
   - name: Databricks
     href: ~/docs-ref-services/preview/databricks.md
     landingPageType: Service
@@ -398,6 +564,16 @@
         href: ~/docs-ref-services/preview/mgmt-datadog-readme.md
         children:
         - azure-mgmt-datadog
+  - name: Deployment Manager
+    href: ~/docs-ref-services/preview/deployment-manager.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Deployment Manager
+        href: ~/docs-ref-services/preview/mgmt-deploymentmanager-readme.md
+        children:
+        - azure-mgmt-deploymentmanager
   - name: Desktop Virtualization
     href: ~/docs-ref-services/preview/desktop-virtualization.md
     landingPageType: Service
@@ -408,6 +584,26 @@
         href: ~/docs-ref-services/preview/mgmt-desktopvirtualization-readme.md
         children:
         - azure-mgmt-desktopvirtualization
+  - name: Dev Spaces
+    href: ~/docs-ref-services/preview/dev-spaces.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Dev Spaces
+        href: ~/docs-ref-services/preview/mgmt-devspaces-readme.md
+        children:
+        - azure-mgmt-devspaces
+  - name: Digital Twins
+    href: ~/docs-ref-services/preview/digital-twins.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Digital Twins
+        href: ~/docs-ref-services/preview/mgmt-digitaltwins-readme.md
+        children:
+        - azure-mgmt-digitaltwins
   - name: DNS
     href: ~/docs-ref-services/preview/dns.md
     landingPageType: Service
@@ -438,6 +634,16 @@
         href: ~/docs-ref-services/preview/mgmt-dynatrace-readme.md
         children:
         - azure-mgmt-dynatrace
+  - name: Edge Order
+    href: ~/docs-ref-services/preview/edge-order.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Edge Order
+        href: ~/docs-ref-services/preview/mgmt-edgeorder-readme.md
+        children:
+        - azure-mgmt-edgeorder
   - name: Education
     href: ~/docs-ref-services/preview/education.md
     landingPageType: Service
@@ -448,6 +654,16 @@
         href: ~/docs-ref-services/preview/mgmt-education-readme.md
         children:
         - azure-mgmt-education
+  - name: Elastic
+    href: ~/docs-ref-services/preview/elastic.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Elastic
+        href: ~/docs-ref-services/preview/mgmt-elastic-readme.md
+        children:
+        - azure-mgmt-elastic
   - name: Event Grid
     href: ~/docs-ref-services/preview/event-grid.md
     landingPageType: Service
@@ -480,6 +696,16 @@
         href: ~/docs-ref-services/preview/mgmt-extendedlocation-readme.md
         children:
         - azure-mgmt-extendedlocation
+  - name: Fluid Relay
+    href: ~/docs-ref-services/preview/fluid-relay.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Fluid Relay
+        href: ~/docs-ref-services/preview/mgmt-fluidrelay-readme.md
+        children:
+        - azure-mgmt-fluidrelay
   - name: Form Recognizer
     href: ~/docs-ref-services/preview/form-recognizer.md
     landingPageType: Service
@@ -518,6 +744,26 @@
         href: ~/docs-ref-services/preview/mgmt-support-readme.md
         children:
         - azure-mgmt-support
+  - name: Hybrid Compute
+    href: ~/docs-ref-services/preview/hybrid-compute.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Hybrid Compute
+        href: ~/docs-ref-services/preview/mgmt-hybridcompute-readme.md
+        children:
+        - azure-mgmt-hybridcompute
+  - name: Hybrid Network
+    href: ~/docs-ref-services/preview/hybrid-network.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Hybrid Network
+        href: ~/docs-ref-services/preview/mgmt-hybridnetwork-readme.md
+        children:
+        - azure-mgmt-hybridnetwork
   - name: Identity
     href: ~/docs-ref-services/preview/identity.md
     landingPageType: Service
@@ -586,6 +832,16 @@
       href: ~/docs-ref-services/preview/keyvault-secrets-readme.md
       children:
       - azure-keyvault-secrets
+  - name: Kubernetes Configuration
+    href: ~/docs-ref-services/preview/kubernetes-configuration.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Kubernetes Configuration
+        href: ~/docs-ref-services/preview/mgmt-kubernetesconfiguration-readme.md
+        children:
+        - azure-mgmt-kubernetesconfiguration
   - name: Lab Services
     href: ~/docs-ref-services/preview/lab-services.md
     landingPageType: Service
@@ -607,9 +863,9 @@
     - name: Management
       items:
       - name: Resource Management - Load Testing
+        href: ~/docs-ref-services/preview/mgmt-loadtestservice-readme.md
         children:
         - azure-mgmt-loadtestservice
-        landingPageType: Service
   - name: Log Analytics
     href: ~/docs-ref-services/preview/log-analytics.md
     landingPageType: Service
@@ -638,6 +894,12 @@
       href: ~/docs-ref-services/preview/ai-ml-readme.md
       children:
       - azure-ai-ml
+    - name: Management
+      items:
+      - name: Resource Management - Machine Learning Compute
+        href: ~/docs-ref-services/preview/mgmt-machinelearningcompute-readme.md
+        children:
+        - azure-mgmt-machinelearningcompute
   - name: Maintenance
     href: ~/docs-ref-services/preview/maintenance.md
     landingPageType: Service
@@ -658,6 +920,46 @@
         href: ~/docs-ref-services/preview/mgmt-msi-readme.md
         children:
         - azure-mgmt-msi
+  - name: Managed Services
+    href: ~/docs-ref-services/preview/managed-services.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Managed Services
+        href: ~/docs-ref-services/preview/mgmt-managedservices-readme.md
+        children:
+        - azure-mgmt-managedservices
+  - name: Management Groups
+    href: ~/docs-ref-services/preview/management-groups.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Management Groups
+        href: ~/docs-ref-services/preview/mgmt-managementgroups-readme.md
+        children:
+        - azure-mgmt-managementgroups
+  - name: Management Partner
+    href: ~/docs-ref-services/preview/management-partner.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Management Partner
+        href: ~/docs-ref-services/preview/mgmt-managementpartner-readme.md
+        children:
+        - azure-mgmt-managementpartner
+  - name: Maps
+    href: ~/docs-ref-services/preview/maps.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Maps
+        href: ~/docs-ref-services/preview/mgmt-maps-readme.md
+        children:
+        - azure-mgmt-maps
   - name: Maps Search
     href: ~/docs-ref-services/preview/maps-search.md
     landingPageType: Service
@@ -712,6 +1014,10 @@
       href: ~/docs-ref-services/preview/monitor-opentelemetry-exporter-readme.md
       children:
       - azure-monitor-opentelemetry-exporter
+    - name: Monitor Query
+      href: ~/docs-ref-services/preview/monitor-query-readme.md
+      children:
+      - azure-monitor-query
     - name: Management
       items:
       - name: Resource Management - Application Insights
@@ -758,6 +1064,16 @@
         href: ~/docs-ref-services/preview/mgmt-orbital-readme.md
         children:
         - azure-mgmt-orbital
+  - name: Peering Service
+    href: ~/docs-ref-services/preview/peering-service.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Peering
+        href: ~/docs-ref-services/preview/mgmt-peering-readme.md
+        children:
+        - azure-mgmt-peering
   - name: Policy Insights
     href: ~/docs-ref-services/preview/policy-insights.md
     landingPageType: Service
@@ -768,6 +1084,16 @@
         href: ~/docs-ref-services/preview/mgmt-policyinsights-readme.md
         children:
         - azure-mgmt-policyinsights
+  - name: Portal
+    href: ~/docs-ref-services/preview/portal.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Portal
+        href: ~/docs-ref-services/preview/mgmt-portal-readme.md
+        children:
+        - azure-mgmt-portal
   - name: Power BI Dedicated
     href: ~/docs-ref-services/preview/power-bi-dedicated.md
     landingPageType: Service
@@ -804,6 +1130,12 @@
       href: ~/docs-ref-services/preview/purview-scanning-readme.md
       children:
       - azure-purview-scanning
+    - name: Management
+      items:
+      - name: Resource Management - Purview
+        href: ~/docs-ref-services/preview/mgmt-purview-readme.md
+        children:
+        - azure-mgmt-purview
   - name: Quantum
     href: ~/docs-ref-services/preview/quantum.md
     landingPageType: Service
@@ -841,9 +1173,9 @@
     - name: Management
       items:
       - name: Resource Management - Region Move
+        href: ~/docs-ref-services/preview/mgmt-regionmove-readme.md
         children:
         - azure-mgmt-regionmove
-        landingPageType: Service
   - name: Resource Connector
     href: ~/docs-ref-services/preview/resource-connector.md
     landingPageType: Service
@@ -902,6 +1234,16 @@
       href: ~/docs-ref-services/preview/communication-rooms-readme.md
       children:
       - azure-communication-rooms
+  - name: SAP HANA on Azure
+    href: ~/docs-ref-services/preview/sap-hana-on-azure.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - HANA on Azure
+        href: ~/docs-ref-services/preview/mgmt-hanaonazure-readme.md
+        children:
+        - azure-mgmt-hanaonazure
   - name: Scheduler
     href: ~/docs-ref-services/preview/scheduler.md
     landingPageType: Service
@@ -962,6 +1304,36 @@
         href: ~/docs-ref-services/preview/mgmt-securityinsight-readme.md
         children:
         - azure-mgmt-securityinsight
+  - name: Serial Console
+    href: ~/docs-ref-services/preview/serial-console.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Serial Console
+        href: ~/docs-ref-services/preview/mgmt-serialconsole-readme.md
+        children:
+        - azure-mgmt-serialconsole
+  - name: Server Management
+    href: ~/docs-ref-services/preview/server-management.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Server Manager
+        href: ~/docs-ref-services/preview/mgmt-servermanager-readme.md
+        children:
+        - azure-mgmt-servermanager
+  - name: Service Fabric
+    href: ~/docs-ref-services/preview/service-fabric.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Service Fabric
+        href: ~/docs-ref-services/preview/mgmt-servicefabric-readme.md
+        children:
+        - azure-mgmt-servicefabric
   - name: Service Fabric Managed Clusters
     href: ~/docs-ref-services/preview/service-fabric-managed-clusters.md
     landingPageType: Service
@@ -992,6 +1364,16 @@
         href: ~/docs-ref-services/preview/mgmt-recoveryservicesbackup-readme.md
         children:
         - azure-mgmt-recoveryservicesbackup
+  - name: Spring Cloud
+    href: ~/docs-ref-services/preview/spring-cloud.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - App Platform
+        href: ~/docs-ref-services/preview/mgmt-appplatform-readme.md
+        children:
+        - azure-mgmt-appplatform
   - name: SQL
     href: ~/docs-ref-services/preview/sql.md
     landingPageType: Service
@@ -1142,6 +1524,16 @@
         href: ~/docs-ref-services/preview/mgmt-timeseriesinsights-readme.md
         children:
         - azure-mgmt-timeseriesinsights
+  - name: Traffic Manager
+    href: ~/docs-ref-services/preview/traffic-manager.md
+    landingPageType: Service
+    items:
+    - name: Management
+      items:
+      - name: Resource Management - Traffic Manager
+        href: ~/docs-ref-services/preview/mgmt-trafficmanager-readme.md
+        children:
+        - azure-mgmt-trafficmanager
   - name: Translator
     href: ~/docs-ref-services/preview/translator.md
     landingPageType: Service

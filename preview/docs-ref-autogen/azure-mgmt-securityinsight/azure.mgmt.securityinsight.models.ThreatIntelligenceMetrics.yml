@@ -7,7 +7,7 @@ inheritances:
 - msrest.serialization.Model
 summary: Threat intelligence metrics.
 constructor:
-  syntax: 'ThreatIntelligenceMetrics(*, properties: Optional[azure.mgmt.securityinsight.models._models_py3.ThreatIntelligenceMetric]
+  syntax: 'ThreatIntelligenceMetrics(*, properties: Optional[_models.ThreatIntelligenceMetric]
     = None, **kwargs)'
 variables:
 - description: Threat intelligence metrics.

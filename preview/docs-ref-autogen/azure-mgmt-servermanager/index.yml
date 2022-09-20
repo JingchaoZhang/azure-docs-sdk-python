@@ -1,0 +1,7 @@
+### YamlMime:PythonPackage
+uid: project-azure-mgmt-servermanager
+name: azure-mgmt-servermanager
+fullName: azure-mgmt-servermanager
+type: distribution
+packages:
+- azure.mgmt.servermanager

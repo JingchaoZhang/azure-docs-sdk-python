@@ -14,13 +14,11 @@ summary: 'Represents a Hunting bookmark entity.
   All required parameters must be populated in order to send to Azure.'
 constructor:
   syntax: 'HuntingBookmark(*, created: Optional[datetime.datetime] = None, created_by:
-    Optional[azure.mgmt.securityinsight.models._models_py3.UserInfo] = None, display_name:
-    Optional[str] = None, event_time: Optional[datetime.datetime] = None, labels:
-    Optional[List[str]] = None, notes: Optional[str] = None, query: Optional[str]
-    = None, query_result: Optional[str] = None, updated: Optional[datetime.datetime]
-    = None, updated_by: Optional[azure.mgmt.securityinsight.models._models_py3.UserInfo]
-    = None, incident_info: Optional[azure.mgmt.securityinsight.models._models_py3.IncidentInfo]
-    = None, **kwargs)'
+    Optional[_models.UserInfo] = None, display_name: Optional[str] = None, event_time:
+    Optional[datetime.datetime] = None, labels: Optional[List[str]] = None, notes:
+    Optional[str] = None, query: Optional[str] = None, query_result: Optional[str]
+    = None, updated: Optional[datetime.datetime] = None, updated_by: Optional[_models.UserInfo]
+    = None, incident_info: Optional[_models.IncidentInfo] = None, **kwargs)'
 variables:
 - description: 'Fully qualified resource ID for the resource. Ex -
 
@@ -45,13 +43,13 @@ variables:
   name: system_data
   types:
   - <xref:azure.mgmt.securityinsight.models.SystemData>
-- description: 'Required. The kind of the entity.Constant filled by server. Possible
-    values
+- description: 'Required. The kind of the entity.Constant filled by server. Known
+    values are:
 
-    include: "Account", "Host", "File", "AzureResource", "CloudApplication", "DnsResolution",
+    "Account", "Host", "File", "AzureResource", "CloudApplication", "DnsResolution",
+    "FileHash",
 
-    "FileHash", "Ip", "Malware", "Process", "RegistryKey", "RegistryValue", "SecurityGroup",
-    "Url",
+    "Ip", "Malware", "Process", "RegistryKey", "RegistryValue", "SecurityGroup", "Url",
 
     "IoTDevice", "SecurityAlert", "Bookmark", "MailCluster", "MailMessage", "Mailbox",
 
@@ -59,7 +57,7 @@ variables:
   name: kind
   types:
   - <xref:str>
-  - <xref:azure.mgmt.securityinsight.models.EntityKind>
+  - <xref:azure.mgmt.securityinsight.models.EntityKindEnum>
 - description: 'A bag of custom fields that should be part of the entity and will
     be
 

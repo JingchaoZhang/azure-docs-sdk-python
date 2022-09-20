@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.prompt_field_description
+name: prompt_field_description
+fullName: azure.mgmt.servermanager.models.prompt_field_description
+classes:
+- azure.mgmt.servermanager.models.prompt_field_description.PromptFieldDescription

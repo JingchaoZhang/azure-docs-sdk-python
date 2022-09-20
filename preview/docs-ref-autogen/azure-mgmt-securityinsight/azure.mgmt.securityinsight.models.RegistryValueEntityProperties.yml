@@ -40,10 +40,10 @@ variables:
 - description: 'Specifies the data types to use when storing values in the registry,
     or
 
-    identifies the data type of a value in the registry. Possible values include:
-    "None",
+    identifies the data type of a value in the registry. Known values are: "None",
+    "Unknown",
 
-    "Unknown", "String", "ExpandString", "Binary", "DWord", "MultiString", "QWord".'
+    "String", "ExpandString", "Binary", "DWord", "MultiString", "QWord".'
   name: value_type
   types:
   - <xref:str>

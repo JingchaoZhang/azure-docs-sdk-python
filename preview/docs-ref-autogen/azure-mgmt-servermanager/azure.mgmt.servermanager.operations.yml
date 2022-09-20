@@ -1,0 +1,15 @@
+### YamlMime:PythonPackage
+uid: azure.mgmt.servermanager.operations
+name: operations
+fullName: azure.mgmt.servermanager.operations
+type: import
+classes:
+- azure.mgmt.servermanager.operations.GatewayOperations
+- azure.mgmt.servermanager.operations.NodeOperations
+- azure.mgmt.servermanager.operations.PowerShellOperations
+- azure.mgmt.servermanager.operations.SessionOperations
+modules:
+- azure.mgmt.servermanager.operations.gateway_operations
+- azure.mgmt.servermanager.operations.node_operations
+- azure.mgmt.servermanager.operations.power_shell_operations
+- azure.mgmt.servermanager.operations.session_operations

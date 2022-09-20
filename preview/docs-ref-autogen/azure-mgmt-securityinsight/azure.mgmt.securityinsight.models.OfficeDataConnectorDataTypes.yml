@@ -5,25 +5,21 @@ fullName: azure.mgmt.securityinsight.models.OfficeDataConnectorDataTypes
 module: azure.mgmt.securityinsight.models
 inheritances:
 - msrest.serialization.Model
-summary: 'The available data types for office data connector.
-
-
-  All required parameters must be populated in order to send to Azure.'
+summary: The available data types for office data connector.
 constructor:
-  syntax: 'OfficeDataConnectorDataTypes(*, exchange: azure.mgmt.securityinsight.models._models_py3.OfficeDataConnectorDataTypesExchange,
-    share_point: azure.mgmt.securityinsight.models._models_py3.OfficeDataConnectorDataTypesSharePoint,
-    teams: azure.mgmt.securityinsight.models._models_py3.OfficeDataConnectorDataTypesTeams,
-    **kwargs)'
+  syntax: 'OfficeDataConnectorDataTypes(*, exchange: Optional[_models.OfficeDataConnectorDataTypesExchange]
+    = None, share_point: Optional[_models.OfficeDataConnectorDataTypesSharePoint]
+    = None, teams: Optional[_models.OfficeDataConnectorDataTypesTeams] = None, **kwargs)'
 variables:
-- description: Required. Exchange data type connection.
+- description: Exchange data type connection.
   name: exchange
   types:
   - <xref:azure.mgmt.securityinsight.models.OfficeDataConnectorDataTypesExchange>
-- description: Required. SharePoint data type connection.
+- description: SharePoint data type connection.
   name: share_point
   types:
   - <xref:azure.mgmt.securityinsight.models.OfficeDataConnectorDataTypesSharePoint>
-- description: Required. Teams data type connection.
+- description: Teams data type connection.
   name: teams
   types:
   - <xref:azure.mgmt.securityinsight.models.OfficeDataConnectorDataTypesTeams>

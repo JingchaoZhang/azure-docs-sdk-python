@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.node_parameters
+name: node_parameters
+fullName: azure.mgmt.servermanager.models.node_parameters
+classes:
+- azure.mgmt.servermanager.models.node_parameters.NodeParameters
