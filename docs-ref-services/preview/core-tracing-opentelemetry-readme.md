@@ -1,19 +1,16 @@
 ---
 title: Azure Core Tracing OpenTelemetry client library for Python
 keywords: Azure, python, SDK, API, azure-core-tracing-opentelemetry, core
-author: ramya-rao-a
-ms.author: ramyar
-ms.date: 04/07/2021
+author: rakshith91
+ms.author: sabhyrav
+ms.date: 09/20/2022
 ms.topic: reference
-ms.prod: azure
-ms.technology: azure
 ms.devlang: python
 ms.service: core
 ---
 
 
-
-# Azure Core Tracing OpenTelemetry client library for Python - version 1.0.0b9 
+# Azure Core Tracing OpenTelemetry client library for Python - version 1.0.0a20220919001 
 
 
 ## Getting started
@@ -92,7 +89,7 @@ Azure Exporter can be found in the [package](https://pypi.org/project/openteleme
 
 ## Troubleshooting
 
-This client raises exceptions defined in [Azure Core](https://docs.microsoft.com/python/api/azure-core/azure.core.exceptions?view=azure-python).
+This client raises exceptions defined in [Azure Core](/python/api/azure-core/azure.core.exceptions?view=azure-python).
 
 
 ## Next steps
