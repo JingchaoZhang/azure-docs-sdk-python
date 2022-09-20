@@ -1,7 +1,7 @@
 {
   "Name": "azure-mgmt-batch",
-  "Version": "16.1.0a20220330001",
-  "DevVersion": "16.1.0a20220330001",
+  "Version": "16.2.0a20220919001",
+  "DevVersion": "16.2.0a20220919001",
   "DirectoryPath": "sdk/batch/azure-mgmt-batch",
   "ServiceDirectory": "batch",
   "ReadMePath": "sdk/batch/azure-mgmt-batch/README.md",
@@ -10,5 +10,5 @@
   "SdkType": "mgmt",
   "IsNewSdk": true,
   "ArtifactName": "azure-mgmt-batch",
-  "ReleaseStatus": "2022-02-24"
+  "ReleaseStatus": "2022-06-06"
 }
