@@ -3,12 +3,12 @@ title: Azure Container Registry client library for Python
 keywords: Azure, python, SDK, API, azure-containerregistry, containerregistry
 author: YalinLi0312
 ms.author: yall
-ms.date: 05/11/2022
+ms.date: 09/20/2022
 ms.topic: reference
 ms.devlang: python
 ms.service: containerregistry
 ---
-# Azure Container Registry client library for Python - version 1.1.0b1 
+# Azure Container Registry client library for Python - version 1.1.0a20220919002 
 
 
 Azure Container Registry allows you to store and manage container images and artifacts in a private registry for all types of container deployments.
@@ -25,6 +25,7 @@ Use the client library for Azure Container Registry to:
 ## _Disclaimer_
 
 _Azure SDK Python packages support for Python 2.7 has ended 01 January 2022. For more information and questions, please refer to https://github.com/Azure/azure-sdk-for-python/issues/20691_
+_Python 3.7 or later is required to use this package. For more details, please refer to [Azure SDK for Python version support policy](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy)._
 
 ## Getting started
 
@@ -38,7 +39,7 @@ pip install --pre azure-containerregistry
 
 ### Prerequisites
 
-* Python 3.6 or later is required to use this package.
+* Python 3.7 or later is required to use this package.
 * You need an [Azure subscription][azure_sub] and a [Container Registry account][container_registry_docs] to use this package.
 
 To create a new Container Registry, you can use the [Azure Portal][container_registry_create_portal],
@@ -51,7 +52,7 @@ az acr create --name MyContainerRegistry --resource-group MyResourceGroup --loca
 
 ### Authenticate the client
 
-The [Azure Identity library][identity] provides easy Azure Active Directory support for authentication. The `DefaultAzureCredential` assumes the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables are set, for more information refer to the [Azure Identity environment variables section](https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.1.0b1/sdk/identity/azure-identity#environment-variables)
+The [Azure Identity library][identity] provides easy Azure Active Directory support for authentication. The `DefaultAzureCredential` assumes the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables are set, for more information refer to the [Azure Identity environment variables section](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/identity/azure-identity#environment-variables)
 
 ```python
 # Create a ContainerRegistryClient that will authenticate through Active Directory
@@ -144,6 +145,7 @@ with ContainerRegistryClient(endpoint, DefaultAzureCredential(), audience="https
 
 ## Troubleshooting
 
+For infomation about troubleshooting, refer to the [troubleshooting guide].
 ### General
 ACR client library will raise exceptions defined in [Azure Core][azure_core_exceptions].
 
@@ -185,7 +187,7 @@ additional questions or comments.
 ![Impressions](https://azure-sdk-impressions.azurewebsites.net/api/impressions/azure-sdk-for-python%2Fsdk%2Fcontainerregistry%2Fazure-containerregistry%2FREADME.png)
 
 <!-- LINKS -->
-[source]: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.1.0b1/sdk/containerregistry/azure-containerregistry
+[source]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry/azure-containerregistry
 [package]: https://pypi.org/project/azure-containerregistry/
 [docs]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-containerregistry/1.0.0b1/index.html
 [rest_docs]: /rest/api/containerregistry/
@@ -198,8 +200,8 @@ additional questions or comments.
 [container_registry_concepts]: /azure/container-registry/container-registry-concepts
 [azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
-[identity]: https://github.com/Azure/azure-sdk-for-python/blob/azure-containerregistry_1.1.0b1/sdk/identity/azure-identity/README.md
-[samples]: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.1.0b1/sdk/containerregistry/azure-containerregistry/samples
+[identity]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/identity/azure-identity/README.md
+[samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/containerregistry/azure-containerregistry/samples
 [cla]: https://cla.microsoft.com
 [coc]: https://opensource.microsoft.com/codeofconduct/
 [coc_faq]: https://opensource.microsoft.com/codeofconduct/faq/
@@ -208,4 +210,5 @@ additional questions or comments.
 [azure_core_exceptions]: https://aka.ms/azsdk/python/core/docs#module-azure.core.exceptions
 [python_logging]: https://docs.python.org/3/library/logging.html
 [sdk_logging_docs]: /azure/developer/python/azure-sdk-logging
+[troubleshooting guide]: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/containerregistry/azure-containerregistry/TROUBLESHOOTING.md
 
