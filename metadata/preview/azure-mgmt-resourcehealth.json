@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-resourcehealth",
+  "Version": "1.0.0a20220920001",
+  "DevVersion": "1.0.0a20220920001",
+  "DirectoryPath": "sdk/resourcehealth/azure-mgmt-resourcehealth",
+  "ServiceDirectory": "resourcehealth",
+  "ReadMePath": "sdk/resourcehealth/azure-mgmt-resourcehealth/README.md",
+  "ChangeLogPath": "sdk/resourcehealth/azure-mgmt-resourcehealth/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-resourcehealth",
+  "ReleaseStatus": "2021-06-25"
+}
