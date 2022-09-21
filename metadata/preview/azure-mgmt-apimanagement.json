@@ -1,7 +1,7 @@
 {
   "Name": "azure-mgmt-apimanagement",
-  "Version": "3.0.0a20220330001",
-  "DevVersion": "3.0.0a20220330001",
+  "Version": "3.0.0a20220920001",
+  "DevVersion": "3.0.0a20220920001",
   "DirectoryPath": "sdk/apimanagement/azure-mgmt-apimanagement",
   "ServiceDirectory": "apimanagement",
   "ReadMePath": "sdk/apimanagement/azure-mgmt-apimanagement/README.md",
