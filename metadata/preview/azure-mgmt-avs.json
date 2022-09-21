@@ -1,7 +1,7 @@
 {
   "Name": "azure-mgmt-avs",
-  "Version": "7.0.0a20220330001",
-  "DevVersion": "7.0.0a20220330001",
+  "Version": "7.0.0a20220920001",
+  "DevVersion": "7.0.0a20220920001",
   "DirectoryPath": "sdk/compute/azure-mgmt-avs",
   "ServiceDirectory": "compute",
   "ReadMePath": "sdk/compute/azure-mgmt-avs/README.md",
