@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-datalake-store",
+  "Version": "1.0.0a20220921001",
+  "DevVersion": "1.0.0a20220921001",
+  "DirectoryPath": "sdk/datalake/azure-mgmt-datalake-store",
+  "ServiceDirectory": "datalake",
+  "ReadMePath": "sdk/datalake/azure-mgmt-datalake-store/README.md",
+  "ChangeLogPath": "sdk/datalake/azure-mgmt-datalake-store/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-datalake-store",
+  "ReleaseStatus": "2020-12-21"
+}
