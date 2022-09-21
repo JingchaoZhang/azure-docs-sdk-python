@@ -1,12 +1,12 @@
 ---
-ms.service: synapseanalytics
-title: Azure Synapse Analytics SDK for Python
 description: Reference for Azure Synapse Analytics SDK for Python
-author: wonner
-ms.topic: reference
-ms.author: wanyang
-ms.data: 09/20/2022
 ms.devlang: python
+ms.data: 09/21/2022
+author: wonner
+title: Azure Synapse Analytics SDK for Python
+ms.topic: reference
+ms.service: synapseanalytics
+ms.author: wanyang
 ---
 # Azure Synapse Analytics SDK for Python - preview
 
