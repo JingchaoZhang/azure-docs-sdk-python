@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-portal",
+  "Version": "1.0.0a20220921001",
+  "DevVersion": "1.0.0a20220921001",
+  "DirectoryPath": "sdk/portal/azure-mgmt-portal",
+  "ServiceDirectory": "portal",
+  "ReadMePath": "sdk/portal/azure-mgmt-portal/README.md",
+  "ChangeLogPath": "sdk/portal/azure-mgmt-portal/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-portal",
+  "ReleaseStatus": "2021-05-21"
+}
