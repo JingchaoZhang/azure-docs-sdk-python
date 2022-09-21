@@ -13,8 +13,7 @@ summary: 'List all the actions.
 
   All required parameters must be populated in order to send to Azure.'
 constructor:
-  syntax: 'ActionsList(*, value: List[azure.mgmt.securityinsight.models._models_py3.ActionResponse],
-    **kwargs)'
+  syntax: 'ActionsList(*, value: List[_models.ActionResponse], **kwargs)'
 variables:
 - description: URL to fetch the next set of actions.
   name: next_link

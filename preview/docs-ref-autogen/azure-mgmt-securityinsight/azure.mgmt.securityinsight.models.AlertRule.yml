@@ -10,8 +10,7 @@ summary: 'Alert rule.
 
   You probably want to use the sub-classes and not this class directly. Known
 
-  sub-classes are: FusionAlertRule, MLBehaviorAnalyticsAlertRule, MicrosoftSecurityIncidentCreationAlertRule,
-  NrtAlertRule, ScheduledAlertRule, ThreatIntelligenceAlertRule.
+  sub-classes are: FusionAlertRule, MicrosoftSecurityIncidentCreationAlertRule, ScheduledAlertRule.
 
 
   Variables are only populated by the server, and will be ignored when sending a request.
@@ -48,12 +47,10 @@ variables:
   name: etag
   types:
   - <xref:str>
-- description: 'Required. The kind of the alert rule.Constant filled by server. Possible
-    values
+- description: 'Required. The alert rule kind.Constant filled by server. Known values
+    are:
 
-    include: "Scheduled", "MicrosoftSecurityIncidentCreation", "Fusion", "MLBehaviorAnalytics",
-
-    "ThreatIntelligence", "NRT".'
+    "Scheduled", "MicrosoftSecurityIncidentCreation", "Fusion".'
   name: kind
   types:
   - <xref:str>

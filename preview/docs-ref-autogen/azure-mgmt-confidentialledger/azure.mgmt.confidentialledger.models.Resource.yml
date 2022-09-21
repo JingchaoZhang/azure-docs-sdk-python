@@ -27,4 +27,4 @@ variables:
 - description: Metadata pertaining to creation and last modification of the resource.
   name: system_data
   types:
-  - <xref:confidential_ledger.models.SystemData>
+  - <xref:azure.mgmt.confidentialledger.models.SystemData>

@@ -1,0 +1,17 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.devspaces.models.ControllerConnectionDetailsList
+name: ControllerConnectionDetailsList
+fullName: azure.mgmt.devspaces.models.ControllerConnectionDetailsList
+module: azure.mgmt.devspaces.models
+inheritances:
+- msrest.serialization.Model
+summary: ControllerConnectionDetailsList.
+constructor:
+  syntax: 'ControllerConnectionDetailsList(*, connection_details_list: Optional[List[azure.mgmt.devspaces.models._models_py3.ControllerConnectionDetails]]
+    = None, **kwargs)'
+  parameters:
+  - name: connection_details_list
+    description: List of Azure Dev Spaces Controller connection details.
+    isRequired: true
+    types:
+    - <xref:list>[<xref:dev_spaces_management_client.models.ControllerConnectionDetails>]

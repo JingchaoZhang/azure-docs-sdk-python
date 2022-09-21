@@ -10,31 +10,11 @@ summary: 'Customer creates a contact resource for a spacecraft resource.
 
   Variables are only populated by the server, and will be ignored when sending a request.'
 constructor:
-  syntax: 'Contact(*, reservation_start_time: Optional[datetime.datetime] = None,
-    reservation_end_time: Optional[datetime.datetime] = None, ground_station_name:
-    Optional[str] = None, contact_profile: Optional[azure.mgmt.orbital.models._models_py3.ResourceReference]
+  syntax: 'Contact(*, provisioning_state: Optional[Union[str, azure.mgmt.orbital.models._azure_orbital_enums.ContactsPropertiesProvisioningState]]
+    = None, reservation_start_time: Optional[datetime.datetime] = None, reservation_end_time:
+    Optional[datetime.datetime] = None, ground_station_name: Optional[str] = None,
+    contact_profile: Optional[azure.mgmt.orbital.models._models_py3.ContactsPropertiesContactProfile]
     = None, **kwargs)'
-  parameters:
-  - name: reservation_start_time
-    description: Reservation start time of a contact.
-    isRequired: true
-    types:
-    - <xref:datetime.datetime>
-  - name: reservation_end_time
-    description: Reservation end time of a contact.
-    isRequired: true
-    types:
-    - <xref:datetime.datetime>
-  - name: ground_station_name
-    description: Azure Ground Station name.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: contact_profile
-    description: The reference to the contact profile resource.
-    isRequired: true
-    types:
-    - <xref:azure_orbital.models.ResourceReference>
 variables:
 - description: 'Fully qualified resource ID for the resource. Ex -
 
@@ -58,18 +38,35 @@ variables:
     information.'
   name: system_data
   types:
-  - <xref:azure_orbital.models.SystemData>
+  - <xref:azure.mgmt.orbital.models.SystemData>
 - description: A unique read-only string that changes whenever the resource is updated.
   name: etag
   types:
   - <xref:str>
+- description: 'The current state of the resource''s creation, deletion, or
+
+    modification. Possible values include: "Creating", "Succeeded", "Failed", "Canceled",
+
+    "Updating", "Deleting".'
+  name: provisioning_state
+  types:
+  - <xref:str>
+  - <xref:azure.mgmt.orbital.models.ContactsPropertiesProvisioningState>
 - description: 'Status of a contact. Possible values include: "scheduled", "cancelled",
 
-    "succeeded", "failed", "providerCancelled".'
+    "succeeded", "failed", "providerCancelled", "Canceled", "Running".'
   name: status
   types:
   - <xref:str>
-  - <xref:azure_orbital.models.Status>
+  - <xref:azure.mgmt.orbital.models.Status>
+- description: Reservation start time of a contact.
+  name: reservation_start_time
+  types:
+  - <xref:datetime.datetime>
+- description: Reservation end time of a contact.
+  name: reservation_end_time
+  types:
+  - <xref:datetime.datetime>
 - description: Receive start time of a contact.
   name: rx_start_time
   types:
@@ -106,6 +103,10 @@ variables:
   name: end_azimuth_degrees
   types:
   - <xref:float>
+- description: Azure Ground Station name.
+  name: ground_station_name
+  types:
+  - <xref:str>
 - description: Spacecraft elevation above the horizon at contact start.
   name: start_elevation_degrees
   types:
@@ -114,3 +115,11 @@ variables:
   name: end_elevation_degrees
   types:
   - <xref:float>
+- description: The configuration associated with the allocated antenna.
+  name: antenna_configuration
+  types:
+  - <xref:azure.mgmt.orbital.models.ContactsPropertiesAntennaConfiguration>
+- description: The reference to the contact profile resource.
+  name: contact_profile
+  types:
+  - <xref:azure.mgmt.orbital.models.ContactsPropertiesContactProfile>

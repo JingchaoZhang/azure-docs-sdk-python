@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.operations.session_operations
+name: session_operations
+fullName: azure.mgmt.servermanager.operations.session_operations
+classes:
+- azure.mgmt.servermanager.operations.session_operations.SessionOperations

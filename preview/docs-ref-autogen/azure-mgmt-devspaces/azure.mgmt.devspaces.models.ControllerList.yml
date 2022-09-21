@@ -1,0 +1,28 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.devspaces.models.ControllerList
+name: ControllerList
+fullName: azure.mgmt.devspaces.models.ControllerList
+module: azure.mgmt.devspaces.models
+inheritances:
+- msrest.serialization.Model
+summary: 'ControllerList.
+
+
+  Variables are only populated by the server, and will be ignored when sending a request.'
+constructor:
+  syntax: 'ControllerList(*, value: Optional[List[azure.mgmt.devspaces.models._models_py3.Controller]]
+    = None, **kwargs)'
+  parameters:
+  - name: value
+    description: List of Azure Dev Spaces Controllers.
+    isRequired: true
+    types:
+    - <xref:list>[<xref:dev_spaces_management_client.models.Controller>]
+variables:
+- description: 'The URI that can be used to request the next page for list of Azure
+    Dev Spaces
+
+    Controllers.'
+  name: next_link
+  types:
+  - <xref:str>

@@ -1,0 +1,17 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.machinelearningcompute.models.AvailableOperations
+name: AvailableOperations
+fullName: azure.mgmt.machinelearningcompute.models.AvailableOperations
+module: azure.mgmt.machinelearningcompute.models
+inheritances:
+- msrest.serialization.Model
+summary: Available operation list.
+constructor:
+  syntax: 'AvailableOperations(*, value: Optional[List[azure.mgmt.machinelearningcompute.models._models_py3.ResourceOperation]]
+    = None, **kwargs)'
+  parameters:
+  - name: value
+    description: An array of available operations.
+    isRequired: true
+    types:
+    - <xref:list>[<xref:azure.mgmt.machinelearningcompute.models.ResourceOperation>]

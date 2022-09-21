@@ -145,14 +145,17 @@ methods:
     types:
     - <xref:str>
   - name: tags
-    description: Tags presents on each workbook returned.
+    description: Tags presents on each workbook returned. Default value is None.
     isRequired: true
     types:
     - <xref:list>[<xref:str>]
   - name: can_fetch_content
     description: 'Flag indicating whether or not to return the full content for each
 
-      applicable workbook. If false, only return summary content for workbooks.'
+      applicable workbook. If false, only return summary content for workbooks. Default
+      value is
+
+      None.'
     isRequired: true
     types:
     - <xref:bool>
@@ -192,7 +195,7 @@ methods:
   - name: workbook_update_parameters
     description: 'Properties that need to be specified to create a new
 
-      workbook.'
+      workbook. Default value is None.'
     isRequired: true
     types:
     - <xref:azure.mgmt.applicationinsights.v2018_06_17_preview.models.WorkbookUpdateParameters>

@@ -1,0 +1,34 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.devspaces.models.Sku
+name: Sku
+fullName: azure.mgmt.devspaces.models.Sku
+module: azure.mgmt.devspaces.models
+inheritances:
+- msrest.serialization.Model
+summary: 'Model representing SKU for Azure Dev Spaces Controller.
+
+
+  All required parameters must be populated in order to send to Azure.'
+constructor:
+  syntax: 'Sku(*, name: Union[str, azure.mgmt.devspaces.models._dev_spaces_management_client_enums.SkuName],
+    tier: Optional[Union[str, azure.mgmt.devspaces.models._dev_spaces_management_client_enums.SkuTier]]
+    = None, **kwargs)'
+  parameters:
+  - name: name
+    description: 'Required. The name of the SKU for Azure Dev Spaces Controller. Possible
+      values
+
+      include: "S1".'
+    isRequired: true
+    types:
+    - <xref:str>
+    - <xref:dev_spaces_management_client.models.SkuName>
+  - name: tier
+    description: 'The tier of the SKU for Azure Dev Spaces Controller. Possible values
+      include:
+
+      "Standard".'
+    isRequired: true
+    types:
+    - <xref:str>
+    - <xref:dev_spaces_management_client.models.SkuTier>

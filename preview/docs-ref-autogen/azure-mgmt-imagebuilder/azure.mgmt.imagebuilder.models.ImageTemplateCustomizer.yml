@@ -17,18 +17,15 @@ summary: 'Describes a unit of image customization.
   All required parameters must be populated in order to send to Azure.'
 constructor:
   syntax: 'ImageTemplateCustomizer(*, name: Optional[str] = None, **kwargs)'
-  parameters:
-  - name: type
-    description: 'Required. The type of customization tool you want to use on the
-      Image. For
+variables:
+- description: 'Required. The type of customization tool you want to use on the Image.
+    For example,
 
-      example, "Shell" can be shell customizer.Constant filled by server.'
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: name
-    description: Friendly Name to provide context on what this customization step
-      does.
-    isRequired: true
-    types:
-    - <xref:str>
+    "Shell" can be shell customizer.Constant filled by server.'
+  name: type
+  types:
+  - <xref:str>
+- description: Friendly Name to provide context on what this customization step does.
+  name: name
+  types:
+  - <xref:str>

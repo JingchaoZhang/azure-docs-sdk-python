@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.prompt_message_response
+name: prompt_message_response
+fullName: azure.mgmt.servermanager.models.prompt_message_response
+classes:
+- azure.mgmt.servermanager.models.prompt_message_response.PromptMessageResponse

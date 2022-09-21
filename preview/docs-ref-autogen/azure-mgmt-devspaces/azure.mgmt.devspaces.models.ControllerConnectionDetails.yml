@@ -1,0 +1,20 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.devspaces.models.ControllerConnectionDetails
+name: ControllerConnectionDetails
+fullName: azure.mgmt.devspaces.models.ControllerConnectionDetails
+module: azure.mgmt.devspaces.models
+inheritances:
+- msrest.serialization.Model
+summary: ControllerConnectionDetails.
+constructor:
+  syntax: 'ControllerConnectionDetails(*, orchestrator_specific_connection_details:
+    Optional[azure.mgmt.devspaces.models._models_py3.OrchestratorSpecificConnectionDetails]
+    = None, **kwargs)'
+  parameters:
+  - name: orchestrator_specific_connection_details
+    description: 'Base class for types that supply values used
+
+      to connect to container orchestrators.'
+    isRequired: true
+    types:
+    - <xref:dev_spaces_management_client.models.OrchestratorSpecificConnectionDetails>

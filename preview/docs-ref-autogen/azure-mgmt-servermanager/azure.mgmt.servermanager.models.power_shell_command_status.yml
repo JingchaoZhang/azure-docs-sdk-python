@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.power_shell_command_status
+name: power_shell_command_status
+fullName: azure.mgmt.servermanager.models.power_shell_command_status
+classes:
+- azure.mgmt.servermanager.models.power_shell_command_status.PowerShellCommandStatus

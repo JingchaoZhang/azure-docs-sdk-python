@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.session_resource
+name: session_resource
+fullName: azure.mgmt.servermanager.models.session_resource
+classes:
+- azure.mgmt.servermanager.models.session_resource.SessionResource

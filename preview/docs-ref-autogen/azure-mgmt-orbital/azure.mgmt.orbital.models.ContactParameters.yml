@@ -10,27 +10,23 @@ summary: 'Parameters that define the contact resource.
 
   All required parameters must be populated in order to send to Azure.'
 constructor:
-  syntax: 'ContactParameters(*, contact_profile: azure.mgmt.orbital.models._models_py3.ResourceReference,
+  syntax: 'ContactParameters(*, contact_profile: azure.mgmt.orbital.models._models_py3.ContactParametersContactProfile,
     ground_station_name: str, start_time: datetime.datetime, end_time: datetime.datetime,
     **kwargs)'
-  parameters:
-  - name: contact_profile
-    description: Required. The reference to the contact profile resource.
-    isRequired: true
-    types:
-    - <xref:azure_orbital.models.ResourceReference>
-  - name: ground_station_name
-    description: Required. Name of Azure Ground Station.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: start_time
-    description: Required. Start time of a contact.
-    isRequired: true
-    types:
-    - <xref:datetime.datetime>
-  - name: end_time
-    description: Required. End time of a contact.
-    isRequired: true
-    types:
-    - <xref:datetime.datetime>
+variables:
+- description: Required. The reference to the contact profile resource.
+  name: contact_profile
+  types:
+  - <xref:azure.mgmt.orbital.models.ContactParametersContactProfile>
+- description: Required. Name of Azure Ground Station.
+  name: ground_station_name
+  types:
+  - <xref:str>
+- description: Required. Start time of a contact.
+  name: start_time
+  types:
+  - <xref:datetime.datetime>
+- description: Required. End time of a contact.
+  name: end_time
+  types:
+  - <xref:datetime.datetime>

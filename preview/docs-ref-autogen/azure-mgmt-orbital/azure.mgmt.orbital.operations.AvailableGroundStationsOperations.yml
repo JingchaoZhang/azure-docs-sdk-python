@@ -34,7 +34,7 @@ methods:
 - uid: azure.mgmt.orbital.operations.AvailableGroundStationsOperations.get
   name: get
   summary: Gets the specified  available ground station.
-  signature: 'get(ground_station_name: str, **kwargs: Any) -> _models.AvailableGroundStation'
+  signature: 'get(ground_station_name: str, **kwargs: Any) -> azure.mgmt.orbital.models._models_py3.AvailableGroundStation'
   parameters:
   - name: ground_station_name
     description: Ground Station name.
@@ -48,30 +48,32 @@ methods:
   return:
     description: AvailableGroundStation, or the result of cls(response)
     types:
-    - <xref:azure_orbital.models.AvailableGroundStation>
+    - <xref:azure.mgmt.orbital.models.AvailableGroundStation>
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
 - uid: azure.mgmt.orbital.operations.AvailableGroundStationsOperations.list_by_capability
   name: list_by_capability
   summary: Returns list of available ground stations.
-  signature: 'list_by_capability(capability: Union[str, _models.Enum6] = ''EarthObservation'',
-    **kwargs: Any) -> Iterable[_models.AvailableGroundStationListResult]'
+  signature: 'list_by_capability(capability: Union[str, azure.mgmt.orbital.models._azure_orbital_enums.CapabilityParameter]
+    = ''EarthObservation'', **kwargs: Any) -> Iterable[azure.mgmt.orbital.models._models_py3.AvailableGroundStationListResult]'
   parameters:
   - name: capability
-    description: Ground Station Capability.
-    defaultValue: EarthObservation
+    description: Ground Station Capability. Default value is "EarthObservation".
+    isRequired: true
     types:
     - <xref:str>
-    - <xref:azure_orbital.models.Enum6>
+    - <xref:azure.mgmt.orbital.models.CapabilityParameter>
   - name: cls
     description: A custom type or function that will be passed the direct response
     types:
     - <xref:callable>
   return:
-    description: An iterator like instance of either AvailableGroundStationListResult
-      or the result of cls(response)
+    description: 'An iterator like instance of either AvailableGroundStationListResult
+      or the result of
+
+      cls(response)'
     types:
-    - <xref:azure.core.paging.ItemPaged>[<xref:azure_orbital.models.AvailableGroundStationListResult>]
+    - <xref:azure.core.paging.ItemPaged>[<xref:azure.mgmt.orbital.models.AvailableGroundStationListResult>]
   exceptions:
   - type: azure.core.exceptions.HttpResponseError
 attributes:

@@ -1,0 +1,16 @@
+### YamlMime:PythonEnum
+uid: azure.cognitiveservices.search.autosuggest.models.ResponseFormat
+name: ResponseFormat
+fullName: azure.cognitiveservices.search.autosuggest.models.ResponseFormat
+summary: An enumeration.
+module: azure.cognitiveservices.search.autosuggest.models
+constructor:
+  syntax: ResponseFormat(value)
+inheritances:
+- builtins.str
+- enum.Enum
+fields:
+- name: json
+  uid: azure.cognitiveservices.search.autosuggest.models.ResponseFormat.json
+- name: json_ld
+  uid: azure.cognitiveservices.search.autosuggest.models.ResponseFormat.json_ld

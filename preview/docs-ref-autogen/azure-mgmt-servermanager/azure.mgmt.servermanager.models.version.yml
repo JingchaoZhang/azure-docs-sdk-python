@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.version
+name: version
+fullName: azure.mgmt.servermanager.models.version
+classes:
+- azure.mgmt.servermanager.models.version.Version
