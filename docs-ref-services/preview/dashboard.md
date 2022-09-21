@@ -1,12 +1,12 @@
 ---
-ms.author: lmazuel
+ms.devlang: python
+ms.topic: reference
+ms.data: 09/20/2022
+ms.service: dashboard
 author: lmazuel
 title: Azure Dashboard SDK for Python
+ms.author: lmazuel
 description: Reference for Azure Dashboard SDK for Python
-ms.service: dashboard
-ms.topic: reference
-ms.data: 09/19/2022
-ms.devlang: python
 ---
 # Azure Dashboard SDK for Python - preview
 
