@@ -10,7 +10,7 @@ summary: 'Describes an automation rule action to run a playbook.
 
   All required parameters must be populated in order to send to Azure.'
 constructor:
-  syntax: 'AutomationRuleRunPlaybookAction(*, order: int, action_configuration: Optional[azure.mgmt.securityinsight.models._models_py3.PlaybookActionProperties]
+  syntax: 'AutomationRuleRunPlaybookAction(*, order: int, action_configuration: Optional[_models.PlaybookActionProperties]
     = None, **kwargs)'
 variables:
 - description: Required.
@@ -20,7 +20,7 @@ variables:
 - description: 'Required. The type of the automation rule action.Constant filled by
     server.
 
-    Possible values include: "ModifyProperties", "RunPlaybook".'
+    Known values are: "ModifyProperties", "RunPlaybook".'
   name: action_type
   types:
   - <xref:str>

@@ -37,16 +37,16 @@ methods:
 
 
     Creates or updates a Managed Environment used to host container apps.'
-  signature: 'async begin_create_or_update(resource_group_name: str, name: str, environment_envelope:
-    azure.mgmt.appcontainers.models._models_py3.ManagedEnvironment, **kwargs: Any)
-    -> azure.core.polling._async_poller.AsyncLROPoller[azure.mgmt.appcontainers.models._models_py3.ManagedEnvironment]'
+  signature: 'async begin_create_or_update(resource_group_name: str, environment_name:
+    str, environment_envelope: azure.mgmt.appcontainers.models._models_py3.ManagedEnvironment,
+    **kwargs: Any) -> azure.core.polling._async_poller.AsyncLROPoller[azure.mgmt.appcontainers.models._models_py3.ManagedEnvironment]'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: environment_name
     description: Name of the Environment.
     isRequired: true
     types:
@@ -96,15 +96,15 @@ methods:
 
 
     Delete a Managed Environment if it does not have any container apps.'
-  signature: 'async begin_delete(resource_group_name: str, name: str, **kwargs: Any)
-    -> azure.core.polling._async_poller.AsyncLROPoller[None]'
+  signature: 'async begin_delete(resource_group_name: str, environment_name: str,
+    **kwargs: Any) -> azure.core.polling._async_poller.AsyncLROPoller[None]'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: environment_name
     description: Name of the Environment.
     isRequired: true
     types:
@@ -147,16 +147,16 @@ methods:
 
 
     Patches a Managed Environment using JSON Merge Patch.'
-  signature: 'async begin_update(resource_group_name: str, name: str, environment_envelope:
-    azure.mgmt.appcontainers.models._models_py3.ManagedEnvironment, **kwargs: Any)
-    -> azure.core.polling._async_poller.AsyncLROPoller[None]'
+  signature: 'async begin_update(resource_group_name: str, environment_name: str,
+    environment_envelope: azure.mgmt.appcontainers.models._models_py3.ManagedEnvironment,
+    **kwargs: Any) -> azure.core.polling._async_poller.AsyncLROPoller[None]'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: environment_name
     description: Name of the Environment.
     isRequired: true
     types:
@@ -204,14 +204,15 @@ methods:
 
 
     Get the properties of a Managed Environment used to host container apps.'
-  signature: 'async get(resource_group_name: str, name: str, **kwargs: Any) -> azure.mgmt.appcontainers.models._models_py3.ManagedEnvironment'
+  signature: 'async get(resource_group_name: str, environment_name: str, **kwargs:
+    Any) -> azure.mgmt.appcontainers.models._models_py3.ManagedEnvironment'
   parameters:
   - name: resource_group_name
     description: The name of the resource group. The name is case insensitive.
     isRequired: true
     types:
     - <xref:str>
-  - name: name
+  - name: environment_name
     description: Name of the Environment.
     isRequired: true
     types:

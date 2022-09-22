@@ -1,0 +1,27 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.power_shell_command_results.PowerShellCommandResults
+name: PowerShellCommandResults
+fullName: azure.mgmt.servermanager.models.power_shell_command_results.PowerShellCommandResults
+module: azure.mgmt.servermanager.models.power_shell_command_results
+inheritances:
+- msrest.serialization.Model
+summary: A collection of results from a PowerShell command.
+constructor:
+  syntax: PowerShellCommandResults(**kwargs)
+  parameters:
+  - name: results
+    isRequired: true
+    types:
+    - <xref:list>[<xref:azure.mgmt.servermanager.models.PowerShellCommandResult>]
+  - name: pssession
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: command
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: completed
+    isRequired: true
+    types:
+    - <xref:bool>

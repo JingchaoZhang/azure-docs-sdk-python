@@ -1,0 +1,27 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.machinelearningcompute.models.ResourceOperation
+name: ResourceOperation
+fullName: azure.mgmt.machinelearningcompute.models.ResourceOperation
+module: azure.mgmt.machinelearningcompute.models
+inheritances:
+- msrest.serialization.Model
+summary: Resource operation.
+constructor:
+  syntax: 'ResourceOperation(*, name: Optional[str] = None, display: Optional[azure.mgmt.machinelearningcompute.models._models_py3.ResourceOperationDisplay]
+    = None, origin: Optional[str] = None, **kwargs)'
+  parameters:
+  - name: name
+    description: Name of this operation.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: display
+    description: Display of the operation.
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.machinelearningcompute.models.ResourceOperationDisplay>
+  - name: origin
+    description: The operation origin.
+    isRequired: true
+    types:
+    - <xref:str>

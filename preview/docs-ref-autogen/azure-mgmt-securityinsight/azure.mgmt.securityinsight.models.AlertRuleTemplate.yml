@@ -10,9 +10,8 @@ summary: 'Alert rule template.
 
   You probably want to use the sub-classes and not this class directly. Known
 
-  sub-classes are: FusionAlertRuleTemplate, MLBehaviorAnalyticsAlertRuleTemplate,
-  MicrosoftSecurityIncidentCreationAlertRuleTemplate, NrtAlertRuleTemplate, ScheduledAlertRuleTemplate,
-  ThreatIntelligenceAlertRuleTemplate.
+  sub-classes are: FusionAlertRuleTemplate, MicrosoftSecurityIncidentCreationAlertRuleTemplate,
+  ScheduledAlertRuleTemplate.
 
 
   Variables are only populated by the server, and will be ignored when sending a request.
@@ -45,12 +44,10 @@ variables:
   name: system_data
   types:
   - <xref:azure.mgmt.securityinsight.models.SystemData>
-- description: 'Required. The kind of the alert rule.Constant filled by server. Possible
-    values
+- description: 'Required. The alert rule kind.Constant filled by server. Known values
+    are:
 
-    include: "Scheduled", "MicrosoftSecurityIncidentCreation", "Fusion", "MLBehaviorAnalytics",
-
-    "ThreatIntelligence", "NRT".'
+    "Scheduled", "MicrosoftSecurityIncidentCreation", "Fusion".'
   name: kind
   types:
   - <xref:str>

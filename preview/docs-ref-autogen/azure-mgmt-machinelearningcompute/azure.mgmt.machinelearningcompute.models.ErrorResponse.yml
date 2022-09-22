@@ -1,0 +1,30 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.machinelearningcompute.models.ErrorResponse
+name: ErrorResponse
+fullName: azure.mgmt.machinelearningcompute.models.ErrorResponse
+module: azure.mgmt.machinelearningcompute.models
+inheritances:
+- msrest.serialization.Model
+summary: 'Error response information.
+
+
+  All required parameters must be populated in order to send to Azure.'
+constructor:
+  syntax: 'ErrorResponse(*, code: str, message: str, details: Optional[List[azure.mgmt.machinelearningcompute.models._models_py3.ErrorDetail]]
+    = None, **kwargs)'
+  parameters:
+  - name: code
+    description: Required. Error code.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: message
+    description: Required. Error message.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: details
+    description: An array of error detail objects.
+    isRequired: true
+    types:
+    - <xref:list>[<xref:azure.mgmt.machinelearningcompute.models.ErrorDetail>]

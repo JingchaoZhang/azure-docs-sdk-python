@@ -13,9 +13,8 @@ summary: 'AutomationRule.
 
   All required parameters must be populated in order to send to Azure.'
 constructor:
-  syntax: 'AutomationRule(*, display_name: str, order: int, triggering_logic: azure.mgmt.securityinsight.models._models_py3.AutomationRuleTriggeringLogic,
-    actions: List[azure.mgmt.securityinsight.models._models_py3.AutomationRuleAction],
-    etag: Optional[str] = None, **kwargs)'
+  syntax: 'AutomationRule(*, display_name: str, order: int, triggering_logic: _models.AutomationRuleTriggeringLogic,
+    actions: List[_models.AutomationRuleAction], etag: Optional[str] = None, **kwargs)'
 variables:
 - description: 'Fully qualified resource ID for the resource. Ex -
 

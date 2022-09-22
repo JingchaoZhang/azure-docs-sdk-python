@@ -1,0 +1,11 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.models.gateway_resource_paged.GatewayResourcePaged
+name: GatewayResourcePaged
+fullName: azure.mgmt.servermanager.models.gateway_resource_paged.GatewayResourcePaged
+module: azure.mgmt.servermanager.models.gateway_resource_paged
+inheritances:
+- msrest.paging.Paged
+summary: A paging container for iterating over a list of <xref:azure.mgmt.servermanager.models.GatewayResource>
+  object
+constructor:
+  syntax: GatewayResourcePaged(*args, **kwargs)

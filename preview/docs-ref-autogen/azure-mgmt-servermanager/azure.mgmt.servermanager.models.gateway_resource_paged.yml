@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.gateway_resource_paged
+name: gateway_resource_paged
+fullName: azure.mgmt.servermanager.models.gateway_resource_paged
+classes:
+- azure.mgmt.servermanager.models.gateway_resource_paged.GatewayResourcePaged

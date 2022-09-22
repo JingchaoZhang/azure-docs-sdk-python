@@ -1,0 +1,16 @@
+### YamlMime:PythonEnum
+uid: azure.mgmt.servermanager.models.RetentionPeriod
+name: RetentionPeriod
+fullName: azure.mgmt.servermanager.models.RetentionPeriod
+summary: An enumeration.
+module: azure.mgmt.servermanager.models
+constructor:
+  syntax: RetentionPeriod(value)
+inheritances:
+- builtins.str
+- enum.Enum
+fields:
+- name: persistent
+  uid: azure.mgmt.servermanager.models.RetentionPeriod.persistent
+- name: session
+  uid: azure.mgmt.servermanager.models.RetentionPeriod.session

@@ -8,9 +8,8 @@ inheritances:
 summary: ResourceIdListResultValueItem.
 constructor:
   syntax: 'ResourceIdListResultValueItem(*, id: Optional[str] = None, **kwargs)'
-  parameters:
-  - name: id
-    description: The Azure Resource ID.
-    isRequired: true
-    types:
-    - <xref:str>
+variables:
+- description: The Azure Resource ID.
+  name: id
+  types:
+  - <xref:str>

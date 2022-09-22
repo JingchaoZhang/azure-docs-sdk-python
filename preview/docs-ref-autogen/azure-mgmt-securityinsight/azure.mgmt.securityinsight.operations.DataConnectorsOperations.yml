@@ -5,69 +5,12 @@ fullName: azure.mgmt.securityinsight.operations.DataConnectorsOperations
 module: azure.mgmt.securityinsight.operations
 inheritances:
 - builtins.object
-summary: 'DataConnectorsOperations operations.
-
-
-  You should not instantiate this class directly. Instead, you should create a Client
-  instance that
-
-  instantiates it for you and attaches it as an attribute.'
+summary: "> [!WARNING]\n> DO NOT instantiate this class directly.\n>\n> \n>\n> Instead,\
+  \ you should access the following operations through\n>\n> <xref:azure.mgmt.securityinsight.SecurityInsights>'s\n\
+  >\n> <xref:data_connectors> attribute.\n>"
 constructor:
-  syntax: DataConnectorsOperations(client, config, serializer, deserializer)
-  parameters:
-  - name: client
-    description: Client for service requests.
-    isRequired: true
-  - name: config
-    description: Configuration of service client.
-    isRequired: true
-  - name: serializer
-    description: An object model serializer.
-    isRequired: true
-  - name: deserializer
-    description: An object model deserializer.
-    isRequired: true
-variables:
-- description: Alias to model classes used in this operation group.
-  name: models
+  syntax: DataConnectorsOperations(*args, **kwargs)
 methods:
-- uid: azure.mgmt.securityinsight.operations.DataConnectorsOperations.connect
-  name: connect
-  summary: Connects a data connector.
-  signature: 'connect(resource_group_name: str, workspace_name: str, data_connector_id:
-    str, connect_body: azure.mgmt.securityinsight.models._models_py3.DataConnectorConnectBody,
-    **kwargs: Any) -> None'
-  parameters:
-  - name: resource_group_name
-    description: The name of the resource group. The name is case insensitive.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: workspace_name
-    description: The name of the workspace.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: data_connector_id
-    description: Connector ID.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: connect_body
-    description: The data connector.
-    isRequired: true
-    types:
-    - <xref:azure.mgmt.securityinsight.models.DataConnectorConnectBody>
-  - name: cls
-    description: A custom type or function that will be passed the direct response
-    types:
-    - <xref:callable>
-  return:
-    description: None, or the result of cls(response)
-    types:
-    - <xref:None>
-  exceptions:
-  - type: azure.core.exceptions.HttpResponseError
 - uid: azure.mgmt.securityinsight.operations.DataConnectorsOperations.create_or_update
   name: create_or_update
   summary: Creates or updates the data connector.
@@ -109,37 +52,6 @@ methods:
   name: delete
   summary: Delete the data connector.
   signature: 'delete(resource_group_name: str, workspace_name: str, data_connector_id:
-    str, **kwargs: Any) -> None'
-  parameters:
-  - name: resource_group_name
-    description: The name of the resource group. The name is case insensitive.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: workspace_name
-    description: The name of the workspace.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: data_connector_id
-    description: Connector ID.
-    isRequired: true
-    types:
-    - <xref:str>
-  - name: cls
-    description: A custom type or function that will be passed the direct response
-    types:
-    - <xref:callable>
-  return:
-    description: None, or the result of cls(response)
-    types:
-    - <xref:None>
-  exceptions:
-  - type: azure.core.exceptions.HttpResponseError
-- uid: azure.mgmt.securityinsight.operations.DataConnectorsOperations.disconnect
-  name: disconnect
-  summary: Disconnect a data connector.
-  signature: 'disconnect(resource_group_name: str, workspace_name: str, data_connector_id:
     str, **kwargs: Any) -> None'
   parameters:
   - name: resource_group_name

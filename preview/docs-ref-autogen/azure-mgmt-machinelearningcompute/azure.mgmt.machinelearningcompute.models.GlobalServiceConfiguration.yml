@@ -1,0 +1,45 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.machinelearningcompute.models.GlobalServiceConfiguration
+name: GlobalServiceConfiguration
+fullName: azure.mgmt.machinelearningcompute.models.GlobalServiceConfiguration
+module: azure.mgmt.machinelearningcompute.models
+inheritances:
+- msrest.serialization.Model
+summary: Global configuration for services in the cluster.
+constructor:
+  syntax: 'GlobalServiceConfiguration(*, additional_properties: Optional[Dict[str,
+    str]] = None, etag: Optional[str] = None, ssl: Optional[azure.mgmt.machinelearningcompute.models._models_py3.SslConfiguration]
+    = None, service_auth: Optional[azure.mgmt.machinelearningcompute.models._models_py3.ServiceAuthConfiguration]
+    = None, auto_scale: Optional[azure.mgmt.machinelearningcompute.models._models_py3.AutoScaleConfiguration]
+    = None, **kwargs)'
+  parameters:
+  - name: additional_properties
+    description: 'Unmatched properties from the message are deserialized to this
+
+      collection.'
+    isRequired: true
+    types:
+    - <xref:dict>[<xref:str>, <xref:str>]
+  - name: etag
+    description: The configuration ETag for updates.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: ssl
+    description: The SSL configuration properties.
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.machinelearningcompute.models.SslConfiguration>
+  - name: service_auth
+    description: 'Optional global authorization keys for all user services deployed
+      in
+
+      cluster. These are used if the service does not have auth keys.'
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.machinelearningcompute.models.ServiceAuthConfiguration>
+  - name: auto_scale
+    description: The auto-scale configuration.
+    isRequired: true
+    types:
+    - <xref:azure.mgmt.machinelearningcompute.models.AutoScaleConfiguration>

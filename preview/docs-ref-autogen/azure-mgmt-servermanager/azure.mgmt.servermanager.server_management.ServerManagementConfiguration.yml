@@ -1,0 +1,34 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.server_management.ServerManagementConfiguration
+name: ServerManagementConfiguration
+fullName: azure.mgmt.servermanager.server_management.ServerManagementConfiguration
+module: azure.mgmt.servermanager.server_management
+inheritances:
+- msrestazure.azure_configuration.AzureConfiguration
+summary: 'Configuration for ServerManagement
+
+  Note that all parameters used to create this instance are saved as instance
+
+  attributes.'
+constructor:
+  syntax: ServerManagementConfiguration(credentials, subscription_id, base_url=None)
+  parameters:
+  - name: credentials
+    description: Credentials needed for the client to connect to Azure.
+    isRequired: true
+    types:
+    - <xref:msrestazure.azure_active_directory>
+  - name: subscription_id
+    description: 'Gets subscription credentials which uniquely
+
+      identify Microsoft Azure subscription. The subscription ID forms part of
+
+      the URI for every service call.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: base_url
+    description: Service URL
+    defaultValue: None
+    types:
+    - <xref:str>

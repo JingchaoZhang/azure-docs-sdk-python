@@ -18,3 +18,5 @@ fields:
   uid: azure.mgmt.imagebuilder.models.RunSubState.DISTRIBUTING
 - name: QUEUED
   uid: azure.mgmt.imagebuilder.models.RunSubState.QUEUED
+- name: VALIDATING
+  uid: azure.mgmt.imagebuilder.models.RunSubState.VALIDATING

@@ -1,0 +1,208 @@
+### YamlMime:PythonClass
+uid: azure.mgmt.servermanager.operations.session_operations.SessionOperations
+name: SessionOperations
+fullName: azure.mgmt.servermanager.operations.session_operations.SessionOperations
+module: azure.mgmt.servermanager.operations.session_operations
+inheritances:
+- builtins.object
+summary: SessionOperations operations.
+constructor:
+  syntax: SessionOperations(client, config, serializer, deserializer)
+  parameters:
+  - name: client
+    description: Client for service requests.
+    isRequired: true
+  - name: config
+    description: Configuration of service client.
+    isRequired: true
+  - name: serializer
+    description: An object model serializer.
+    isRequired: true
+  - name: deserializer
+    description: An object model deserializer.
+    isRequired: true
+variables:
+- description: 'Client API Version. Constant value: "2016-07-01-preview".'
+  name: api_version
+methods:
+- uid: azure.mgmt.servermanager.operations.session_operations.SessionOperations.create
+  name: create
+  summary: Creates a session for a node.
+  signature: create(resource_group_name, node_name, session, user_name=None, password=None,
+    retention_period=None, credential_data_format=None, encryption_certificate_thumbprint=None,
+    custom_headers=None, raw=False, polling=True, **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: node_name
+    description: The node name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: session
+    description: The sessionId from the user.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: user_name
+    description: Encrypted User name to be used to connect to node.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: password
+    description: Encrypted Password associated with user name.
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: retention_period
+    description: 'Session retention period. Possible values
+
+      include: ''Session'', ''Persistent'''
+    defaultValue: None
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.servermanager.models.RetentionPeriod>
+  - name: credential_data_format
+    description: 'Credential data format. Possible values
+
+      include: ''RsaEncrypted'''
+    defaultValue: None
+    types:
+    - <xref:str>
+    - <xref:azure.mgmt.servermanager.models.CredentialDataFormat>
+  - name: encryption_certificate_thumbprint
+    description: 'Encryption certificate
+
+      thumbprint.'
+    defaultValue: None
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'The poller return type is ClientRawResponse, the
+
+      direct response alongside the deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: polling
+    description: 'True for ARMPolling, False for no polling, or a
+
+      polling object for personal polling strategy'
+    defaultValue: 'True'
+  return:
+    description: 'An instance of LROPoller that returns SessionResource or
+
+      ClientRawResponse<SessionResource> if raw==True'
+    types:
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:azure.mgmt.servermanager.models.SessionResource>]
+    - <xref:msrestazure.azure_operation.AzureOperationPoller>[<xref:msrest.pipeline.ClientRawResponse>[<xref:azure.mgmt.servermanager.models.SessionResource>]]
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.session_operations.SessionOperations.delete
+  name: delete
+  summary: Deletes a session for a node.
+  signature: delete(resource_group_name, node_name, session, custom_headers=None,
+    raw=False, **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: node_name
+    description: The node name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: session
+    description: The sessionId from the user.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'returns the direct response alongside the
+
+      deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: operation_config
+    description: '*Operation configuration
+
+      overrides*.'
+    isRequired: true
+  return:
+    description: None or ClientRawResponse if raw=true
+    types:
+    - <xref:None>
+    - <xref:msrest.pipeline.ClientRawResponse>
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+- uid: azure.mgmt.servermanager.operations.session_operations.SessionOperations.get
+  name: get
+  summary: Gets a session for a node.
+  signature: get(resource_group_name, node_name, session, custom_headers=None, raw=False,
+    **operation_config)
+  parameters:
+  - name: resource_group_name
+    description: 'The resource group name uniquely
+
+      identifies the resource group within the user subscriptionId.'
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: node_name
+    description: The node name (256 characters maximum).
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: session
+    description: The sessionId from the user.
+    isRequired: true
+    types:
+    - <xref:str>
+  - name: custom_headers
+    description: headers that will be added to the request
+    defaultValue: None
+    types:
+    - <xref:dict>
+  - name: raw
+    description: 'returns the direct response alongside the
+
+      deserialized response'
+    defaultValue: 'False'
+    types:
+    - <xref:bool>
+  - name: operation_config
+    description: '*Operation configuration
+
+      overrides*.'
+    isRequired: true
+  return:
+    description: SessionResource or ClientRawResponse if raw=true
+    types:
+    - <xref:azure.mgmt.servermanager.models.SessionResource>
+    - <xref:msrest.pipeline.ClientRawResponse>
+  exceptions:
+  - type: azure.mgmt.servermanager.models.ErrorException
+attributes:
+- uid: azure.mgmt.servermanager.operations.session_operations.SessionOperations.models
+  name: models
+  signature: models = <module 'azure.mgmt.servermanager.models' from 'C:\\hostedtoolcache\\windows\\Python\\3.9.13\\x64\\lib\\site-packages\\azure\\mgmt\\servermanager\\models\\__init__.py'>

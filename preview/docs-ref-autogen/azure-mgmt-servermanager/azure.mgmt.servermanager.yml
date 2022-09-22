@@ -1,0 +1,13 @@
+### YamlMime:PythonPackage
+uid: azure.mgmt.servermanager
+name: servermanager
+fullName: azure.mgmt.servermanager
+type: import
+classes:
+- azure.mgmt.servermanager.ServerManagement
+packages:
+- azure.mgmt.servermanager.models
+- azure.mgmt.servermanager.operations
+modules:
+- azure.mgmt.servermanager.server_management
+- azure.mgmt.servermanager.version

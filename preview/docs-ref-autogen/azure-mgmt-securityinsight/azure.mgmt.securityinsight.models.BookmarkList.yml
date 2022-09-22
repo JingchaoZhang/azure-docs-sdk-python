@@ -13,10 +13,9 @@ summary: 'List all the bookmarks.
 
   All required parameters must be populated in order to send to Azure.'
 constructor:
-  syntax: 'BookmarkList(*, value: List[azure.mgmt.securityinsight.models._models_py3.Bookmark],
-    **kwargs)'
+  syntax: 'BookmarkList(*, value: List[_models.Bookmark], **kwargs)'
 variables:
-- description: URL to fetch the next set of bookmarks.
+- description: URL to fetch the next set of cases.
   name: next_link
   types:
   - <xref:str>

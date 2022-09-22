@@ -9,22 +9,21 @@ summary: Describes the error happened when create or update an image template.
 constructor:
   syntax: 'ProvisioningError(*, provisioning_error_code: Optional[Union[str, azure.mgmt.imagebuilder.models._image_builder_client_enums.ProvisioningErrorCode]]
     = None, message: Optional[str] = None, **kwargs)'
-  parameters:
-  - name: provisioning_error_code
-    description: 'Error code of the provisioning failure. Possible values
+variables:
+- description: 'Error code of the provisioning failure. Possible values include:
 
-      include: "BadSourceType", "BadPIRSource", "BadManagedImageSource",
+    "BadSourceType", "BadPIRSource", "BadManagedImageSource", "BadSharedImageVersionSource",
 
-      "BadSharedImageVersionSource", "BadCustomizerType", "UnsupportedCustomizerType",
+    "BadCustomizerType", "UnsupportedCustomizerType", "NoCustomizerScript", "BadValidatorType",
 
-      "NoCustomizerScript", "BadDistributeType", "BadSharedImageDistribute", "ServerError",
-      "Other".'
-    isRequired: true
-    types:
-    - <xref:str>
-    - <xref:azure.mgmt.imagebuilder.models.ProvisioningErrorCode>
-  - name: message
-    description: Verbose error message about the provisioning failure.
-    isRequired: true
-    types:
-    - <xref:str>
+    "UnsupportedValidatorType", "NoValidatorScript", "BadDistributeType",
+
+    "BadSharedImageDistribute", "BadStagingResourceGroup", "ServerError", "Other".'
+  name: provisioning_error_code
+  types:
+  - <xref:str>
+  - <xref:azure.mgmt.imagebuilder.models.ProvisioningErrorCode>
+- description: Verbose error message about the provisioning failure.
+  name: message
+  types:
+  - <xref:str>

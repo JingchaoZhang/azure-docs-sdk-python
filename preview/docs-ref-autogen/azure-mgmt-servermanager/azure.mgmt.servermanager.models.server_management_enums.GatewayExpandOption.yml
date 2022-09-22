@@ -1,0 +1,16 @@
+### YamlMime:PythonEnum
+uid: azure.mgmt.servermanager.models.server_management_enums.GatewayExpandOption
+name: GatewayExpandOption
+fullName: azure.mgmt.servermanager.models.server_management_enums.GatewayExpandOption
+summary: An enumeration.
+module: azure.mgmt.servermanager.models.server_management_enums
+constructor:
+  syntax: GatewayExpandOption(value)
+inheritances:
+- builtins.str
+- enum.Enum
+fields:
+- name: download
+  uid: azure.mgmt.servermanager.models.server_management_enums.GatewayExpandOption.download
+- name: status
+  uid: azure.mgmt.servermanager.models.server_management_enums.GatewayExpandOption.status

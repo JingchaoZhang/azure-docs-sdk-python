@@ -12,16 +12,15 @@ summary: 'Represents a Watchlist in Azure Security Insights.
 constructor:
   syntax: 'Watchlist(*, etag: Optional[str] = None, watchlist_id: Optional[str] =
     None, display_name: Optional[str] = None, provider: Optional[str] = None, source:
-    Optional[str] = None, source_type: Optional[Union[str, azure.mgmt.securityinsight.models._security_insights_enums.SourceType]]
-    = None, created: Optional[datetime.datetime] = None, updated: Optional[datetime.datetime]
-    = None, created_by: Optional[azure.mgmt.securityinsight.models._models_py3.UserInfo]
-    = None, updated_by: Optional[azure.mgmt.securityinsight.models._models_py3.UserInfo]
-    = None, description: Optional[str] = None, watchlist_type: Optional[str] = None,
-    watchlist_alias: Optional[str] = None, is_deleted: Optional[bool] = None, labels:
-    Optional[List[str]] = None, default_duration: Optional[datetime.timedelta] = None,
-    tenant_id: Optional[str] = None, number_of_lines_to_skip: Optional[int] = None,
-    raw_content: Optional[str] = None, items_search_key: Optional[str] = None, content_type:
-    Optional[str] = None, upload_status: Optional[str] = None, **kwargs)'
+    Optional[Union[str, _models.Source]] = None, created: Optional[datetime.datetime]
+    = None, updated: Optional[datetime.datetime] = None, created_by: Optional[_models.UserInfo]
+    = None, updated_by: Optional[_models.UserInfo] = None, description: Optional[str]
+    = None, watchlist_type: Optional[str] = None, watchlist_alias: Optional[str] =
+    None, is_deleted: Optional[bool] = None, labels: Optional[List[str]] = None, default_duration:
+    Optional[datetime.timedelta] = None, tenant_id: Optional[str] = None, number_of_lines_to_skip:
+    Optional[int] = None, raw_content: Optional[str] = None, items_search_key: Optional[str]
+    = None, content_type: Optional[str] = None, upload_status: Optional[str] = None,
+    **kwargs)'
 variables:
 - description: 'Fully qualified resource ID for the resource. Ex -
 
@@ -62,17 +61,12 @@ variables:
   name: provider
   types:
   - <xref:str>
-- description: The filename of the watchlist, called 'source'.
+- description: 'The source of the watchlist. Known values are: "Local file", "Remote
+    storage".'
   name: source
   types:
   - <xref:str>
-- description: 'The sourceType of the watchlist. Possible values include: "Local file",
-
-    "Remote storage".'
-  name: source_type
-  types:
-  - <xref:str>
-  - <xref:azure.mgmt.securityinsight.models.SourceType>
+  - <xref:azure.mgmt.securityinsight.models.Source>
 - description: The time the watchlist was created.
   name: created
   types:
@@ -117,16 +111,18 @@ variables:
   name: tenant_id
   types:
   - <xref:str>
-- description: 'The number of lines in a csv/tsv content to skip before the
-
-    header.'
+- description: The number of lines in a csv content to skip before the header.
   name: number_of_lines_to_skip
   types:
   - <xref:int>
-- description: 'The raw content that represents to watchlist items to create. In case
-    of
+- description: 'The raw content that represents to watchlist items to create. Example
+    : This
 
-    csv/tsv content type, it''s the content of the file that will parsed by the endpoint.'
+    line will be skipped
+
+    header1,header2
+
+    value1,value2.'
   name: raw_content
   types:
   - <xref:str>
@@ -142,15 +138,14 @@ variables:
   name: items_search_key
   types:
   - <xref:str>
-- description: 'The content type of the raw content. Example : text/csv or text/tsv.'
+- description: The content type of the raw content. For now, only text/csv is valid.
   name: content_type
   types:
   - <xref:str>
 - description: 'The status of the Watchlist upload : New, InProgress or Complete.
-    Pls note
+    **Note**
 
-    : When a Watchlist upload status is equal to InProgress, the Watchlist cannot
-    be deleted.'
+    : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted.'
   name: upload_status
   types:
   - <xref:str>

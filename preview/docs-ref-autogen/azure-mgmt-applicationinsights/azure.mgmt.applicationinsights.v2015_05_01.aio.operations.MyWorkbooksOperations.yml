@@ -138,14 +138,17 @@ methods:
     - <xref:str>
     - <xref:azure.mgmt.applicationinsights.v2015_05_01.models.CategoryType>
   - name: tags
-    description: Tags presents on each workbook returned.
+    description: Tags presents on each workbook returned. Default value is None.
     isRequired: true
     types:
     - <xref:list>[<xref:str>]
   - name: can_fetch_content
     description: 'Flag indicating whether or not to return the full content for each
 
-      applicable workbook. If false, only return summary content for workbooks.'
+      applicable workbook. If false, only return summary content for workbooks. Default
+      value is
+
+      None.'
     isRequired: true
     types:
     - <xref:bool>
@@ -176,14 +179,17 @@ methods:
     - <xref:str>
     - <xref:azure.mgmt.applicationinsights.v2015_05_01.models.CategoryType>
   - name: tags
-    description: Tags presents on each workbook returned.
+    description: Tags presents on each workbook returned. Default value is None.
     isRequired: true
     types:
     - <xref:list>[<xref:str>]
   - name: can_fetch_content
     description: 'Flag indicating whether or not to return the full content for each
 
-      applicable workbook. If false, only return summary content for workbooks.'
+      applicable workbook. If false, only return summary content for workbooks. Default
+      value is
+
+      None.'
     isRequired: true
     types:
     - <xref:bool>

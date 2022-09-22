@@ -1,0 +1,16 @@
+### YamlMime:PythonEnum
+uid: azure.mgmt.servermanager.models.server_management_enums.UpgradeMode
+name: UpgradeMode
+fullName: azure.mgmt.servermanager.models.server_management_enums.UpgradeMode
+summary: An enumeration.
+module: azure.mgmt.servermanager.models.server_management_enums
+constructor:
+  syntax: UpgradeMode(value)
+inheritances:
+- builtins.str
+- enum.Enum
+fields:
+- name: automatic
+  uid: azure.mgmt.servermanager.models.server_management_enums.UpgradeMode.automatic
+- name: manual
+  uid: azure.mgmt.servermanager.models.server_management_enums.UpgradeMode.manual

@@ -1,0 +1,6 @@
+### YamlMime:PythonModule
+uid: azure.mgmt.servermanager.models.power_shell_command_results
+name: power_shell_command_results
+fullName: azure.mgmt.servermanager.models.power_shell_command_results
+classes:
+- azure.mgmt.servermanager.models.power_shell_command_results.PowerShellCommandResults
