@@ -1,7 +1,7 @@
 {
   "Name": "azure-developer-loadtesting",
   "Version": "1.0.0b1",
-  "DevVersion": null,
+  "DevVersion": "1.0.0b1",
   "DirectoryPath": "sdk/loadtestservice/azure-developer-loadtesting",
   "ServiceDirectory": "loadtestservice",
   "ReadMePath": "sdk/loadtestservice/azure-developer-loadtesting/README.md",
