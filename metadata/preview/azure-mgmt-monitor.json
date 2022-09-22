@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-monitor",
+  "Version": "5.0.0a20220922003",
+  "DevVersion": "5.0.0a20220922003",
+  "DirectoryPath": "sdk/monitor/azure-mgmt-monitor",
+  "ServiceDirectory": "monitor",
+  "ReadMePath": "sdk/monitor/azure-mgmt-monitor/README.md",
+  "ChangeLogPath": "sdk/monitor/azure-mgmt-monitor/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-monitor",
+  "ReleaseStatus": "2022-09-19"
+}
