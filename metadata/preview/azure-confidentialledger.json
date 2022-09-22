@@ -1,7 +1,7 @@
 {
   "Name": "azure-confidentialledger",
-  "Version": "1.0.0a20220330001",
-  "DevVersion": "1.0.0a20220330001",
+  "Version": "1.0.1a20220921001",
+  "DevVersion": "1.0.1a20220921001",
   "DirectoryPath": "sdk/confidentialledger/azure-confidentialledger",
   "ServiceDirectory": "confidentialledger",
   "ReadMePath": "sdk/confidentialledger/azure-confidentialledger/README.md",
@@ -10,5 +10,5 @@
   "SdkType": "client",
   "IsNewSdk": true,
   "ArtifactName": "azure-confidentialledger",
-  "ReleaseStatus": "2021-05-12"
+  "ReleaseStatus": "Unreleased"
 }
