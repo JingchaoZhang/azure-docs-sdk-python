@@ -3,7 +3,7 @@ title: Azure Cosmos DB SQL API client library for Python
 keywords: Azure, python, SDK, API, azure-cosmos, cosmos
 author: kushagraThapar
 ms.author: kuthapar
-ms.date: 09/20/2022
+ms.date: 09/22/2022
 ms.topic: reference
 ms.devlang: python
 ms.service: cosmos
@@ -11,7 +11,7 @@ ms.service: cosmos
 ## _Disclaimer_
 _Azure SDK Python packages support for Python 2.7 has ended 01 January 2022. For more information and questions, please refer to https://github.com/Azure/azure-sdk-for-python/issues/20691_
 
-# Azure Cosmos DB SQL API client library for Python - version 4.3.1b1 
+# Azure Cosmos DB SQL API client library for Python - version 4.3.1a20220921002 
 
 
 Azure Cosmos DB is a globally distributed, multi-model database service that supports document, key-value, wide-column, and graph databases.
@@ -31,7 +31,7 @@ Use the Azure Cosmos DB SQL API SDK for Python to manage databases and the JSON 
 
 ### Important update on Python 2.x Support
 
-New releases of this SDK won't support Python 2.x starting January 1st, 2022. Please check the [CHANGELOG](https://github.com/Azure/azure-sdk-for-python/blob/azure-cosmos_4.3.1b1/sdk/cosmos/azure-cosmos/CHANGELOG.md) for more information.
+New releases of this SDK won't support Python 2.x starting January 1st, 2022. Please check the [CHANGELOG](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md) for more information.
 
 ### Prerequisites
 
@@ -679,7 +679,7 @@ For more extensive documentation on the Cosmos DB service, see the [Azure Cosmos
 [cosmos_container]: /azure/cosmos-db/databases-containers-items#azure-cosmos-containers
 [cosmos_database]: /azure/cosmos-db/databases-containers-items#azure-cosmos-databases
 [cosmos_docs]: /azure/cosmos-db/
-[cosmos_samples]: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.1b1/sdk/cosmos/azure-cosmos/samples
+[cosmos_samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos/samples
 [cosmos_pypi]: https://pypi.org/project/azure-cosmos/
 [cosmos_http_status_codes]: /rest/api/cosmos-db/http-status-codes-for-cosmosdb
 [cosmos_item]: /azure/cosmos-db/databases-containers-items#azure-cosmos-items
@@ -699,10 +699,10 @@ For more extensive documentation on the Cosmos DB service, see the [Azure Cosmos
 [ref_cosmosclient]: https://aka.ms/azsdk-python-cosmos-ref-cosmos-client
 [ref_database]: https://aka.ms/azsdk-python-cosmos-ref-database
 [ref_httpfailure]: https://aka.ms/azsdk-python-cosmos-ref-http-failure
-[sample_database_mgmt]: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.1b1/sdk/cosmos/azure-cosmos/samples/database_management.py
-[sample_document_mgmt]: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.1b1/sdk/cosmos/azure-cosmos/samples/document_management.py
-[sample_examples_misc]: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.1b1/sdk/cosmos/azure-cosmos/samples/examples.py
-[source_code]: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.1b1/sdk/cosmos/azure-cosmos
+[sample_database_mgmt]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos/samples/database_management.py
+[sample_document_mgmt]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos/samples/document_management.py
+[sample_examples_misc]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos/samples/examples.py
+[source_code]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos
 [venv]: https://docs.python.org/3/library/venv.html
 [virtualenv]: https://virtualenv.pypa.io
 
