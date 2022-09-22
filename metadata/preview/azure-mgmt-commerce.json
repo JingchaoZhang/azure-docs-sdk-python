@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-commerce",
+  "Version": "6.0.0a20220922001",
+  "DevVersion": "6.0.0a20220922001",
+  "DirectoryPath": "sdk/commerce/azure-mgmt-commerce",
+  "ServiceDirectory": "commerce",
+  "ReadMePath": "sdk/commerce/azure-mgmt-commerce/README.md",
+  "ChangeLogPath": "sdk/commerce/azure-mgmt-commerce/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-commerce",
+  "ReleaseStatus": "2020-12-22"
+}
