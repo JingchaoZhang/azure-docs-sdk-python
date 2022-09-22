@@ -1,0 +1,14 @@
+{
+  "Name": "azure-mgmt-costmanagement",
+  "Version": "3.0.0a20220921001",
+  "DevVersion": "3.0.0a20220921001",
+  "DirectoryPath": "sdk/costmanagement/azure-mgmt-costmanagement",
+  "ServiceDirectory": "costmanagement",
+  "ReadMePath": "sdk/costmanagement/azure-mgmt-costmanagement/README.md",
+  "ChangeLogPath": "sdk/costmanagement/azure-mgmt-costmanagement/CHANGELOG.md",
+  "Group": null,
+  "SdkType": "mgmt",
+  "IsNewSdk": true,
+  "ArtifactName": "azure-mgmt-costmanagement",
+  "ReleaseStatus": "2021-07-27"
+}
