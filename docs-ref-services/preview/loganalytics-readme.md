@@ -1,21 +1,18 @@
 ---
 title: 
 keywords: Azure, python, SDK, API, azure-loganalytics, loganalytics
-author: maggiepint
-ms.author: magpint
-ms.date: 11/12/2021
+author: alexeldeib
+ms.author: aleldeib
+ms.date: 09/22/2022
 ms.topic: reference
-ms.prod: azure
-ms.technology: azure
 ms.devlang: python
 ms.service: loganalytics
 ---
-
 ## Microsoft Azure SDK for Python
 
-This package is no longer being maintained. Please use our latest package [azure-monitor-query](https://pypi.org/project/azure-monitor-query/).
+This package is no longer being maintained. Use the [azure-monitor-query](https://pypi.org/project/azure-monitor-query/) package instead.
 
-A [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/azure-loganalytics_0.1.1/sdk/monitor/azure-monitor-query/migration_guide.md) has been provided for the same.
+For migration instructions, see the [migration guide](https://aka.ms/azsdk/python/migrate/la-to-monitor-query).
 
 ![image](https://azure-sdk-impressions.azurewebsites.net/api/impressions/azure-sdk-for-python%2Fazure-loganalytics%2FREADME.png)
 
