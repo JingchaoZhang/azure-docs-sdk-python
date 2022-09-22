@@ -1,7 +1,7 @@
 {
   "Name": "azure-cognitiveservices-language-spellcheck",
-  "Version": "2.0.0a20220330001",
-  "DevVersion": "2.0.0a20220330001",
+  "Version": "2.0.0a20220921001",
+  "DevVersion": "2.0.0a20220921001",
   "DirectoryPath": "sdk/cognitiveservices/azure-cognitiveservices-language-spellcheck",
   "ServiceDirectory": "cognitiveservices",
   "ReadMePath": "sdk/cognitiveservices/azure-cognitiveservices-language-spellcheck/README.md",
